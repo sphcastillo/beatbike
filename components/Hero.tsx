@@ -1,8 +1,13 @@
+import { Noto_Sans, Comfortaa, Mulish } from "next/font/google";
+
+const notoSans = Noto_Sans({ subsets: ["latin"] });
+const comfortaa = Comfortaa({ subsets: ["latin"]  });
+const mulish = Mulish({ subsets: ["latin"] });
 
 function Hero() {
 
         return (
-            <div className="bg-gray-900">
+            <div >
 
         
                 <div className="relative isolate overflow-hidden pt-14">
@@ -26,21 +31,27 @@ function Hero() {
                     </div>
                     <div className="mx-auto max-w-2xl py-32 sm:py-32 lg:py-40">
                     <div className="hidden sm:mb-8 sm:flex sm:justify-center">
-                        <div className="relative px-3 py-1 text-lg leading-6 text-[#39FF14]">
-                        SWEAT AND HEART
+                        <div className={mulish.className}>
+                            <div className="relative px-3 py-1 text-2xl leading-6 text-[#DFFF00] tracking-widest">
+                            SWEAT AND HEART
+                            </div>
                         </div>
                     </div>
                     <div className="text-center">
-                        <h1 className="text-4xl tracking-tight text-white sm:text-8xl">
-                        Join our beat revolution
-                        </h1>
+                        <div className={comfortaa.className}>
+                            <h1 className="text-4xl tracking-tight text-white sm:text-8xl">
+                            Join our beat revolution
+                            </h1>
+                        </div>
                         <div className="mt-10 flex items-center justify-center gap-x-6">
-                        <a
-                            href="#"
-                            className="rounded-md bg-[#39FF14] px-3.5 py-2.5 text-sm font-semibold shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-400"
-                        >
-                            Get started
-                        </a>
+                            <div  className={mulish.className}>
+                                <a
+                                    href="#"
+                                    className="rounded-md bg-[#DFFF00] px-3.5 py-2.5 text-sm font-semibold tracking-wider shadow-sm hover:bg-[#39FF14] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-400"
+                                >
+                                    Get started
+                                </a>
+                            </div>
                         </div>
                     </div>
                     </div>

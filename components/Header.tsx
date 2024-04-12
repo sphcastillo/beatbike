@@ -3,7 +3,11 @@ import { useState } from 'react';
 import { Dialog } from '@headlessui/react';
 import Image from 'next/image';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
-// import LyricoLingoLogo from "@/images/logo.png";
+import { Noto_Sans, Comfortaa } from "next/font/google";
+
+
+const notoSans = Noto_Sans({ subsets: ["latin"] });
+const comfortaa = Comfortaa({ subsets: ["latin"]  });
 
 const navigation = [
     { name: 'Explore', href: '#' },
@@ -17,12 +21,15 @@ function Header() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
     return (
-        <div>
+            <div>
                 <header className="sticky top-0 z-50">
                     <nav className="flex items-center justify-between p-6 lg:px-8">
                         <div className="flex lg:flex-1">
                             <a href="#" className="-m-1.5 p-1.5">
-                            <span className="sr-only">LyricoLingo</span>
+                            {/* <span className="sr-only">LyricoLingo</span> */}
+                            <div className={comfortaa.className}>
+                            <h2 className="text-white">Beatbike</h2>
+                            </div>
                             {/* <Image
                                 className="h-[72px] w-auto z-25"
                                 src={LyricoLingoLogo}
@@ -42,17 +49,22 @@ function Header() {
                             <Bars3Icon className="h-6 w-6" aria-hidden="true" />
                             </button>
                         </div>
-                        <div className="hidden lg:flex lg:gap-x-12">
-                            {navigation.map((item) => (
-                            <a key={item.name} href={item.href} className="text-sm font-semibold leading-6 text-white">
-                                {item.name}
-                            </a>
-                            ))}
+                        <div className={notoSans.className}>
+                            <div className="hidden lg:flex lg:gap-x-12">
+                                {navigation.map((item) => (
+                                <a key={item.name} href={item.href} className="text-sm font-semibold leading-6 tracking-wider text-white">
+                                    {item.name}
+                                </a>
+                                ))}
+                            </div>
                         </div>
+                        
                         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-                            <a href="#" className="text-sm font-semibold leading-6 text-white">
-                            Log in <span aria-hidden="true">&rarr;</span>
-                            </a>
+                            <div className={notoSans.className}>
+                                <a href="#" className="text-sm font-semibold leading-6 text-white tracking-wider">
+                                Log in
+                                </a>
+                            </div>
                         </div>
                     </nav>
 
@@ -105,8 +117,8 @@ function Header() {
                         </Dialog.Panel>
                     </Dialog>
                 </header>
-        </div>
+            </div>
     )
 }
 
-export default Header
+export default Header;
