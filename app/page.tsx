@@ -1,5 +1,5 @@
 import Hero from "@/components/Hero";
-import Instructors from "@/components/Instructors";
+import Team from "@/components/Team";
 import Introduction from "@/components/Introduction";
 import Motto from "@/components/Motto";
 import Newsletter from "@/components/Newsletter";
@@ -9,7 +9,7 @@ export default function Home() {
       <main>
         <Hero />
         <Introduction />
-        <Instructors />
+        <Team />
         <Newsletter />
         <Motto />
       </main>

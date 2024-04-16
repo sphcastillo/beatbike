@@ -7,6 +7,7 @@ import jasmine from "@/images/instructors/jasmine.jpg";
 import suzy from "@/images/instructors/suzy.jpg";
 import { Noto_Sans, Comfortaa, Mulish } from "next/font/google";
 
+
 const notoSans = Noto_Sans({ subsets: ["latin"] });
 const comfortaa = Comfortaa({ subsets: ["latin"]  });
 const mulish = Mulish({ subsets: ["latin"] });
@@ -17,7 +18,7 @@ const people = [
       imageUrl:
         bailey,
       xUrl: '#',
-      linkedinUrl: '#',
+      instagramUrl: 'https://www.instagram.com/joey_4pawjay?igsh=OGQ5ZDc2ODk2ZA%3D%3D&utm_source=qr',
     },
     {
         name: 'Amanda',
@@ -25,7 +26,7 @@ const people = [
         imageUrl:
           amanda,
         xUrl: '#',
-        linkedinUrl: '#',
+        instagramUrl: 'https://www.instagram.com/joey_4pawjay?igsh=OGQ5ZDc2ODk2ZA%3D%3D&utm_source=qr',
       },
       {
         name: 'Dana',
@@ -33,7 +34,7 @@ const people = [
         imageUrl:
           dana,
         xUrl: '#',
-        linkedinUrl: '#',
+        instagramUrl: 'https://www.instagram.com/joey_4pawjay?igsh=OGQ5ZDc2ODk2ZA%3D%3D&utm_source=qr',
       },
       {
         name: 'Dylan',
@@ -41,7 +42,7 @@ const people = [
         imageUrl:
           dylan,
         xUrl: '#',
-        linkedinUrl: '#',
+        instagramUrl: 'https://www.instagram.com/joey_4pawjay?igsh=OGQ5ZDc2ODk2ZA%3D%3D&utm_source=qr',
       },
       {
         name: 'Jasmine',
@@ -49,7 +50,7 @@ const people = [
         imageUrl:
           jasmine,
         xUrl: '#',
-        linkedinUrl: '#',
+        instagramUrl: 'https://www.instagram.com/joey_4pawjay?igsh=OGQ5ZDc2ODk2ZA%3D%3D&utm_source=qr',
       },
       {
         name: 'Suzy',
@@ -57,11 +58,11 @@ const people = [
         imageUrl:
           suzy,
         xUrl: '#',
-        linkedinUrl: '#',
+        instagramUrl: 'https://www.instagram.com/joey_4pawjay?igsh=OGQ5ZDc2ODk2ZA%3D%3D&utm_source=qr',
       },
   ]
   
-  export default function Instructors() {
+  export default function Team() {
     return (
       <div className="bg-black py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 text-center lg:px-8">
@@ -88,8 +89,23 @@ const people = [
                 </div>
                 <ul role="list" className="mt-6 flex justify-center gap-x-6">
                   <li>
-                    <a href={person.xUrl} className="text-[#DFFF00] hover:text-gray-300">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-instagram"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+                    <a href={person.instagramUrl} className="text-[#DFFF00] hover:text-gray-300">
+                      <svg 
+                        xmlns="http://www.w3.org/2000/svg" 
+                        width="24" 
+                        height="24" 
+                        viewBox="0 0 24 24" 
+                        fill="none" 
+                        stroke="currentColor" 
+                        strokeWidth="2" 
+                        stroke-linecap="round" 
+                        stroke-linejoin="round" 
+                        className="lucide lucide-instagram"
+                      >
+                        <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                        <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
+                      </svg>
                       {/* <span className="sr-only">X</span> */}
                       {/* <svg className="h-5 w-5" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
                         <path d="M11.4678 8.77491L17.2961 2H15.915L10.8543 7.88256L6.81232 2H2.15039L8.26263 10.8955L2.15039 18H3.53159L8.87581 11.7878L13.1444 18H17.8063L11.4675 8.77491H11.4678ZM9.57608 10.9738L8.95678 10.0881L4.02925 3.03974H6.15068L10.1273 8.72795L10.7466 9.61374L15.9156 17.0075H13.7942L9.57608 10.9742V10.9738Z" />
