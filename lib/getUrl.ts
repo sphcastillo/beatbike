@@ -12,7 +12,7 @@ const getUrl = (path: string) => {
   
     return process.env.NODE_ENV === 'development'
       ? `http://localhost:3000/${formattedPath}`
-      : `${process.env.VERCEL_URL}/${formattedPath}`;
+      : `https://${process.env.VERCEL_URL}/${formattedPath}`;
   };
   
   export default getUrl;
