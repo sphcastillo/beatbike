@@ -12,7 +12,7 @@ const mulish = Mulish({ subsets: ["latin"] });
 
   
   export default async function Subscribe() {
-    const url = getUrl('/subscriber');
+    const url = getUrl('subscriber');
 
     const response  = await fetch(url, {
       next: {
