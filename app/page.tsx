@@ -1,9 +1,8 @@
 import Hero from "@/components/Hero";
 import Team from "@/components/Team";
 import Introduction from "@/components/Introduction";
-import Motto from "@/components/Motto";
-import Newsletter from "@/components/Newsletter";
 import Locations from "@/components/Locations";
+import Subscribe from "@/components/Subscribe";
 
 
 export default function Home() {
@@ -14,8 +13,7 @@ export default function Home() {
         <Introduction />
         <Locations />
         <Team />
-        <Newsletter />
-        <Motto />
+        <Subscribe />
       </main>
     );
 }

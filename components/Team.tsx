@@ -98,8 +98,8 @@ const people = [
                         fill="none" 
                         stroke="currentColor" 
                         strokeWidth="2" 
-                        stroke-linecap="round" 
-                        stroke-linejoin="round" 
+                        strokeLinecap="round" 
+                        strokeLinejoin="round" 
                         className="lucide lucide-instagram"
                       >
                         <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>

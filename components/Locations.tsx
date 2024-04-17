@@ -1,20 +1,24 @@
-import { InboxIcon, TrashIcon, UsersIcon } from '@heroicons/react/24/outline';
 import tarzana from "@/images/studios/tarzanaStudio.jpg";
 import hbStudio from "@/images/studios/huntingtonBeachStudio.png";
 import Image from 'next/image';
+import { Noto_Sans, Mulish, Comfortaa } from "next/font/google";
+
+const notoSans = Noto_Sans({ subsets: ["latin"] });
+const mulish = Mulish({ subsets: ["latin"] });
+const comfortaa = Comfortaa({ subsets: ["latin"]  });
 
 const features = [
   {
     name: 'Tarzana',
     description:
-      'Non quo aperiam repellendus quas est est. Eos aut dolore aut ut sit nesciunt. Ex tempora quia. Sit nobis consequatur dolores incidunt.',
+      'Experience the pulse of our Tarzana studio in Los Angeles, where every ride fuels your energy and community spirit.',
     href: '#',
     studioImage: tarzana
   },
   {
     name: 'Huntington Beach',
     description:
-      'Vero eum voluptatem aliquid nostrum voluptatem. Vitae esse natus. Earum nihil deserunt eos quasi cupiditate. A inventore et molestiae natus.',
+      'Dive into the dynamic vibe of our Huntington Beach studio in Orange County, where every pedal stroke propels you closer to your fitness goals.',
     href: '#',
     studioImage: hbStudio
   },
@@ -24,42 +28,44 @@ export default function Locations() {
   return (
     <div className="bg-[#333333] py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="mx-auto max-w-2xl lg:mx-0">
-          <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">Two locations</h2>
-          <p className="mt-6 text-lg leading-8 text-gray-300">
-            Lorem ipsum dolor sit amet consect adipisicing elit. Possimus magnam voluptatum cupiditate veritatis in
-            accusamus quisquam.
-          </p>
+        <div className={mulish.className}>
+          <div className="mx-auto max-w-2xl lg:mx-0">
+            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">Double the Beat, Double the Thrill:</h2>
+            <p className="mt-6 text-lg leading-8 text-gray-300">
+            Feel the rhythm and conquer your workout goals at our two vibrant studios. Join us in SF valley or in &quot;Surf City&quot; HB for heart-pumping rides led by our dynamic instructors. Get ready to sweat and groove with Beatbike!
+            </p>
+          </div>
         </div>
         <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
           <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-2">
             {features.map((feature) => (
-              <div key={feature.name} className="flex flex-col">
+              <div key={feature.name} className="flex-col flex">
 
                 
-                  {/* <div className="mb-6 flex h-[80px] w-[120px] items-center justify-center rounded-lg bg-[#DFFF00]"> */}
-                  <div className='flex justify-center items-center h-[120px]'>
-                    <div className='bg-orange-400 w-[200px]'>
+                <div className='flex justify-center'>
                         <Image 
                             src={feature.studioImage} 
                             alt="" 
-                            width={200} 
-                            height={100} 
-                            className='object-cover'
+                            className='aspect-[3/2] w-3/5 rounded-2xl object-cover'
                         />
-                    </div>
-                  </div>
-                <dt className="text-base font-semibold leading-7 text-white text-center">
-                {feature.name}
-                </dt>
-                <dd className="mt-1 flex flex-auto flex-col text-base leading-7 text-gray-300">
+                </div>
+                <div className={comfortaa.className}>
+                  <dt className="text-base font-semibold leading-7 text-white text-center pt-4">
+                  {feature.name}
+                  </dt>
+                </div>
 
-                  <p className="flex-auto text-center">{feature.description}</p>
+                <dd className="mt-1 flex flex-auto flex-col text-base leading-7 text-gray-300">
+                  <div className={mulish.className}>
+                    <p className="flex-auto text-center">{feature.description}</p>
+                  </div>
+                  <div className={comfortaa.className}>
                   <p className="mt-6 flex justify-center items-center">
                     <a href={feature.href} className="text-sm font-semibold  text-center leading-6 text-[#DFFF00]">
                       Learn more <span aria-hidden="true">→</span>
                     </a>
                   </p>
+                  </div>
                 </dd>
               </div>
             ))}

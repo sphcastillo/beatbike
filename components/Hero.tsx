@@ -14,7 +14,7 @@ function Hero() {
 
                     <video autoPlay loop muted className="absolute inset-0 -z-10 h-full w-full object-cover">
                         
-                    <source src='/spinLife.mp4' type="video/mp4" />
+                    <source src='/Beatbike.mp4' type="video/mp4" />
                     </video>
 
                     <div
