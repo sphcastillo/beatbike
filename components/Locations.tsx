@@ -1,5 +1,5 @@
 import tarzana from "@/images/studios/tarzanaStudio.jpg";
-import hbStudio from "@/images/studios/huntingtonBeachStudio.png";
+import hbStudio from "@/images/studios/hbStudio.png";
 import Image from 'next/image';
 import { Noto_Sans, Mulish, Comfortaa } from "next/font/google";
 

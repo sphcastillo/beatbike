@@ -5,29 +5,21 @@ const comfortaa = Comfortaa({ subsets: ["latin"]  });
 const mulish = Mulish({ subsets: ["latin"] });
 
 const navigation = {
-    solutions: [
-      { name: 'Marketing', href: '#' },
-      { name: 'Analytics', href: '#' },
-      { name: 'Commerce', href: '#' },
-      { name: 'Insights', href: '#' },
-    ],
-    support: [
-      { name: 'Pricing', href: '#' },
-      { name: 'Documentation', href: '#' },
-      { name: 'Guides', href: '#' },
-      { name: 'API Status', href: '#' },
-    ],
     company: [
-      { name: 'About', href: '#' },
-      { name: 'Blog', href: '#' },
-      { name: 'Jobs', href: '#' },
-      { name: 'Press', href: '#' },
-      { name: 'Partners', href: '#' },
+      { name: 'Our story', href: '#' },
+      { name: 'Careers', href: '#' },
+      { name: 'Philanthropy', href: '#' },
     ],
-    legal: [
-      { name: 'Claim', href: '#' },
-      { name: 'Privacy', href: '#' },
-      { name: 'Terms', href: '#' },
+    help: [
+      { name: 'FAQ', href: '#' },
+      { name: 'Terms & Conditions', href: '#' },
+      { name: 'Privacy Policy', href: '#' },
+      { name: 'Contact Us', href: '#' },
+    ],
+    account: [
+      { name: 'Sign In', href: '#' },
+      { name: 'Series Purchases', href: '#' },
+      { name: 'Returns', href: '#' },
     ],
     social: [
       {
@@ -100,7 +92,7 @@ const navigation = {
         <h2 id="footer-heading" className="sr-only">
           Footer
         </h2>
-        <div className="mx-auto max-w-7xl px-6 pb-8 pt-16 sm:pt-24 lg:px-8 lg:pt-32">
+
           <div className="xl:grid xl:grid-cols-3 xl:gap-8">
             <div className="space-y-8">
               {/* <img
@@ -113,7 +105,9 @@ const navigation = {
                   The best things in life make you sweaty.
                 </p>
               </div>
-              <div className="flex space-x-6">
+
+
+              <div >
                 {navigation.social.map((item) => (
                   <a key={item.name} href={item.href} className="text-[#DFFF00] hover:text-[#39FF14]">
                     <span className="sr-only">{item.name}</span>
@@ -122,40 +116,14 @@ const navigation = {
                 ))}
               </div>
 
-            </div>
 
-            <div className="mt-16 grid grid-cols-3 gap-8 xl:col-span-2 xl:mt-0">
-              <div className="md:grid md:grid-cols-3 md:gap-8">
-                <div>
-                  <h3 className="text-md font-semibold leading-6 text-[#DFFF00]">Solutions</h3>
-                  <ul role="list" className="mt-6 space-y-4">
-                    {navigation.solutions.map((item) => (
-                      <li key={item.name}>
-                        <a href={item.href} className="text-sm leading-6 text-[#DFFF00] hover:text-[#39FF14]">
-                          {item.name}
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <div className="mt-10 md:mt-0">
-                  <h3 className="text-md font-semibold leading-6 text-[#DFFF00]">Support</h3>
-                  <ul role="list" className="mt-6 space-y-4">
-                    {navigation.support.map((item) => (
-                      <li key={item.name}>
-                        <a href={item.href} className="text-sm leading-6 text-[#DFFF00] hover:text-[#39FF14]">
-                          {item.name}
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-              <div className="md:grid md:grid-cols-2 md:gap-8">
+
+            <div className="">
+
                 <div>
                   <h3 className="text-md font-semibold leading-6 text-[#DFFF00]">Company</h3>
                   <ul role="list" className="mt-6 space-y-4">
-                    {navigation.company.map((item) => (
+                    {navigation.account.map((item) => (
                       <li key={item.name}>
                         <a href={item.href} className="text-sm leading-6 text-[#DFFF00] hover:text-[#39FF14]">
                           {item.name}
@@ -164,19 +132,7 @@ const navigation = {
                     ))}
                   </ul>
                 </div>
-                {/* <div className="mt-10 md:mt-0">
-                  <h3 className="text-md font-semibold leading-6 text-[#DFFF00]">Legal</h3>
-                  <ul role="list" className="mt-6 space-y-4">
-                    {navigation.legal.map((item) => (
-                      <li key={item.name}>
-                        <a href={item.href} className="text-sm leading-6 text-[#DFFF00] hover:text-[#39FF14]">
-                          {item.name}
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                </div> */}
-              </div>
+
             </div>
           </div>
 
