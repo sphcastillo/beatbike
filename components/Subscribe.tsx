@@ -12,25 +12,19 @@ const mulish = Mulish({ subsets: ["latin"] });
 
   
   export default async function Subscribe() {
-    const url = getUrl('/subscriber');
+    const url = getUrl('/subscribers');
+
 
     const response  = await fetch(url, {
       next: {
-        tags: ['subscriber']
+        tags: ['subscribers']
       }
     });
-    // console.log("response: ", response)
-  
-    if (!response.ok) {
-      if (response.status === 404) {
-        console.error('ATTENTION: The requested resource was not found on the server.');
-      } else {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-    } else {
-      const subscriberEmail = await response.json() as Subscriber[];
-      console.log("subscriberEmail: ", subscriberEmail);
-    }
+
+    const subscribers = await response.json() as Subscriber[];
+    console.log("Subscribers: ", subscribers);
+
+
     return (
         <div className="bg-black py-16 sm:py-24">
             <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
@@ -102,5 +96,5 @@ const mulish = Mulish({ subsets: ["latin"] });
             </div>
         </div>
     )
-  }
+  } 
   

@@ -20,15 +20,16 @@ const subscriberSchema =  new Schema<Subscriber>({
 
 const SubscriberModel = models.Subscriber || model<Subscriber>("Subscriber", subscriberSchema);
 
+// Function to add a subscriber to the database
 export async function addSubscriber(email: string): Promise<Subscriber>{
     await connectDB();
 
     try {
-        const newSubscriber = new SubscriberModel({ email });
+        const subscriber = new SubscriberModel({ email });
 
-        await newSubscriber.save();
+        await subscriber.save();
 
-        return newSubscriber;
+        return subscriber;
         
     }catch(error){
         console.error("Error adding subscriber: ", error);
@@ -36,3 +37,18 @@ export async function addSubscriber(email: string): Promise<Subscriber>{
     }
 }
 
+// Function to fetch all subscribers from the database
+export async function fetchSubscribers(): Promise<Subscriber[]>{
+    await connectDB();
+
+    try {
+        // Find all subscribers in the database
+        const subscribers = await SubscriberModel.find();
+        // Return the subscribers
+        return subscribers;
+        
+    }catch(error){
+        console.error("Error fetching subscribers: ", error);
+        throw error;
+    }
+}
