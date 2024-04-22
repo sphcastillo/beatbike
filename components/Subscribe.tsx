@@ -1,30 +1,56 @@
+'use client'
 import Image from "next/image";
 import beatbikeStrong from "@/images/homepage/strongerTogether.png";
 import { Comfortaa, Mulish } from "next/font/google";
 import getUrl from "@/lib/getUrl";
 import { Subscriber } from "@/mongodb/models/Subscriber";
 import createSubscriber from "@/actions/createSubscriber";
+import { useState } from "react";
+import { set } from "mongoose";
 
 
 const comfortaa = Comfortaa({ subsets: ["latin"]  });
 const mulish = Mulish({ subsets: ["latin"] });
 
   
-  export default async function Subscribe() {
+  export default function Subscribe() {
+    const [email, setEmail] = useState('');
 
-    const url = getUrl('/subscribers');
+    // const url = getUrl('/subscribers');
 
 
-    const response  = await fetch(url, {
-      next: {
-        tags: ['subscribers']
+    // const response  = await fetch(url, {
+    //   next: {
+    //     tags: ['subscribers']
+    //   }
+    // });
+
+    // const subscribers = await response.json() as Subscriber[];
+    // console.log("Subscribers: ", subscribers);
+    const handleSubmitSubscriber = async (event: any) => {
+      console.log(" clicked handleSubmitSubscriber");
+      event.preventDefault();
+
+      const url = getUrl('/subscribers');
+
+      const response = await fetch(url, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ email })
+      })
+
+      if(response.ok){
+        console.log("Subscriber added successfully!");
+        const data = await response.json() as Subscriber;
+        console.log("Subscriber: ", data);
+      }else {
+        console.error("Failed to add subscriber");
       }
-    });
 
-    const subscribers = await response.json() as Subscriber[];
-    console.log("Subscribers: ", subscribers);
-
-
+      setEmail('');
+    }
 
     return (
         <div className="bg-black py-16 sm:py-24">
@@ -69,7 +95,7 @@ const mulish = Mulish({ subsets: ["latin"] });
                         </div>
                         <div className="mx-auto mt-10 max-w-2xl lg:mx-0 lg:max-w-none">
 
-                            <form className="mx-auto mt-10 flex max-w-md gap-x-4" action={createSubscriber} >
+                            <form className="mx-auto mt-10 flex max-w-md gap-x-4" >
                                 <label htmlFor="email-address" className="sr-only">
                                     Email address
                                 </label>
@@ -78,14 +104,16 @@ const mulish = Mulish({ subsets: ["latin"] });
                                     name="email"
                                     type="email"
                                     autoComplete="email"
+                                    value={email}
                                     required
                                     className="flex-auto rounded-md border-0 bg-[#DFFF00] px-3.5 py-2 text-black shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-white sm:text-sm sm:leading-6"
                                     placeholder="Enter your email"
+                                    onChange={(event) => setEmail(event.target.value)}
                                 />
 
                                 <div className={mulish.className}>
                                     <button
-
+                                    onSubmit={handleSubmitSubscriber}
                                     className="flex-none rounded-md bg-[#DFFF00] px-3.5 py-2.5 text-sm tracking-wide font-semibold text-black shadow-sm hover:bg-[#39FF14] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
 
                                     >

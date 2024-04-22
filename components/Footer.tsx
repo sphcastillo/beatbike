@@ -6,15 +6,17 @@ const mulish = Mulish({ subsets: ["latin"] });
 
 const navigation = {
     company: [
-      { name: 'Our story', href: '#' },
+      { name: 'Tarzana Studio', href: '#' },
+      { name: 'Huntington Beach Studio', href: '#' },
       { name: 'Careers', href: '#' },
       { name: 'Philanthropy', href: '#' },
     ],
     help: [
+      { name: 'info@beatbike.com', href: '#' },
       { name: 'FAQ', href: '#' },
-      { name: 'Terms & Conditions', href: '#' },
+      { name: 'Terms of Service', href: '#' },
       { name: 'Privacy Policy', href: '#' },
-      { name: 'Contact Us', href: '#' },
+      
     ],
     account: [
       { name: 'Sign In', href: '#' },
@@ -92,55 +94,73 @@ const navigation = {
         <h2 id="footer-heading" className="sr-only">
           Footer
         </h2>
-
+        <div className="mx-auto max-w-7xl px-6 pb-8 pt-16 sm:pt-24 lg:px-8 lg:pt-32">
           <div className="xl:grid xl:grid-cols-3 xl:gap-8">
             <div className="space-y-8">
-              {/* <img
-                className="h-7"
-                src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
-                alt="Company name"
-              /> */}
-              <div className={mulish.className}>
-                <p className="text-lg tracking-wide leading-6 text-gray-300">
-                  The best things in life make you sweaty.
-                </p>
-              </div>
-
-
-              <div >
+                <div className={comfortaa.className}>
+                  <h2 className="text-white text-2xl">Beatbike</h2>
+                </div>
+                <div className={notoSans.className}>
+                  <h4 className="text-lg leading-6 text-[#DFFF00]">
+                    RIDE THE SOUND.
+                  </h4>
+                </div>
+              <div className="flex space-x-6">
                 {navigation.social.map((item) => (
-                  <a key={item.name} href={item.href} className="text-[#DFFF00] hover:text-[#39FF14]">
+                  <a key={item.name} href={item.href} className="text-[#DFFF00] hover:text-gray-400">
                     <span className="sr-only">{item.name}</span>
                     <item.icon className="h-6 w-6" aria-hidden="true" />
                   </a>
                 ))}
               </div>
-
-
-
-            <div className="">
-
+            </div>
+            <div className="mt-16 grid grid-cols-1 gap-8 xl:col-span-2 xl:mt-0">
+              <div className="md:grid md:grid-cols-3 md:gap-8">
                 <div>
-                  <h3 className="text-md font-semibold leading-6 text-[#DFFF00]">Company</h3>
+                  <h3 className="text-sm font-semibold leading-6 text-white">Company</h3>
                   <ul role="list" className="mt-6 space-y-4">
-                    {navigation.account.map((item) => (
+                    {navigation.company.map((item) => (
                       <li key={item.name}>
-                        <a href={item.href} className="text-sm leading-6 text-[#DFFF00] hover:text-[#39FF14]">
+                        <a href={item.href} className="text-sm leading-6 text-gray-300 hover:text-white">
                           {item.name}
                         </a>
                       </li>
                     ))}
                   </ul>
                 </div>
-
+                <div className="mt-10 md:mt-0">
+                  <h3 className="text-sm font-semibold leading-6 text-white">Support</h3>
+                  <ul role="list" className="mt-6 space-y-4">
+                    {navigation.help.map((item) => (
+                      <li key={item.name}>
+                        <a href={item.href} className="text-sm leading-6 text-gray-300 hover:text-white">
+                          {item.name}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div>
+                  <h3 className="text-sm font-semibold leading-6 text-white">Account</h3>
+                  <ul role="list" className="mt-6 space-y-4">
+                    {navigation.account.map((item) => (
+                      <li key={item.name}>
+                        <a href={item.href} className="text-sm leading-6 text-gray-300 hover:text-white">
+                          {item.name}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
             </div>
           </div>
-
           <div className="mt-16 border-t border-white/10 pt-8 sm:mt-20 lg:mt-24">
-            <p className="text-xs leading-5 text-gray-400">&copy; 2024 Beatbike, Inc. All rights reserved.</p>
+            <p className="text-xs leading-5 text-gray-400">&copy; 2020 Your Company, Inc. All rights reserved.</p>
           </div>
         </div>
       </footer>
     )
   }
+  
   
