@@ -10,10 +10,10 @@ const notoSans = Noto_Sans({ subsets: ["latin"] });
 const comfortaa = Comfortaa({ subsets: ["latin"]  });
 
 const navigation = [
-    { name: 'Explore', href: '#' },
-    { name: 'Studios', href: '#' },
-    { name: 'Instructors', href: '#' },
-    { name: 'Stay Connected', href: '#' },
+    { name: 'Explore', href: '/explore' },
+    { name: 'Studios', href: '/studios' },
+    { name: 'Instructors', href: '/instructors' },
+    { name: 'Stay Connected', href: '/contact' },
   ]
   
 

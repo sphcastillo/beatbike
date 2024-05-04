@@ -1,9 +1,13 @@
 import React from 'react'
 
-function ContactPage() {
+function Contact() {
   return (
-    <div>ContactPage</div>
+    <div>
+      <div className='bg-white h-[500px] w-full'>
+        <h4>Reach us here!</h4>
+      </div>
+    </div>
   )
 }
 
-export default ContactPage
+export default Contact
