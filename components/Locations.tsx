@@ -1,8 +1,9 @@
+'use client';
 import tarzana from "@/images/studios/tarzanaStudio.jpg";
 import hbStudio from "@/images/studios/hbStudio.png";
 import Image from 'next/image';
 import { Noto_Sans, Mulish, Comfortaa } from "next/font/google";
-
+import { motion } from 'framer-motion';
 const notoSans = Noto_Sans({ subsets: ["latin"] });
 const mulish = Mulish({ subsets: ["latin"] });
 const comfortaa = Comfortaa({ subsets: ["latin"]  });
@@ -29,25 +30,49 @@ export default function Locations() {
     <div className="bg-[#333333] py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className={mulish.className}>
-          <div className="mx-auto max-w-2xl lg:mx-0">
+          <motion.div 
+            className="mx-auto max-w-2xl lg:mx-0"
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            initial={{
+              x: 300,
+              opacity: 0,
+              scale: 0.5,
+            }}
+            animate={{
+                x: 0,
+                opacity: 1,
+                scale: 1,
+            }}
+            transition={{ duration: 3 }}
+          >
             <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">Double the Beat, Double the Thrill:</h2>
             <p className="mt-6 text-lg leading-8 text-gray-300">
             Feel the rhythm and conquer your workout goals at our two vibrant studios. Join us in SF valley or in &quot;Surf City&quot; HB for heart-pumping rides led by our dynamic instructors. Get ready to sweat and groove with Beatbike!
             </p>
-          </div>
+          </motion.div>
         </div>
         <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
-          <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-2">
+          <motion.dl 
+            initial={{
+              y: -300,
+            }}
+            transition={{ duration: 1.2 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}          
+            className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-2">
             {features.map((feature) => (
               <div key={feature.name} className="flex-col flex">
 
                 
-                <div className='flex justify-center'>
-                        <Image 
-                            src={feature.studioImage} 
-                            alt="" 
-                            className='aspect-[3/2] w-3/5 rounded-2xl object-cover'
-                        />
+                <div 
+                  className='flex justify-center'
+                >
+                  <Image 
+                    src={feature.studioImage} 
+                    alt="" 
+                    className='aspect-[3/2] w-3/5 rounded-2xl object-cover'
+                  />
                 </div>
                 <div className={comfortaa.className}>
                   <dt className="text-base font-semibold leading-7 text-white text-center pt-4">
@@ -60,16 +85,19 @@ export default function Locations() {
                     <p className="flex-auto text-center">{feature.description}</p>
                   </div>
                   <div className={comfortaa.className}>
-                  <p className="mt-6 flex justify-center items-center">
-                    <a href={feature.href} className="text-sm font-semibold  text-center leading-6 text-[#DFFF00]">
-                      Learn more <span aria-hidden="true">→</span>
-                    </a>
-                  </p>
+                    <p className="mt-6 flex justify-center items-center">
+                      <a   
+                        href='/'
+                        className="text-sm font-semibold  text-center leading-6 text-[#DFFF00]"
+                      >
+                        Learn more <span aria-hidden="true">→</span>
+                      </a>
+                    </p>
                   </div>
                 </dd>
               </div>
             ))}
-          </dl>
+          </motion.dl>
         </div>
       </div>
     </div>

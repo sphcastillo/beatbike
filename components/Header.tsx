@@ -23,7 +23,7 @@ function Header() {
     return (
                 <header className="sticky top-0 z-50">
                     <nav className="flex items-center p-6 lg:px-8">
-                        
+
                         <motion.div 
                             className="flex lg:flex-1"
                             initial={{

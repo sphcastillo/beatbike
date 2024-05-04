@@ -1,3 +1,4 @@
+'use client'
 import { Noto_Sans, Comfortaa, Mulish } from "next/font/google";
 import { motion } from 'framer-motion';
 
@@ -28,34 +29,47 @@ function Hero() {
                         }}
                     />
                     </div>
-                    <div className="mx-auto max-w-2xl py-32 sm:py-32 lg:py-40">
-                    <div className="hidden sm:mb-8 sm:flex sm:justify-center">
-                        <div className={mulish.className}>
-                            <div className="relative px-3 py-1 text-2xl leading-6 text-[#DFFF00] tracking-widest">
-                            RIDE THE SOUND
+                    <div 
+                        className="mx-auto max-w-2xl py-32 sm:py-32 lg:py-40"
+                    >
+                        <div className="hidden sm:mb-8 sm:flex sm:justify-center">
+                            <div className={mulish.className}>
+                                <div className="relative px-3 py-1 text-2xl leading-6 text-[#DFFF00] tracking-widest">
+                                RIDE THE SOUND
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div className="text-center">
-                        <div className={comfortaa.className}>
-                            <h1 
-                                className="text-4xl tracking-tight text-white sm:text-8xl"
-
-                            >
-                            Join our beat revolution
-                            </h1>
-                        </div>
-                        <div className="mt-10 flex items-center justify-center gap-x-6">
-                            <div  className={mulish.className}>
-                                <a
-                                    href="#"
-                                    className="rounded-md bg-[#DFFF00] px-3.5 py-2.5 text-sm font-semibold tracking-wider shadow-sm hover:bg-[#39FF14] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-400"
+                        <div className="text-center">
+                            <div className={comfortaa.className}>
+                                <motion.h1 
+                                    initial={{ opacity: 0 }}
+                                    whileInView={{ opacity: 1 }}
+                                    viewport={{ once: true }}
+                                    className="text-4xl tracking-tight text-white sm:text-8xl"
                                 >
-                                    Get started
-                                </a>
+                                Join our beat revolution
+                                </motion.h1>
                             </div>
+
+                            <motion.div 
+                                className="mt-10 flex items-center justify-center gap-x-6"
+                                whileHover={{
+                                    scale: 1.2,
+                                    transition: { duration: 2 },
+                                  }}
+                                  whileTap={{ scale: 0.9 }}
+                            >
+                                <div  className={mulish.className}>
+                                    <a
+                                        href="#"
+                                        className="rounded-md bg-[#DFFF00] px-3.5 py-2.5 text-sm font-semibold tracking-wider shadow-sm hover:bg-[#39FF14] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-400"
+                                    >
+                                        Get started
+                                    </a>
+                                </div>
+                            </motion.div>
+                            
                         </div>
-                    </div>
                     </div>
                     <div
                     className="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]"

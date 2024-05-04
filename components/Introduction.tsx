@@ -1,3 +1,4 @@
+'use client'
 import Image from "next/image";
 import studioLife from "@/images/homepage/studioLife.jpg";
 import settingUp from "@/images/homepage/settingUp.jpg";
@@ -15,7 +16,22 @@ export default function Introduction() {
         <div className="overflow-hidden bg-white pt-24 pb-32">
           <div className="mx-auto max-w-7xl px-6 lg:flex lg:px-8">
             <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-12 gap-y-16 lg:mx-0 lg:min-w-full lg:max-w-none lg:flex-none lg:gap-y-8">
-              <div className="lg:col-end-1 lg:w-full lg:max-w-lg lg:pb-8">
+              <motion.div 
+                className="lg:col-end-1 lg:w-full lg:max-w-lg lg:pb-8"
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                initial={{
+                  x: 300,
+                  opacity: 0,
+                  scale: 0.5,
+                }}
+                animate={{
+                    x: 0,
+                    opacity: 1,
+                    scale: 1,
+                }}
+                transition={{ duration: 2 }}
+              >
                 <h2 className="text-3xl font-bold tracking-tight text-black sm:text-4xl">We are Beatbike</h2>
                 <p className="mt-6 text-xl leading-8 text-black">
                   Beatbike is not just your ordinary indoor spin studio  - it&apos;s a dynamic community hub designed to inspire and motivate. With a team of passionate and skilled instructors who curate exhilarating playlists, Beatbike guarantees a ride that pushes you beyond your limits while fostering a sense of camaraderie among its members. Step into our studio, and you&apos;ll find yourself immersed in an electrifying atmosphere where fitness meets fun, and where every pedal stroke propels you closer to your goals.
@@ -23,15 +39,20 @@ export default function Introduction() {
                 {/* <p className="mt-6 text-base leading-7 text-white">
 
                 </p> */}
-                <div className="mt-10 flex">
-                  <a
-                    href="#"
+                <div 
+                  className="mt-10 flex"
+                >
+                  <motion.a
+                    whileHover={{ scale: 1.2 }}
+                    onHoverStart={e => {}}
+                    onHoverEnd={e => {}}
+                    href="/"
                     className="rounded-md bg-[#DFFF00] px-3.5 py-2.5 text-sm font-semibold shadow-sm hover:bg-[#39FF14] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                   >
                     Join our team
-                  </a>
+                  </motion.a>
                 </div>
-              </div>
+              </motion.div>
               <div className="flex flex-wrap items-start justify-end gap-6 sm:gap-8 lg:contents">
                 <div className="w-0 flex-auto lg:ml-auto lg:w-auto lg:flex-none lg:self-end">
                   <Image

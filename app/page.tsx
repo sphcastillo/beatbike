@@ -4,8 +4,6 @@ import Introduction from "@/components/Introduction";
 import Locations from "@/components/Locations";
 import Subscribe from "@/components/Subscribe";
 
-
-
 export default function Home() {
     return (
       <main className="">
