@@ -4,9 +4,8 @@ import beatbikeStrong from "@/images/homepage/strongerTogether.png";
 import { Comfortaa, Mulish } from "next/font/google";
 import getUrl from "@/lib/getUrl";
 import { Subscriber } from "@/mongodb/models/Subscriber";
-import createSubscriber from "@/actions/createSubscriber";
 import { useState } from "react";
-import { set } from "mongoose";
+
 
 
 const comfortaa = Comfortaa({ subsets: ["latin"]  });
@@ -16,17 +15,6 @@ const mulish = Mulish({ subsets: ["latin"] });
   export default function Subscribe() {
     const [email, setEmail] = useState('');
 
-    // const url = getUrl('/subscribers');
-
-
-    // const response  = await fetch(url, {
-    //   next: {
-    //     tags: ['subscribers']
-    //   }
-    // });
-
-    // const subscribers = await response.json() as Subscriber[];
-    // console.log("Subscribers: ", subscribers);
     const handleSubmitSubscriber = async (event: any) => {
       console.log(" clicked handleSubmitSubscriber");
       event.preventDefault();

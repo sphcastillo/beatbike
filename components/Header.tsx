@@ -1,10 +1,10 @@
 'use client'
 import { useState } from 'react';
 import { Dialog } from '@headlessui/react';
-import Image from 'next/image';
+// import Image from 'next/image';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import { Noto_Sans, Comfortaa } from "next/font/google";
-
+import { motion } from 'framer-motion';
 
 const notoSans = Noto_Sans({ subsets: ["latin"] });
 const comfortaa = Comfortaa({ subsets: ["latin"]  });
@@ -21,31 +21,59 @@ function Header() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
     return (
-            <div>
                 <header className="sticky top-0 z-50">
                     <nav className="flex items-center p-6 lg:px-8">
-                        <div className="flex lg:flex-1">
-                            <a href="#" className="-m-1.5 p-1.5">
+                        
+                        <motion.div 
+                            className="flex lg:flex-1"
+                            initial={{
+                                x: 500,
+                                opacity: 0,
+                                scale: 0.5,
+                            }}
+                            animate={{
+                                x: 0,
+                                opacity: 1,
+                                scale: 1,
+                            }}
+                            transition={{ duration: 1 }}
+                        >
+                            <a href="/" className="-m-1.5 p-1.5">
                                 <span className="sr-only">Beatbike</span>
                                 <div className={comfortaa.className}>
-                                    <h2 className="text-white">Beatbike</h2>
+                                    <h3 className="text-white text-[18px]">Beatbike</h3>
                                 </div>
                             </a>
-                        </div>
-                        <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-                        <div className={notoSans.className}>
-                            <div className="hidden lg:flex lg:gap-x-12">
-                                {navigation.map((item) => (
-                                <a key={item.name} href={item.href} className="text-sm font-semibold leading-6 tracking-wider text-white">
-                                    {item.name}
-                                </a>
-                                ))}
+                        </motion.div>
+
+                        <motion.div 
+                            initial={{ 
+                                x: -500,
+                                opacity: 0,
+                                scale: 0.5,
+                            }}
+                            animate={{
+                                x: 0,
+                                opacity: 1,
+                                scale: 1,
+                            }}
+                            transition={{ duration: 1.5 }}
+                            className="hidden lg:flex lg:flex-1 lg:justify-end"
+                        >
+                            <div className={notoSans.className}>
+                                <div className="hidden lg:flex lg:gap-x-12">
+                                    {navigation.map((item) => (
+                                    <a key={item.name} href={item.href} className="text-sm font-semibold leading-6 tracking-wider text-white">
+                                        {item.name}
+                                    </a>
+                                    ))}
+                                </div>
                             </div>
-                        </div>
-                        <a href="#" className="text-sm font-semibold leading-6 text-[#DFFF00] tracking-wider ml-6">
-                            Log in
-                        </a>
-                        </div>
+                            <a href="#" className="text-sm font-semibold leading-6 text-[#DFFF00] tracking-wider ml-6">
+                                Log in
+                            </a>
+                        </motion.div>
+
                         <div className="flex lg:hidden justify-end flex-1">
                             <button
                                 type="button"
@@ -102,7 +130,6 @@ function Header() {
                         </Dialog.Panel>
                     </Dialog>
                 </header>
-            </div>
     )
 }
 

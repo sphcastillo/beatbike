@@ -1,4 +1,5 @@
 import { Noto_Sans, Comfortaa, Mulish } from "next/font/google";
+import { motion } from 'framer-motion';
 
 const notoSans = Noto_Sans({ subsets: ["latin"] });
 const comfortaa = Comfortaa({ subsets: ["latin"]  });
@@ -7,9 +8,7 @@ const mulish = Mulish({ subsets: ["latin"] });
 function Hero() {
 
         return (
-            <div >
-
-        
+            <section>
                 <div className="relative isolate overflow-hidden pt-14">
 
                     <video autoPlay loop muted className="absolute inset-0 -z-10 h-full w-full object-cover">
@@ -33,13 +32,16 @@ function Hero() {
                     <div className="hidden sm:mb-8 sm:flex sm:justify-center">
                         <div className={mulish.className}>
                             <div className="relative px-3 py-1 text-2xl leading-6 text-[#DFFF00] tracking-widest">
-                            SWEAT AND HEART
+                            RIDE THE SOUND
                             </div>
                         </div>
                     </div>
                     <div className="text-center">
                         <div className={comfortaa.className}>
-                            <h1 className="text-4xl tracking-tight text-white sm:text-8xl">
+                            <h1 
+                                className="text-4xl tracking-tight text-white sm:text-8xl"
+
+                            >
                             Join our beat revolution
                             </h1>
                         </div>
@@ -68,7 +70,7 @@ function Hero() {
                     />
                     </div>
                 </div>
-            </div>
+            </section>
         )
     }
     

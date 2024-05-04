@@ -1,12 +1,10 @@
 import Image from "next/image";
-
 import studioLife from "@/images/homepage/studioLife.jpg";
 import settingUp from "@/images/homepage/settingUp.jpg";
 import weAreBeatbike from "@/images/homepage/weAreBeatbike.png";
 import beatbikeCrew from '@/images/homepage/beatbikeTeam.jpg';
-
 import { Noto_Sans, Comfortaa, Mulish } from "next/font/google";
-
+import { motion } from 'framer-motion';
 const notoSans = Noto_Sans({ subsets: ["latin"] });
 const comfortaa = Comfortaa({ subsets: ["latin"]  });
 const mulish = Mulish({ subsets: ["latin"] });
