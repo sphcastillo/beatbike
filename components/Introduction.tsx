@@ -13,9 +13,9 @@ const mulish = Mulish({ subsets: ["latin"] });
 export default function Introduction() {
     return (
       <div  className={mulish.className}>
-        <div className="overflow-hidden bg-white pt-24 pb-32">
+        <div className="overflow-hidden bg-white pt-12 sm:pt-24 pb-32">
           <div className="mx-auto max-w-7xl px-6 lg:flex lg:px-8">
-            <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-12 gap-y-16 lg:mx-0 lg:min-w-full lg:max-w-none lg:flex-none lg:gap-y-8">
+            <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-12 gap-y-0 sm:gap-y-16 lg:mx-0 lg:min-w-full lg:max-w-none lg:flex-none lg:gap-y-8">
               <motion.div 
                 className="lg:col-end-1 lg:w-full lg:max-w-lg lg:pb-8"
                 whileInView={{ opacity: 1 }}
@@ -53,7 +53,8 @@ export default function Introduction() {
                   </motion.a>
                 </div>
               </motion.div>
-              <div className="flex flex-wrap items-start justify-end gap-6 sm:gap-8 lg:contents">
+
+              <div className="flex flex-wrap items-start justify-end gap-2 -mt-12 sm:mt-0 sm:gap-8 lg:contents">
                 <div className="w-0 flex-auto lg:ml-auto lg:w-auto lg:flex-none lg:self-end">
                   <Image
                     src={beatbikeCrew}
