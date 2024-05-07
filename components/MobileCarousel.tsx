@@ -71,10 +71,10 @@ const heroCarouselImages = [
     },
 ]
 
-Autoplay.globalOptions = { delay: 8000 };
+Autoplay.globalOptions = { delay: 4000 };
 
 function MobileCarousel() {
-    const [emblaRef] = useEmblaCarousel({ loop: true, duration: 900 }, [
+    const [emblaRef] = useEmblaCarousel({ loop: true, duration: 2000 }, [
         Autoplay(),
       ]);
     return (
@@ -93,7 +93,7 @@ function MobileCarousel() {
                             width={1920}
                             height={1080}
                             src={image.src}
-                            className='h-full w-full object-cover'
+                            className='h-[425px]'
                         />
 
                     </div>

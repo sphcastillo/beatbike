@@ -80,7 +80,7 @@ const mulish = Mulish({ subsets: ["latin"] });
                                 initial={{ opacity: 0 }}
                                 whileInView={{ opacity: 1 }}
                                 //   viewport={{ once: true }}
-                                transition={{ duration: 10 }}
+                                transition={{ duration: 6 }}
                                 className="mx-auto mt-2 max-w-xl text-center text-xl leading-8 text-[#DFFF00] px-4 rounded-lg">
                             Subscribe for exclusive updates, special offers, and to stay in the loop with all things Beatbike!
                             </motion.p>
