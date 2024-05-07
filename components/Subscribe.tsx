@@ -87,7 +87,7 @@ const mulish = Mulish({ subsets: ["latin"] });
                         </div>
                         <div className="mx-auto mt-10 max-w-2xl lg:mx-0 lg:max-w-none">
 
-                            <form className="mx-auto mt-10 flex max-w-md gap-x-4" >
+                            <form className="mx-auto mt-10 flex max-w-sm sm:max-w-md gap-x-4" >
                                 <label htmlFor="email-address" className="sr-only">
                                     Email address
                                 </label>
@@ -98,7 +98,7 @@ const mulish = Mulish({ subsets: ["latin"] });
                                     autoComplete="email"
                                     value={email}
                                     required
-                                    className="flex-auto rounded-md border-0 bg-[#DFFF00] px-3.5 py-2 text-black shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-white sm:text-sm sm:leading-6"
+                                    className="flex-auto rounded-md border-0 bg-[#DFFF00] sm: px-3.5 py-2 text-black shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-white sm:text-sm sm:leading-6"
                                     placeholder="Enter your email"
                                     onChange={(event) => setEmail(event.target.value)}
                                 />

@@ -85,11 +85,11 @@ const people = [
           </div>
           <ul
             role="list"
-            className="mx-auto mt-20 grid max-w-2xl grid-cols-1 gap-6 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3 lg:gap-8"
+            className="mx-auto mt-20 grid max-w-2xl grid-cols-2 gap-6 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3 lg:gap-8"
           >
             {people.map((person) => (
               <li key={person.name} className="rounded-2xl bg-[#333333] px-8 py-10">
-                <Image className="mx-auto h-48 w-48 rounded-full md:h-56 md:w-56" src={person.imageUrl} alt="" width={192} height={192}/>
+                <Image className="mx-auto h-28 w-28 rounded-full md:h-56 md:w-56" src={person.imageUrl} alt="" width={192} height={192}/>
                 <div className={notoSans.className}>
                   <h3 className="mt-6 text-base font-semibold leading-7 tracking-normal text-white">{person.name}</h3>
                 </div>
