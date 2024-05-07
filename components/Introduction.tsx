@@ -32,8 +32,8 @@ export default function Introduction() {
                 }}
                 transition={{ duration: 2 }}
               >
-                <h2 className="text-3xl font-bold tracking-tight text-black sm:text-4xl">We are Beatbike</h2>
-                <p className="text-lg mt-6 sm:text-xl leading-8 text-black">
+                <h2 className="text-3xl font-bold tracking-tight text-black">We are Beatbike</h2>
+                <p className="text-md mt-6 sm:text-xl leading-8 text-black">
                 Welcome to Beatbike, where high-intensity meets low-impact in our invigorating 45-minute indoor cycling sessions led by our energetic instructors. Classes are meticulously crafted to fortify your mind, body, and soul, guided by expert coaches who lead you through dynamic segments of climbs, sprints, choreography, weights, and our iconic soulful moment. Immerse yourself in a transformative experience as you pedal towards holistic well-being in our state-of-the-art studio, surrounded by vibrant lighting and a supportive community. Join us on the journey to elevate your fitness experience with Beatbike.
                 </p>
                 {/* <p className="mt-6 text-base leading-7 text-white">

@@ -23,11 +23,11 @@ const mulish = Mulish({ subsets: ["latin"] });
 const heroCarouselImages = [
     {
         id: 0,
-        src: heroCarousel1,
+        src: heroCarousel2,
     },
     {
         id: 1,
-        src: heroCarousel2,
+        src: heroCarousel1,
     },
     {
         id: 2,
@@ -79,7 +79,7 @@ function MobileCarousel() {
       ]);
     return (
         <div  
-            className="overflow-hidden relative cursor-pointer h-[440px] "
+            className="overflow-hidden relative cursor-pointer"
             ref={emblaRef}
         >
             <div className='flex relative'>
@@ -93,7 +93,7 @@ function MobileCarousel() {
                             width={1920}
                             height={1080}
                             src={image.src}
-                            className='object-fill'
+                            className='h-full w-full object-cover'
                         />
 
                     </div>
