@@ -15,7 +15,6 @@ import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import Image from "next/image";
 import { Noto_Sans, Comfortaa, Mulish } from "next/font/google";
-import { motion } from 'framer-motion';
 
 const notoSans = Noto_Sans({ subsets: ["latin"] });
 const comfortaa = Comfortaa({ subsets: ["latin"]  });
@@ -80,7 +79,7 @@ function MobileCarousel() {
       ]);
     return (
         <div  
-            className="overflow-hidden relative cursor-pointer h-[470px] "
+            className="overflow-hidden relative cursor-pointer h-[440px] "
             ref={emblaRef}
         >
             <div className='flex relative'>
@@ -94,7 +93,7 @@ function MobileCarousel() {
                             width={1920}
                             height={1080}
                             src={image.src}
-                            className=''
+                            className='object-fill'
                         />
 
                     </div>

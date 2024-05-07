@@ -13,7 +13,7 @@ const mulish = Mulish({ subsets: ["latin"] });
 export default function Introduction() {
     return (
       <div  className={mulish.className}>
-        <div className="overflow-hidden bg-white pt-12 sm:pt-24 pb-32">
+        <div className="overflow-hidden bg-white pt-12 sm:pt-24 pb-32 z-200">
           <div className="mx-auto max-w-7xl px-6 lg:flex lg:px-8">
             <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-12 gap-y-0 sm:gap-y-16 lg:mx-0 lg:min-w-full lg:max-w-none lg:flex-none lg:gap-y-8">
               <motion.div 
@@ -33,28 +33,28 @@ export default function Introduction() {
                 transition={{ duration: 2 }}
               >
                 <h2 className="text-3xl font-bold tracking-tight text-black sm:text-4xl">We are Beatbike</h2>
-                <p className="mt-6 text-xl leading-8 text-black">
+                <p className="text-lg mt-6 sm:text-xl leading-8 text-black">
                 Welcome to Beatbike, where high-intensity meets low-impact in our invigorating 45-minute indoor cycling sessions led by our energetic instructors. Classes are meticulously crafted to fortify your mind, body, and soul, guided by expert coaches who lead you through dynamic segments of climbs, sprints, choreography, weights, and our iconic soulful moment. Immerse yourself in a transformative experience as you pedal towards holistic well-being in our state-of-the-art studio, surrounded by vibrant lighting and a supportive community. Join us on the journey to elevate your fitness experience with Beatbike.
                 </p>
                 {/* <p className="mt-6 text-base leading-7 text-white">
 
                 </p> */}
                 <div 
-                  className="mt-10 flex"
+                  className="mt-10 flex z-30"
                 >
                   <motion.a
                     whileHover={{ scale: 1.2 }}
                     onHoverStart={e => {}}
                     onHoverEnd={e => {}}
                     href="/"
-                    className="rounded-md bg-[#DFFF00] px-3.5 py-2.5 text-sm font-semibold shadow-sm hover:bg-[#39FF14] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                    className="cursor-pointer rounded-md bg-[#DFFF00] px-3.5 py-2.5 text-sm z-100 font-semibold shadow-sm hover:bg-[#39FF14] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                   >
                     Join our team
                   </motion.a>
                 </div>
               </motion.div>
 
-              <div className="flex flex-wrap items-start justify-end gap-2 -mt-12 sm:mt-0 sm:gap-8 lg:contents">
+              <div className="z-0 flex flex-wrap items-start justify-end gap-2 -mt-4 sm:mt-0 sm:gap-8 lg:contents">
                 <div className="w-0 flex-auto lg:ml-auto lg:w-auto lg:flex-none lg:self-end">
                   <Image
                     src={beatbikeCrew}
