@@ -21,7 +21,7 @@ function Header() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
     return (
-                <header className="sticky top-0 z-50">
+                <header className="sticky top-0 z-50 bg-black">
                     <nav className="flex items-center p-6 lg:px-8">
 
                         <motion.div 
