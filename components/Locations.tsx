@@ -13,14 +13,14 @@ const features = [
     name: 'Tarzana',
     description:
       'Experience the pulse of our Tarzana studio in Los Angeles, where every ride fuels your energy and community spirit.',
-    href: '#',
+    href: '/studios',
     studioImage: tarzana
   },
   {
     name: 'Huntington Beach',
     description:
       'Dive into the dynamic vibe of our Huntington Beach studio in Orange County, where every pedal stroke propels you closer to your fitness goals.',
-    href: '#',
+    href: '/studios',
     studioImage: hbStudio
   },
 ]
@@ -87,7 +87,7 @@ export default function Locations() {
                   <div className={comfortaa.className}>
                     <p className="mt-6 flex justify-center items-center">
                       <a   
-                        href='/'
+                        href={feature.href}
                         className="text-sm font-semibold  text-center leading-6 text-[#DFFF00]"
                       >
                         Learn more <span aria-hidden="true">→</span>

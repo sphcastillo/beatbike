@@ -1,11 +1,9 @@
-import React from 'react'
+import Team from '@/components/Team';
 
 function Instructors() {
   return (
     <div>
-        <div className='w-full h-[800px] bg-slate-200'>
-            <h1>We have the best instructors</h1>
-        </div>
+      <Team />
     </div>
   )
 }

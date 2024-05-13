@@ -6,22 +6,20 @@ const mulish = Mulish({ subsets: ["latin"] });
 
 const navigation = {
     company: [
-      { name: 'Tarzana Studio', href: '#' },
-      { name: 'Huntington Beach Studio', href: '#' },
-      { name: 'Careers', href: '#' },
-      { name: 'Philanthropy', href: '#' },
+      { name: 'Explore', href: '/explore' },
+      { name: 'Studios', href: '/studios' },
+      { name: 'Instructors', href: '/instructors' }
     ],
     help: [
-      { name: 'info@beatbike.com', href: '#' },
-      { name: 'FAQ', href: '#' },
-      { name: 'Terms of Service', href: '#' },
-      { name: 'Privacy Policy', href: '#' },
+      { name: 'info@beatbike.com', href: 'mailto:info@beatbike.com' },
+      { name: 'Contact Us', href: '/contact' },
+      { name: 'FAQ', href: '/faq' },
       
     ],
     account: [
-      { name: 'Sign In', href: '#' },
-      { name: 'Series Purchases', href: '#' },
-      { name: 'Returns', href: '#' },
+      { name: 'Sign In', href: '/signin' },
+      { name: 'Terms of Service', href: '#' },
+      { name: 'Privacy Policy', href: '#' },
     ],
     social: [
       {

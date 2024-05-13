@@ -1,11 +1,11 @@
 'use client'
 import Hero from "@/components/Hero";
-import Team from "@/components/Team";
 import Introduction from "@/components/Introduction";
 import Locations from "@/components/Locations";
-import Subscribe from "@/components/Subscribe";
 import MobileCarousel from "@/components/MobileCarousel";
 import { useEffect, useState } from "react";
+import Staff from "@/components/Staff";
+import Newletter from "@/components/Newsletter";
 
 export default function Home() {
   const [isSmallScreen, setIsSmallScreen] = useState(false);
@@ -29,8 +29,8 @@ export default function Home() {
         {isSmallScreen ? <MobileCarousel /> : <Hero />}
         <Introduction />
         <Locations />
-        <Team />
-        <Subscribe />
+        <Staff />
+        <Newletter />
       </main>
     );
 }

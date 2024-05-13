@@ -13,7 +13,7 @@ const navigation = [
     { name: 'Explore', href: '/explore' },
     { name: 'Studios', href: '/studios' },
     { name: 'Instructors', href: '/instructors' },
-    { name: 'Stay Connected', href: '/contact' },
+    { name: 'Contact', href: '/contact' },
   ]
   
 
@@ -69,7 +69,7 @@ function Header() {
                                     ))}
                                 </div>
                             </div>
-                            <a href="#" className="text-sm font-semibold leading-6 text-[#DFFF00] tracking-wider ml-6">
+                            <a href="/signin" className="text-sm font-semibold leading-6 text-[#DFFF00] tracking-wider ml-6">
                                 Log in
                             </a>
                         </motion.div>
@@ -119,7 +119,7 @@ function Header() {
                                 </div>
                                 <div className="py-6">
                                 <a
-                                    href="#"
+                                    href="/signin"
                                     className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-white hover:bg-gray-800"
                                 >
                                     Log in

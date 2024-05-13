@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import Announcement from "@/components/Announcement";
+import Banner from "@/components/Banner";
 
 
 export const metadata: Metadata = {
@@ -20,7 +20,7 @@ export default function RootLayout({
 
       <body className='bg-black h-screen'>
         <Header />
-        <Announcement />
+        <Banner />
         {children}
         <Footer />
       </body>

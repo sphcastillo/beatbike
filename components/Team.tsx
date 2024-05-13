@@ -8,12 +8,15 @@ import jasmine from "@/images/instructors/jasmine.jpg";
 import suzy from "@/images/instructors/suzy.jpg";
 import { Noto_Sans, Comfortaa, Mulish } from "next/font/google";
 import { motion } from 'framer-motion';
+import type { Team } from "@/typings";
 
 const notoSans = Noto_Sans({ subsets: ["latin"] });
 const comfortaa = Comfortaa({ subsets: ["latin"]  });
 const mulish = Mulish({ subsets: ["latin"] });
-const people = [
+
+const team: Team[] = [
     {
+      id: 1,
       name: 'Bailey',
       role: 'Spin Instructor',
       imageUrl:
@@ -22,6 +25,7 @@ const people = [
       instagramUrl: 'https://www.instagram.com/joey_4pawjay?igsh=OGQ5ZDc2ODk2ZA%3D%3D&utm_source=qr',
     },
     {
+        id: 2,
         name: 'Amanda',
         role: 'Spin Instructor',
         imageUrl:
@@ -30,6 +34,7 @@ const people = [
         instagramUrl: 'https://www.instagram.com/joey_4pawjay?igsh=OGQ5ZDc2ODk2ZA%3D%3D&utm_source=qr',
       },
       {
+        id: 3,
         name: 'Dana',
         role: 'Spin Instructor',
         imageUrl:
@@ -38,6 +43,7 @@ const people = [
         instagramUrl: 'https://www.instagram.com/joey_4pawjay?igsh=OGQ5ZDc2ODk2ZA%3D%3D&utm_source=qr',
       },
       {
+        id: 4,
         name: 'Dylan',
         role: 'Spin Instructor',
         imageUrl:
@@ -46,6 +52,7 @@ const people = [
         instagramUrl: 'https://www.instagram.com/joey_4pawjay?igsh=OGQ5ZDc2ODk2ZA%3D%3D&utm_source=qr',
       },
       {
+        id: 5,
         name: 'Jasmine',
         role: 'Spin Instructor',
         imageUrl:
@@ -54,6 +61,7 @@ const people = [
         instagramUrl: 'https://www.instagram.com/joey_4pawjay?igsh=OGQ5ZDc2ODk2ZA%3D%3D&utm_source=qr',
       },
       {
+        id: 6,
         name: 'Suzy',
         role: 'Spin Instructor',
         imageUrl:
@@ -65,7 +73,7 @@ const people = [
   
   export default function Team() {
     return (
-      <div className="bg-black py-24 sm:py-32">
+      <div className="bg-white py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 text-center lg:px-8">
           <div  className={mulish.className}>
             <motion.div 
@@ -77,7 +85,7 @@ const people = [
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}    
             >
-              <h2 className="text-3xl font-bold tracking-wider text-white sm:text-4xl">Meet our team</h2>
+              <h2 className="text-3xl font-bold tracking-wider sm:text-4xl">Meet our team</h2>
               <p className="mt-4 text-lg leading-8 tracking-wide text-gray-400">
                 We’re a dynamic group of individuals who are passionate about what we do.
               </p>
@@ -87,14 +95,20 @@ const people = [
             role="list"
             className="mx-auto mt-20 grid max-w-2xl grid-cols-2 gap-6 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3 lg:gap-8"
           >
-            {people.map((person) => (
-              <li key={person.name} className="rounded-2xl bg-[#333333] px-8 py-10">
-                <Image className="mx-auto h-28 w-28 rounded-full md:h-56 md:w-56" src={person.imageUrl} alt="" width={192} height={192}/>
+            {team.map((teamMember, index) => ( 
+              <li key={index} className="rounded-2xl bg-[#333333] px-8 py-10">
+                <Image 
+                  className="mx-auto h-28 w-28 rounded-full md:h-56 md:w-56" 
+                  src={teamMember.imageUrl} 
+                  alt="team member" 
+                  width={192} 
+                  height={192}
+                />
                 <div className={notoSans.className}>
-                  <h3 className="mt-6 text-base font-semibold leading-7 tracking-normal text-white">{person.name}</h3>
+                  <h3 className="mt-6 text-base font-semibold leading-7 tracking-normal text-white">{teamMember.name}</h3>
                 </div>
                 <div className={notoSans.className}>
-                  <p className="text-sm leading-6 text-gray-400 tracking-wide">{person.role}</p>
+                  <p className="text-sm leading-6 text-gray-400 tracking-wide">{teamMember.role}</p>
                 </div>
                 <ul role="list" className="mt-6 flex justify-center gap-x-6">
                   <motion.li                                
@@ -104,7 +118,7 @@ const people = [
                     }}
                     whileTap={{ scale: 0.9 }}
                   >
-                    <a href={person.instagramUrl} className="text-[#DFFF00] hover:text-[#39FF14]">
+                    <a href={teamMember.instagramUrl} className="text-[#DFFF00] hover:text-[#B0DB00]">
                       <svg 
                         xmlns="http://www.w3.org/2000/svg" 
                         width="24" 

@@ -3,6 +3,11 @@ import {
   EnvelopeIcon, 
   PhoneIcon 
 } from '@heroicons/react/24/outline';
+import { Noto_Sans, Comfortaa, Mulish } from "next/font/google";
+
+const notoSans = Noto_Sans({ subsets: ["latin"] });
+const comfortaa = Comfortaa({ subsets: ["latin"]  });
+const mulish = Mulish({ subsets: ["latin"] });
 
 export default function ContactUs() {
   return (
@@ -12,7 +17,7 @@ export default function ContactUs() {
           <div className="mx-auto max-w-xl lg:mx-0 lg:max-w-lg">
             <div className="absolute inset-y-0 left-0 -z-10 w-full overflow-hidden bg-gray-100 ring-1 ring-gray-900/10 lg:w-1/2">
               <svg
-                className="absolute inset-0 h-full w-full stroke-gray-200 [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)]"
+                className="absolute inset-0 h-full w-full stroke-[#DFFF00] [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)]"
                 aria-hidden="true"
               >
                 <defs>
@@ -34,10 +39,14 @@ export default function ContactUs() {
                 <rect width="100%" height="100%" strokeWidth={0} fill="url(#83fd4e5a-9d52-42fc-97b6-718e5d7ee527)" />
               </svg>
             </div>
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900">Get in touch</h2>
-            <p className="mt-6 text-lg leading-8 text-gray-600">
-            Got questions, feedback, or just want to say hi? Reach out to us at Beatbike! Whether you&apos;re looking to book a class, inquire about memberships, or connect with our vibrant community, our team is here to assist you. Drop us a line via phone, email, or visit us at one of our dynamic locations. Let&apos;s pedal towards your fitness goals together!
-            </p>
+            <div className={notoSans.className}>
+              <h2 className="text-3xl font-bold tracking-tight text-gray-900">Get in touch</h2>
+            </div>
+            <div className={mulish.className}>
+              <p className="mt-6 text-lg leading-8 text-gray-600">
+              Got questions, feedback, or just want to say hi? Reach out to us at Beatbike! Whether you&apos;re looking to book a class, inquire about memberships, or connect with our vibrant community, our team is here to assist you. Drop us a line via phone, email, or visit us at one of our dynamic locations. Let&apos;s pedal towards your fitness goals together!
+              </p>
+            </div>
             <dl className="mt-10 space-y-4 text-base leading-7 text-gray-600">
               {/* <div className="flex gap-x-4">
                 <dt className="flex-none">
@@ -68,9 +77,11 @@ export default function ContactUs() {
                   <EnvelopeIcon className="h-7 w-6 text-gray-400" aria-hidden="true" />
                 </dt>
                 <dd>
-                  <a className="hover:text-gray-900" href="mailto:info@beatbike.com">
-                  info@beatbike.com
-                  </a>
+                  <div className={mulish.className}>
+                    <a className="hover:text-gray-900" href="mailto:info@beatbike.com">
+                    info@beatbike.com
+                    </a>
+                  </div>
                 </dd>
               </div>
             </dl>
@@ -79,7 +90,7 @@ export default function ContactUs() {
         <form action="#" method="POST" className="px-6 pb-24 pt-20 sm:pb-32 lg:px-8 lg:py-48">
           <div className="mx-auto max-w-xl lg:mr-0 lg:max-w-lg">
             <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
-              <div>
+              <div className={notoSans.className}>
                 <label htmlFor="first-name" className="block text-sm font-semibold leading-6 text-gray-900">
                   First name
                 </label>
@@ -153,7 +164,7 @@ export default function ContactUs() {
             <div className="mt-8 flex justify-end">
               <button
                 type="submit"
-                className="rounded-md bg-[#DFFF00] px-3.5 py-2.5 text-center text-sm font-semibold text-black shadow-sm hover:bg-[#39FF14] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#39FF14]"
+                className="rounded-md bg-[#DFFF00] px-3.5 py-2.5 text-center text-sm font-semibold text-black shadow-sm hover:bg-[#B0DB00] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#B0DB00]"
               >
                 Send message
               </button>
