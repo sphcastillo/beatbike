@@ -92,7 +92,7 @@ const navigation = {
                 </div>
               <div className="flex space-x-6">
                 {navigation.social.map((item) => (
-                  <a key={item.name} href={item.href} className="text-[#DFFF00] hover:text-gray-400">
+                  <a key={item.name} href={item.href} className="text-[#DFFF00] hover:text-[#B0DB00]">
                     <span className="sr-only">{item.name}</span>
                     <item.icon className="h-6 w-6" aria-hidden="true" />
                   </a>
@@ -101,38 +101,46 @@ const navigation = {
             </div>
             <div className="mt-16 grid grid-cols-1 gap-8 xl:col-span-2 xl:mt-0">
               <div className="md:grid md:grid-cols-3 md:gap-8">
-                <div>
-                  <h3 className="text-sm font-semibold leading-6 text-white">Company</h3>
+                <div className={mulish.className}>
+                  <h3 className="text-md font-semibold leading-6 text-white">Company</h3>
                   <ul role="list" className="mt-6 space-y-4">
                     {navigation.company.map((item) => (
                       <li key={item.name}>
-                        <a href={item.href} className="text-sm leading-6 text-gray-300 hover:text-white">
-                          {item.name}
-                        </a>
+                        <div className={mulish.className}>
+                          <a href={item.href} className="text-sm leading-6 text-gray-300 hover:text-[#DFFF00]">
+                            {item.name}
+                          </a>
+                        </div>
                       </li>
                     ))}
                   </ul>
                 </div>
                 <div className="mt-10 md:mt-0">
-                  <h3 className="text-sm font-semibold leading-6 text-white">Support</h3>
+                  <div className={mulish.className}>
+                    <h3 className="text-md font-semibold leading-6 text-white">Support</h3>
+                  </div>
                   <ul role="list" className="mt-6 space-y-4">
                     {navigation.help.map((item) => (
                       <li key={item.name}>
-                        <a href={item.href} className="text-sm leading-6 text-gray-300 hover:text-white">
-                          {item.name}
-                        </a>
+                        <div className={mulish.className}>
+                          <a href={item.href} className="text-sm leading-6 text-gray-300  hover:text-[#DFFF00]">
+                            {item.name}
+                          </a>
+                        </div>
                       </li>
                     ))}
                   </ul>
                 </div>
-                <div>
-                  <h3 className="text-sm font-semibold leading-6 text-white">Account</h3>
+                <div className={mulish.className}>
+                  <h3 className="text-md font-semibold leading-6 text-white">Account</h3>
                   <ul role="list" className="mt-6 space-y-4">
                     {navigation.account.map((item) => (
                       <li key={item.name}>
-                        <a href={item.href} className="text-sm leading-6 text-gray-300 hover:text-white">
-                          {item.name}
-                        </a>
+                        <div className={mulish.className}>
+                          <a href={item.href} className="text-sm leading-6 text-gray-300  hover:text-[#DFFF00]">
+                            {item.name}
+                          </a>
+                        </div>
                       </li>
                     ))}
                   </ul>
