@@ -4,6 +4,8 @@ import studioLife from "@/images/homepage/studioLife.jpg";
 import settingUp from "@/images/homepage/settingUp.jpg";
 import weAreBeatbike from "@/images/homepage/weAreBeatbike.png";
 import beatbikeCrew from '@/images/homepage/beatbikeTeam.jpg';
+import beatbikeFans from '@/images/homepage/beatbikeFans.jpg';
+import beatbikeBrian from '@/images/homepage/maleBeatbiker.jpg';
 import { Noto_Sans, Comfortaa, Mulish } from "next/font/google";
 import { motion } from 'framer-motion';
 const notoSans = Noto_Sans({ subsets: ["latin"] });
@@ -40,7 +42,7 @@ export default function Introduction() {
 
                 </p> */}
                 <div 
-                  className="mt-10 flex z-30"
+                  className="mt-10 flex z-30 justify-center sm:justify-start"
                 >
                   <motion.a
                     whileHover={{ scale: 1.2 }}
@@ -54,32 +56,32 @@ export default function Introduction() {
                 </div>
               </motion.div>
 
-              <div className="z-0 flex flex-wrap items-start justify-end gap-2 -mt-4 sm:mt-0 sm:gap-8 lg:contents">
-                <div className="w-0 flex-auto lg:ml-auto lg:w-auto lg:flex-none lg:self-end">
+              <div className="z-0 flex flex-wrap items-start sm:justify-end gap-2 mt-8 sm:mt-0 sm:gap-8 lg:contents">
+                <div className="w-0 pl-[78px] flex-auto lg:ml-auto lg:w-auto lg:flex-none lg:self-end">
                   <Image
-                    src={beatbikeCrew}
+                    src={beatbikeFans}
                     alt=""
-                    className="aspect-[7/5] w-[37rem] max-w-none rounded-2xl bg-gray-50 object-cover"
+                    className="aspect-[7/5] w-[18rem] sm:w-[28rem] md:w-[34rem] max-w-none rounded-2xl bg-gray-50 object-cover"
                   />
                 </div>
                 <div className="contents lg:col-span-2 lg:col-end-2 lg:ml-auto lg:flex lg:w-[37rem] lg:items-start lg:justify-end lg:gap-x-8">
-                  <div className="order-first flex w-64 flex-none justify-end self-end lg:w-auto">
+                  <div className="sm:order-first flex w-64 flex-none justify-end self-end lg:w-auto">
                     <Image
                       src={studioLife}
                       alt=""
-                      className="aspect-[4/3] w-[24rem] max-w-none flex-none rounded-2xl bg-gray-50 object-cover"
+                      className="aspect-[5/6] hidden sm:block sm:w-[24rem] max-w-none flex-none rounded-2xl bg-gray-50 object-cover"
                     />
                   </div>
-                  <div className="flex w-96 flex-auto justify-end lg:w-auto lg:flex-none">
+                  <div className="flex w-96 pt-3 sm:pt-0 flex-auto justify-center sm:justify-end lg:w-auto lg:flex-none">
                     <Image
                       src={weAreBeatbike}
                       alt=""
-                      className="aspect-[7/5] w-[37rem] max-w-none flex-none rounded-2xl bg-gray-50 object-cover"
+                      className="aspect-[7/5] w-[24rem] sm:w-[37rem] max-w-none flex-none rounded-2xl bg-gray-50 object-cover"
                     />
                   </div>
-                  <div className="hidden sm:block sm:w-0 sm:flex-auto lg:w-auto lg:flex-none">
+                  <div className="hidden sm:block sm:flex-auto lg:w-auto lg:flex-none">
                     <Image
-                      src={settingUp}
+                      src={beatbikeBrian}
                       alt=""
                       className="aspect-[4/3] w-[24rem] max-w-none rounded-2xl bg-gray-50 object-cover"
                     />

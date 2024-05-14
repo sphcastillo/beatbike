@@ -16,7 +16,7 @@ export default function SignIn() {
               <div className="mx-auto w-full max-w-sm lg:w-96">
                 <div>
                   <Image
-                      className="h-10 w-auto"
+                      className="h-[65px] w-auto"
                       src={BeatbikeLogo}
                       alt="Beatbike Logo"
                       width={40}
