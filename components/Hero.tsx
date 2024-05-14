@@ -12,9 +12,8 @@ function Hero() {
             <section>
                 <div className="relative isolate overflow-hidden pt-14">
 
-                    <video autoPlay loop muted className="absolute inset-0 -z-10 h-full w-full object-cover">
-                        
-                    <source src='/Beatbike.mp4' type="video/mp4" />
+                    <video autoPlay playsInline loop muted className="absolute inset-0 -z-10 h-full w-full object-cover">
+                        <source src='/Beatbike.mp4' type="video/mp4" />
                     </video>
 
                     <div

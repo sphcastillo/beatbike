@@ -1,13 +1,13 @@
 'use client'
 import { useState } from 'react';
 import { Dialog } from '@headlessui/react';
-// import Image from 'next/image';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
-import { Noto_Sans, Comfortaa } from "next/font/google";
+import { Noto_Sans, Comfortaa, Mulish } from "next/font/google";
 import { motion } from 'framer-motion';
 
 const notoSans = Noto_Sans({ subsets: ["latin"] });
 const comfortaa = Comfortaa({ subsets: ["latin"]  });
+const mulish = Mulish({ subsets: ["latin"] });
 
 const navigation = [
     { name: 'Explore', href: '/explore' },
@@ -92,7 +92,7 @@ function Header() {
                             <div className="flex items-center justify-between">
                             <a href="#" className="-m-1.5 p-1.5">
                                 <div className={comfortaa.className}>
-                                    <h2 className="text-white">Beatbike</h2>
+                                    <h2 className="text-white text-[20px]">Beatbike</h2>
                                 </div>
                             </a>
                             <button
@@ -111,19 +111,21 @@ function Header() {
                                     <a
                                     key={item.name}
                                     href={item.href}
-                                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-gray-800"
+                                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:text-[#DFFF00] hover:bg-[#333333]"
                                     >
                                     {item.name}
                                     </a>
                                 ))}
                                 </div>
                                 <div className="py-6">
-                                <a
-                                    href="/signin"
-                                    className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-white hover:bg-gray-800"
-                                >
-                                    Log in
-                                </a>
+                                    <div className={mulish.className}>
+                                        <a
+                                            href="/signin"
+                                            className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-white hover:text-[#DFFF00] hover:bg-[#333333]"
+                                        >
+                                            Log in
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                             </div>
