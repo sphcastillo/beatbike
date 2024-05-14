@@ -26,7 +26,8 @@ export default function Home() {
 
     return (
       <main className="">
-        {isSmallScreen ? <MobileCarousel /> : <Hero />}
+        {/* {isSmallScreen ? <MobileCarousel /> : <Hero />} */}
+        <Hero />
         <Introduction />
         <Locations />
         <Staff />

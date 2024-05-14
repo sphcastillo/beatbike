@@ -61,10 +61,10 @@ function Hero() {
                             >
                                 <div  className={mulish.className}>
                                     <a
-                                        href="/"
+                                        href="/reserve"
                                         className="rounded-md bg-[#DFFF00] px-3.5 py-2.5 text-sm font-semibold tracking-wider shadow-sm hover:bg-[#B0DB00] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-400"
                                     >
-                                        Get started
+                                        Book Your Bike Now
                                     </a>
                                 </div>
                             </motion.div>
