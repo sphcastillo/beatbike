@@ -27,7 +27,7 @@ export default function SignIn() {
                   </h2>
                   <p className="mt-2 text-sm leading-6 text-gray-500">
                     Not a member?{' '}
-                    <a href="#" className="font-semibold text-[#555555] hover:text-[#B0DB00]">
+                    <a href="/signup" className="font-semibold text-[#555555] hover:text-[#B0DB00]">
                       Create new account
                     </a>
                   </p>

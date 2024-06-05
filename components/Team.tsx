@@ -14,62 +14,62 @@ const notoSans = Noto_Sans({ subsets: ["latin"] });
 const comfortaa = Comfortaa({ subsets: ["latin"]  });
 const mulish = Mulish({ subsets: ["latin"] });
 
-// const team: Instructors[] = [
-//     {
-//       id: 1,
-//       name: 'Bailey',
-//       role: 'Spin Instructor',
-//       imageUrl:
-//         bailey,
-//       xUrl: '#',
-//       instagramUrl: 'https://www.instagram.com/joey_4pawjay?igsh=OGQ5ZDc2ODk2ZA%3D%3D&utm_source=qr',
-//     },
-//     {
-//         id: 2,
-//         name: 'Amanda',
-//         role: 'Spin Instructor',
-//         imageUrl:
-//           amanda,
-//         xUrl: '#',
-//         instagramUrl: 'https://www.instagram.com/joey_4pawjay?igsh=OGQ5ZDc2ODk2ZA%3D%3D&utm_source=qr',
-//       },
-//       {
-//         id: 3,
-//         name: 'Dana',
-//         role: 'Spin Instructor',
-//         imageUrl:
-//           dana,
-//         xUrl: '#',
-//         instagramUrl: 'https://www.instagram.com/joey_4pawjay?igsh=OGQ5ZDc2ODk2ZA%3D%3D&utm_source=qr',
-//       },
-//       {
-//         id: 4,
-//         name: 'Dylan',
-//         role: 'Spin Instructor',
-//         imageUrl:
-//           dylan,
-//         xUrl: '#',
-//         instagramUrl: 'https://www.instagram.com/joey_4pawjay?igsh=OGQ5ZDc2ODk2ZA%3D%3D&utm_source=qr',
-//       },
-//       {
-//         id: 5,
-//         name: 'Jasmine',
-//         role: 'Spin Instructor',
-//         imageUrl:
-//           jasmine,
-//         xUrl: '#',
-//         instagramUrl: 'https://www.instagram.com/joey_4pawjay?igsh=OGQ5ZDc2ODk2ZA%3D%3D&utm_source=qr',
-//       },
-//       {
-//         id: 6,
-//         name: 'Suzy',
-//         role: 'Spin Instructor',
-//         imageUrl:
-//           suzy,
-//         xUrl: '#',
-//         instagramUrl: 'https://www.instagram.com/joey_4pawjay?igsh=OGQ5ZDc2ODk2ZA%3D%3D&utm_source=qr',
-//       },
-//   ]
+const team = [
+    {
+      id: 1,
+      name: 'Bailey',
+      role: 'Spin Instructor',
+      imageUrl:
+        bailey,
+      xUrl: '#',
+      instagramUrl: 'https://www.instagram.com/joey_4pawjay?igsh=OGQ5ZDc2ODk2ZA%3D%3D&utm_source=qr',
+    },
+    {
+        id: 2,
+        name: 'Amanda',
+        role: 'Spin Instructor',
+        imageUrl:
+          amanda,
+        xUrl: '#',
+        instagramUrl: 'https://www.instagram.com/joey_4pawjay?igsh=OGQ5ZDc2ODk2ZA%3D%3D&utm_source=qr',
+      },
+      {
+        id: 3,
+        name: 'Dana',
+        role: 'Spin Instructor',
+        imageUrl:
+          dana,
+        xUrl: '#',
+        instagramUrl: 'https://www.instagram.com/joey_4pawjay?igsh=OGQ5ZDc2ODk2ZA%3D%3D&utm_source=qr',
+      },
+      {
+        id: 4,
+        name: 'Dylan',
+        role: 'Spin Instructor',
+        imageUrl:
+          dylan,
+        xUrl: '#',
+        instagramUrl: 'https://www.instagram.com/joey_4pawjay?igsh=OGQ5ZDc2ODk2ZA%3D%3D&utm_source=qr',
+      },
+      {
+        id: 5,
+        name: 'Jasmine',
+        role: 'Spin Instructor',
+        imageUrl:
+          jasmine,
+        xUrl: '#',
+        instagramUrl: 'https://www.instagram.com/joey_4pawjay?igsh=OGQ5ZDc2ODk2ZA%3D%3D&utm_source=qr',
+      },
+      {
+        id: 6,
+        name: 'Suzy',
+        role: 'Spin Instructor',
+        imageUrl:
+          suzy,
+        xUrl: '#',
+        instagramUrl: 'https://www.instagram.com/joey_4pawjay?igsh=OGQ5ZDc2ODk2ZA%3D%3D&utm_source=qr',
+      },
+  ]
 
 type Props = {
   params: {
@@ -78,8 +78,8 @@ type Props = {
   }
 }
   
-  export default function Team({ params: {team} }: Props) {
-    console.log(team)
+  export default function Team() {
+
     return (
       <div className="bg-white py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 text-center lg:px-8">
