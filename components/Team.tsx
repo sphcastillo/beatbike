@@ -8,7 +8,6 @@ import jasmine from "@/images/instructors/jasmine.jpg";
 import suzy from "@/images/instructors/suzy.jpg";
 import { Noto_Sans, Comfortaa, Mulish } from "next/font/google";
 import { motion } from 'framer-motion';
-import { Instructors } from "@/typings";
 
 const notoSans = Noto_Sans({ subsets: ["latin"] });
 const comfortaa = Comfortaa({ subsets: ["latin"]  });
@@ -71,12 +70,7 @@ const team = [
       },
   ]
 
-type Props = {
-  params: {
-    team: Instructors[];
-  
-  }
-}
+
   
   export default function Team() {
 

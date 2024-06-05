@@ -1,18 +1,22 @@
 import Image from "next/image";
-import bailey from "@/images/instructors/bailey.jpg";
-import amanda from "@/images/instructors/amanda.jpg";
-import dana from "@/images/instructors/dana.jpg";
-import dylan from "@/images/instructors/dylan.jpg";
-import jasmine from "@/images/instructors/jasmine.jpg";
-import suzy from "@/images/instructors/suzy.jpg";
-import { Instructors } from "@/typings";
+
 import { Noto_Sans, Comfortaa, Mulish } from "next/font/google";
 
 const notoSans = Noto_Sans({ subsets: ["latin"] });
 const comfortaa = Comfortaa({ subsets: ["latin"]  });
 const mulish = Mulish({ subsets: ["latin"] });
 
-const team: Instructors[] = [
+import bailey from "@/images/instructors/bailey.jpg";
+import amanda from "@/images/instructors/amanda.jpg";
+import dana from "@/images/instructors/dana.jpg";
+import dylan from "@/images/instructors/dylan.jpg";
+import jasmine from "@/images/instructors/jasmine.jpg";
+import suzy from "@/images/instructors/suzy.jpg";
+import { Instructor } from "@/typings";
+
+
+
+const instructors: Instructor[]= [
     {
       id: 1,
       name: 'Bailey',
@@ -68,6 +72,8 @@ const team: Instructors[] = [
         instagramUrl: 'https://www.instagram.com/joey_4pawjay?igsh=OGQ5ZDc2ODk2ZA%3D%3D&utm_source=qr',
       },
   ]
+
+
   
   export default function Staff() {
     return (
@@ -88,20 +94,20 @@ const team: Instructors[] = [
             role="list"
             className="mx-auto mt-20 grid max-w-2xl grid-cols-2 gap-x-8 gap-y-16 text-center sm:grid-cols-3 md:grid-cols-4 lg:mx-0 lg:max-w-none lg:grid-cols-5 xl:grid-cols-6"
           >
-            {team.map((person, index) => (
-              <li key={index}>
+            {instructors.map((instructor, i) => (
+              <li key={i}>
                 <Image 
                     className="mx-auto h-24 w-24 rounded-full" 
-                    src={person.imageUrl} 
+                    src={instructor.imageUrl} 
                     alt="Staff member" 
                     width={500}
                     height={500}
                 />
                 <div className={mulish.className}>
-                    <h3 className="mt-6 text-base font-semibold leading-7 tracking-tight text-gray-900">{person.name}</h3>
+                    <h3 className="mt-6 text-base font-semibold leading-7 tracking-tight text-gray-900">{instructor.name}</h3>
                 </div>
                 <div>
-                    <p className="text-sm leading-6 text-gray-600">{person.role}</p>
+                    <p className="text-sm leading-6 text-gray-600">{instructor.role}</p>
                 </div>
               </li>
             ))}
