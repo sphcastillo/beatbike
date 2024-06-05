@@ -5,14 +5,14 @@ import dana from "@/images/instructors/dana.jpg";
 import dylan from "@/images/instructors/dylan.jpg";
 import jasmine from "@/images/instructors/jasmine.jpg";
 import suzy from "@/images/instructors/suzy.jpg";
-import { Team } from "@/typings";
+import { Instructors } from "@/typings";
 import { Noto_Sans, Comfortaa, Mulish } from "next/font/google";
 
 const notoSans = Noto_Sans({ subsets: ["latin"] });
 const comfortaa = Comfortaa({ subsets: ["latin"]  });
 const mulish = Mulish({ subsets: ["latin"] });
 
-const team: Team[] = [
+const team: Instructors[] = [
     {
       id: 1,
       name: 'Bailey',
