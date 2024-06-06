@@ -1,22 +1,20 @@
 import Image from "next/image";
-import HighFive from "@/images/Gallery/highFive.jpg";
 import settingUp from "@/images/Gallery/settingUp.jpg";
 import Hydrate from "@/images/Gallery/HydrateWithBeatbike.png";
 import frontDesk from "@/images/Gallery/frontDeskgals.jpg";
 import dreamBeatbikeduo from "@/images/Gallery/spencerbrian.jpg";
 import getYourBikeNow from "@/images/Gallery/getonthebikeasap.jpg";
-import beatbikeBaby from "@/images/Gallery/babyonboard.jpg";
 import beatbikeHitsHB from "@/images/Gallery/beatbikeHitsHB.jpg";
 import getExcitedForMerch from "@/images/Gallery/jasmineMerch.jpg";
 import celebrateBeatbike from '@/images/Gallery/celebrateBeatbike.jpg';
 import brianWearingBeatbike from "@/images/Gallery/maleBeatbiker.jpg";
 import shoeRentalshere from "@/images/Gallery/shoeRentalshere.jpg";
 import bikesAplenty from "@/images/Gallery/bikesAplenty.jpg";
-
+import beatbikeFamily from "@/images/Gallery/beatbikeTeam.jpg";
 
 function CommunityGallery() {
   return (
-    <div>
+    <div className="pt-5">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             <div className="grid gap-4">
                 <div>
@@ -89,10 +87,10 @@ function CommunityGallery() {
                 <div>
                     <Image  
                         className="h-auto max-w-full rounded-lg" 
-                        src={beatbikeBaby} 
+                        src={beatbikeFamily} 
                         alt="Baby on Board"
                         width={300}
-                        height={570}
+                        height={300}
                     />
                 </div>
                 <div>

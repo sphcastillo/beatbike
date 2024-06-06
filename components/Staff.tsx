@@ -64,9 +64,6 @@ const fadeInAnimationVariants = {
                 <div className={mulish.className}>
                     <h3 className="mt-6 text-base font-semibold leading-7 tracking-tight text-gray-900">{instructor.name}</h3>
                 </div>
-                <div>
-                    <p className="text-sm leading-6 text-gray-600">{instructor.role}</p>
-                </div>
               </motion.li>
             ))}
           </ul>
