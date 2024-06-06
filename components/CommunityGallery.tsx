@@ -1,7 +1,18 @@
 import Image from "next/image";
 import HighFive from "@/images/Gallery/highFive.jpg";
-import WorkoutBuddies from "@/images/Gallery/workoutBuddies.jpg";
+import settingUp from "@/images/Gallery/settingUp.jpg";
 import Hydrate from "@/images/Gallery/HydrateWithBeatbike.png";
+import frontDesk from "@/images/Gallery/frontDeskgals.jpg";
+import dreamBeatbikeduo from "@/images/Gallery/spencerbrian.jpg";
+import getYourBikeNow from "@/images/Gallery/getonthebikeasap.jpg";
+import beatbikeBaby from "@/images/Gallery/babyonboard.jpg";
+import beatbikeHitsHB from "@/images/Gallery/beatbikeHitsHB.jpg";
+import getExcitedForMerch from "@/images/Gallery/jasmineMerch.jpg";
+import celebrateBeatbike from '@/images/Gallery/celebrateBeatbike.jpg';
+import brianWearingBeatbike from "@/images/Gallery/maleBeatbiker.jpg";
+import shoeRentalshere from "@/images/Gallery/shoeRentalshere.jpg";
+import bikesAplenty from "@/images/Gallery/bikesAplenty.jpg";
+
 
 function CommunityGallery() {
   return (
@@ -11,26 +22,28 @@ function CommunityGallery() {
                 <div>
                     <Image 
                         className="h-auto max-w-full rounded-lg" 
-                        src={HighFive}
-                        alt="High Five"
-                        width={500}
-                        height={500}
+                        src={getYourBikeNow}
+                        alt="Book Your Bike Now"
+                        width={300}
+                        height={600}
                     />
                 </div>
                 <div>
                     <Image  
                         className="h-auto max-w-full rounded-lg" 
-                        src={WorkoutBuddies} 
-                        alt="High Five"
-                        width={350}
-                        height={500}
+                        src={beatbikeHitsHB} 
+                        alt="Beatbike Hits Huntington Beach"
+                        width={300}
+                        height={300}
                     />
                 </div>
                 <div>
                     <Image  
                         className="h-auto max-w-full rounded-lg" 
-                        src={HighFive}
-                        alt=""
+                        src={brianWearingBeatbike}
+                        alt="Brian in Beatbike gear"
+                        width={300}
+                        height={440}
                     />
                 </div>
             </div>
@@ -38,8 +51,10 @@ function CommunityGallery() {
                 <div>
                     <Image  
                         className="h-auto max-w-full rounded-lg" 
-                        src={HighFive} 
-                        alt=""
+                        src={getExcitedForMerch} 
+                        alt="Get Excited for Merch"
+                        width={300}
+                        height={545}
                     />
                 </div>
                 <div>
@@ -54,8 +69,10 @@ function CommunityGallery() {
                 <div>
                     <Image  
                         className="h-auto max-w-full rounded-lg" 
-                        src={HighFive} 
-                        alt=""
+                        src={shoeRentalshere} 
+                        alt="shoe rentals here"
+                        width={300}
+                        height={300}
                     />
                 </div>
             </div>
@@ -63,22 +80,28 @@ function CommunityGallery() {
                 <div>
                     <Image  
                         className="h-auto max-w-full rounded-lg" 
-                        src={HighFive} 
-                        alt=""
+                        src={settingUp} 
+                        alt="Setting up before class"
+                        width={300}
+                        height={600}
                     />
                 </div>
                 <div>
                     <Image  
                         className="h-auto max-w-full rounded-lg" 
-                        src={HighFive} 
-                        alt=""
+                        src={beatbikeBaby} 
+                        alt="Baby on Board"
+                        width={300}
+                        height={570}
                     />
                 </div>
                 <div>
                     <Image  
                         className="h-auto max-w-full rounded-lg" 
-                        src={HighFive}
-                        alt=""
+                        src={frontDesk}
+                        alt="Front Desk Gals"
+                        width={300}
+                        height={300}
                     />
                 </div>
             </div>
@@ -86,22 +109,28 @@ function CommunityGallery() {
                 <div>
                     <Image  
                         className="h-auto max-w-full rounded-lg" 
-                        src={HighFive}
-                        alt=""
+                        src={dreamBeatbikeduo}
+                        alt="Dream Beatbike Duo"
+                        width={300}
+                        height={650}
                     />
                 </div>
                 <div>
                     <Image  
                         className="h-auto max-w-full rounded-lg" 
-                        src={HighFive}
-                        alt=""
+                        src={celebrateBeatbike}
+                        alt="Celebrate Beatbike"
+                        width={300}
+                        height={600}
                     />
                 </div>
                 <div>
                     <Image  
                         className="h-auto max-w-full rounded-lg" 
-                        src={HighFive}
-                        alt=""
+                        src={bikesAplenty}
+                        alt="Plenty of Bikes"
+                        width={300}
+                        height={570}
                     />
                 </div>
             </div>

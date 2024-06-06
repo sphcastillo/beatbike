@@ -1,11 +1,10 @@
 'use client'
 import Image from "next/image";
 import studioLife from "@/images/homepage/studioLife.jpg";
-import settingUp from "@/images/homepage/settingUp.jpg";
 import weAreBeatbike from "@/images/homepage/weAreBeatbike.png";
 import beatbikeCrew from '@/images/homepage/beatbikeTeam.jpg';
 import beatbikeFans from '@/images/homepage/beatbikeFans.jpg';
-import beatbikeBrian from '@/images/homepage/maleBeatbiker.jpg';
+import happyRider from "@/images/homepage/happyRider.jpg";
 import { Noto_Sans, Comfortaa, Mulish } from "next/font/google";
 import { motion } from 'framer-motion';
 const notoSans = Noto_Sans({ subsets: ["latin"] });
@@ -87,7 +86,7 @@ export default function Introduction() {
                   </div>
                   <div className="hidden sm:block sm:flex-auto lg:w-auto lg:flex-none">
                     <Image
-                      src={beatbikeBrian}
+                      src={happyRider}
                       alt=""
                       className="aspect-[4/3] w-[24rem] max-w-none rounded-2xl bg-gray-50 object-cover"
                     />
