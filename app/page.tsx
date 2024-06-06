@@ -6,6 +6,7 @@ import MobileCarousel from "@/components/MobileCarousel";
 import { useEffect, useState } from "react";
 import Staff from "@/components/Staff";
 import Newletter from "@/components/Newsletter";
+import CommunityGallery from "@/components/CommunityGallery";
 
 export default function Home() {
   const [isSmallScreen, setIsSmallScreen] = useState(false);
@@ -31,6 +32,7 @@ export default function Home() {
         <Introduction />
         <Locations />
         <Staff />
+        <CommunityGallery />
         <Newletter />
       </main>
     );
