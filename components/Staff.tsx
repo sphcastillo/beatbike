@@ -1,3 +1,4 @@
+
 import Image from "next/image";
 import { motion } from 'framer-motion';
 import { Noto_Sans, Comfortaa, Mulish } from "next/font/google";
@@ -14,6 +15,7 @@ import jasmine from "@/images/instructors/jasmine.jpg";
 import suzy from "@/images/instructors/suzy.jpg";
 import { Instructor } from "@/typings";
 
+
 const fadeInAnimationVariants = {
   initial: {
     opacity: 0,
@@ -25,6 +27,12 @@ const fadeInAnimationVariants = {
   },
   transition: {type: "spring", stiffness: 100, duration: 4 }
 };
+
+const instructorFlipUpVariants = {
+  initial:{ opacity: 0, y: 50 },
+  animate:{ opacity: 1 , y: 0},
+  transition:{ duration: 0.5 }
+}
 
 
 const instructors: Instructor[]= [
@@ -87,6 +95,7 @@ const instructors: Instructor[]= [
 
   
   export default function Staff() {
+
     return (
       <div className="bg-white py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -113,7 +122,12 @@ const instructors: Instructor[]= [
             className="mx-auto mt-20 grid max-w-2xl grid-cols-2 gap-x-8 gap-y-16 text-center sm:grid-cols-3 md:grid-cols-4 lg:mx-0 lg:max-w-none lg:grid-cols-5 xl:grid-cols-6"
           >
             {instructors.map((instructor, i) => (
-              <li key={i}>
+              <motion.li 
+                key={i}
+                whileInView={{ rotate: [0, 360] }}
+                transition={{ duration: 2 }}
+                viewport={{ once: true }}
+              >
                 <Image 
                     className="mx-auto h-24 w-24 rounded-full" 
                     src={instructor.imageUrl} 
@@ -127,7 +141,7 @@ const instructors: Instructor[]= [
                 <div>
                     <p className="text-sm leading-6 text-gray-600">{instructor.role}</p>
                 </div>
-              </li>
+              </motion.li>
             ))}
           </ul>
         </div>

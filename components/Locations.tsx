@@ -26,16 +26,6 @@ const features = [
 ]
 
 
-const fadeInAnimationVariants = {
-
-  animate: {
-    x: 0,
-    opacity: 1,
-    scale: 1,
-  },
-
-};
-
 export default function Locations() {
   return (
     <div className="bg-[#333333] py-24 sm:py-32">
@@ -43,19 +33,18 @@ export default function Locations() {
         <div className={mulish.className}>
           <motion.div 
             className="mx-auto max-w-2xl lg:mx-0"
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
             initial={{
               x: 300,
               opacity: 0,
               scale: 0.5,
             }}
-            animate={{
+            whileInView={{
                 x: 0,
                 opacity: 1,
                 scale: 1,
             }}
-            transition={{ duration: 3 }}
+            transition={{ duration: 2 }}
+            viewport={{ once: true }}
           >
             <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">Double the Beat, Double the Thrill:</h2>
             <p className="mt-6 text-lg leading-8 text-gray-300">
@@ -68,8 +57,8 @@ export default function Locations() {
             initial={{
               y: -300,
             }}
-            transition={{ duration: 1.2 }}
             whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1.2 }}
             viewport={{ once: true }}             
             className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-2">
             {features.map((feature) => (

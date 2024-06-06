@@ -47,8 +47,8 @@ export default function Newletter() {
                     <motion.p 
                         initial={{ opacity: 0 }}
                         whileInView={{ opacity: 1 }}
-                        transition={{ duration: 6 }}
-                        //   viewport={{ once: true }}
+                        transition={{ duration: 1.2 }}
+                          viewport={{ once: true }}
                         className="inline sm:block lg:inline xl:block">Subscribe for exclusive updates, special offers, and to stay in the loop with all things Beatbike!</motion.p>
                 </div>
                 <form className="w-full max-w-md lg:col-span-5 lg:pt-2">
