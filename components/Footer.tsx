@@ -132,18 +132,20 @@ const navigation = {
                   </ul>
                 </div>
                 <div className={mulish.className}>
-                  <h3 className="text-md font-semibold leading-6 text-white">Account</h3>
-                  <ul role="list" className="mt-6 space-y-4">
-                    {navigation.account.map((item) => (
-                      <li key={item.name}>
-                        <div className={mulish.className}>
-                          <a href={item.href} className="text-sm leading-6 text-gray-300  hover:text-[#DFFF00]">
-                            {item.name}
-                          </a>
-                        </div>
-                      </li>
-                    ))}
-                  </ul>
+                  <div className="mt-10 md:mt-0">
+                      <h3 className="text-md font-semibold leading-6 text-white">Account</h3>
+                        <ul role="list" className="mt-6 space-y-4">
+                          {navigation.account.map((item) => (
+                            <li key={item.name}>
+                              <div className={mulish.className}>
+                                <a href={item.href} className="text-sm leading-6 text-gray-300  hover:text-[#DFFF00]">
+                                  {item.name}
+                                </a>
+                              </div>
+                            </li>
+                          ))}
+                        </ul>
+                    </div>
                 </div>
               </div>
             </div>

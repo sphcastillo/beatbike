@@ -10,16 +10,16 @@ const mulish = Mulish({ subsets: ["latin"] });
 
 function Hero() {
 
-    useEffect(() => {
-        const video = document.createElement('video');
-        video.src = '/Beatbike.mp4';
-        video.preload = 'auto';
-        document.body.appendChild(video);
+    // useEffect(() => {
+    //     const video = document.createElement('video');
+    //     video.src = '/Beatbike.mp4';
+    //     video.preload = 'auto';
+    //     document.body.appendChild(video);
     
-        return () => {
-            document.body.removeChild(video);
-        };
-    }, []);
+    //     return () => {
+    //         document.body.removeChild(video);
+    //     };
+    // }, []);
 
     return (
         <section>
