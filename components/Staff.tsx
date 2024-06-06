@@ -1,5 +1,5 @@
 import Image from "next/image";
-
+import { motion } from 'framer-motion';
 import { Noto_Sans, Comfortaa, Mulish } from "next/font/google";
 
 const notoSans = Noto_Sans({ subsets: ["latin"] });
@@ -14,6 +14,17 @@ import jasmine from "@/images/instructors/jasmine.jpg";
 import suzy from "@/images/instructors/suzy.jpg";
 import { Instructor } from "@/typings";
 
+const fadeInAnimationVariants = {
+  initial: {
+    opacity: 0,
+    y: 100,
+  },
+  animate: {
+    opacity: 1,
+    y: 0,
+  },
+  transition: {type: "spring", stiffness: 100, duration: 4 }
+};
 
 
 const instructors: Instructor[]= [
@@ -79,7 +90,14 @@ const instructors: Instructor[]= [
     return (
       <div className="bg-white py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl lg:mx-0">
+          <motion.div 
+            className="mx-auto max-w-2xl lg:mx-0"
+            variants={fadeInAnimationVariants}
+            initial="initial"
+            whileInView="animate"
+            transition={fadeInAnimationVariants.transition}
+            viewport={{ once: true }}
+          >
             <div className={notoSans.className}>
                 <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Meet Our Ride Leaders: The Beatbike Instructors</h2>
             </div>
@@ -89,7 +107,7 @@ const instructors: Instructor[]= [
                 best results for our clients.
                 </p>
             </div>
-          </div>
+          </motion.div>
           <ul
             role="list"
             className="mx-auto mt-20 grid max-w-2xl grid-cols-2 gap-x-8 gap-y-16 text-center sm:grid-cols-3 md:grid-cols-4 lg:mx-0 lg:max-w-none lg:grid-cols-5 xl:grid-cols-6"

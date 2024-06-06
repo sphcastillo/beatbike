@@ -3,6 +3,7 @@ import beatbikeFriends from "@/images/exploreUs/beatbikeFriendship.jpg";
 import highfive from "@/images/exploreUs/highFive.jpg";
 import Image from 'next/image';
 import { Noto_Sans, Comfortaa, Mulish } from "next/font/google";
+import FAQaccordion from '@/components/FAQaccordion';
 
 const notoSans = Noto_Sans({ subsets: ["latin"] });
 const comfortaa = Comfortaa({ subsets: ["latin"]  });
@@ -73,6 +74,9 @@ export default function Explore() {
             }}
           />
         </div>
+      </div>
+      <div className='bg-white'>
+      <FAQaccordion />
       </div>
     </div>
   )

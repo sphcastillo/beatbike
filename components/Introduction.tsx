@@ -12,6 +12,20 @@ const notoSans = Noto_Sans({ subsets: ["latin"] });
 const comfortaa = Comfortaa({ subsets: ["latin"]  });
 const mulish = Mulish({ subsets: ["latin"] });
 
+const fadeInAnimationVariants = {
+  initial: {
+    opacity: 0,
+    x: 300,
+    scale: 0.5,
+  },
+  animate: {
+    opacity: 1,
+    x: 0,
+    scale: 1
+  },
+  transition: {type: "spring", stiffness: 100, duration: 4 }
+};
+
 export default function Introduction() {
     return (
       <div  className={mulish.className}>
@@ -20,19 +34,11 @@ export default function Introduction() {
             <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-12 gap-y-0 sm:gap-y-16 lg:mx-0 lg:min-w-full lg:max-w-none lg:flex-none lg:gap-y-8">
               <motion.div 
                 className="lg:col-end-1 lg:w-full lg:max-w-lg lg:pb-8"
-                whileInView={{ opacity: 1 }}
+                variants={fadeInAnimationVariants}
+                initial="initial"
+                whileInView="animate"
+                transition={fadeInAnimationVariants.transition}
                 viewport={{ once: true }}
-                initial={{
-                  x: 300,
-                  opacity: 0,
-                  scale: 0.5,
-                }}
-                animate={{
-                    x: 0,
-                    opacity: 1,
-                    scale: 1,
-                }}
-                transition={{ duration: 2 }}
               >
                 <h2 className="text-3xl font-bold tracking-tight text-black">We are Beatbike</h2>
                 <p className="text-md mt-6 sm:text-xl leading-8 text-black">

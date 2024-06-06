@@ -25,6 +25,17 @@ const features = [
   },
 ]
 
+
+const fadeInAnimationVariants = {
+
+  animate: {
+    x: 0,
+    opacity: 1,
+    scale: 1,
+  },
+
+};
+
 export default function Locations() {
   return (
     <div className="bg-[#333333] py-24 sm:py-32">
@@ -53,13 +64,13 @@ export default function Locations() {
           </motion.div>
         </div>
         <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
-          <motion.dl 
+          <motion.dl          
             initial={{
               y: -300,
             }}
             transition={{ duration: 1.2 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}          
+            viewport={{ once: true }}             
             className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-2">
             {features.map((feature) => (
               <div key={feature.name} className="flex-col flex">
