@@ -4,7 +4,7 @@ import highfive from "@/images/exploreUs/highFive.jpg";
 import Image from 'next/image';
 import { Noto_Sans, Comfortaa, Mulish } from "next/font/google";
 import FAQaccordion from '@/components/FAQaccordion';
-import ExploreHeader from '@/components/ExploreHeader';
+import ExploreUsGalleryBanner from '@/components/ExploreUsGalleryBanner';
 
 const notoSans = Noto_Sans({ subsets: ["latin"] });
 const comfortaa = Comfortaa({ subsets: ["latin"]  });
@@ -22,7 +22,9 @@ const benefits = [
 export default function Explore() {
   return (
     <div className="bg-[#333333]">
-      <ExploreHeader />
+      <div className='px-6 max-w-7xl mx-auto'>
+        <ExploreUsGalleryBanner />
+      </div>
       <div className="relative isolate pb-7">
         <div className="mx-auto max-w-7xl pt-8 sm:px-6 lg:px-8">
           <div className="mx-auto flex max-w-2xl flex-col gap-16 bg-white/5 px-6 py-16 ring-1 ring-white/10 sm:rounded-3xl sm:p-8 lg:mx-0 lg:max-w-none lg:flex-row lg:items-center lg:py-20 xl:gap-x-20 xl:px-20">

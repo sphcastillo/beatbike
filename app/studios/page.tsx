@@ -5,16 +5,19 @@ const notoSans = Noto_Sans({ subsets: ["latin"] });
 const comfortaa = Comfortaa({ subsets: ["latin"]  });
 const mulish = Mulish({ subsets: ["latin"] });
 import { motion } from 'framer-motion';
+ 
+import StudioGalleryBanner from "@/components/StudioGalleryBanner";
 
 export default function Studios() {
   return (
-    <div className="bg-white py-24 sm:py-32">
+    <div className="bg-white py-6 sm:py-12">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <StudioGalleryBanner />
         <div className="mx-auto max-w-2xl space-y-16 divide-y divide-gray-100 lg:mx-0 lg:max-w-none">
-          <div className="grid grid-cols-1 gap-x-8 gap-y-10 pt-16 lg:grid-cols-3">
+          <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:gap-y-10 pt-10 sm:pt-16 lg:grid-cols-3">
             <div className={mulish.className}>
               <h2 className="text-3xl font-bold tracking-tight text-gray-900">Locations</h2>
-              <p className="mt-4 leading-7 text-gray-600">
+              <p className="mt-4 leading-7 text-gray-500">
               From the vibrant streets of Southern California, we present two distinct Beatbike sanctuaries, each pulsating with its own energetic vibe. No matter where you call home, there&apos;s a Beatbike locale perfectly suited for your fitness journey.
               </p>
             </div>

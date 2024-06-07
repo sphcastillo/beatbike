@@ -2,7 +2,7 @@ import Team from '@/components/Team';
 
 function Instructors() {
   return (
-    <div>
+    <div className=''>
       <Team />
 
     </div>

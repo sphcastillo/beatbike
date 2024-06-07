@@ -12,7 +12,7 @@ const mulish = Mulish({ subsets: ["latin"] });
 export default function Team() {
   return (
     <div className="bg-white py-24 sm:py-32">
-      <div className="mx-auto max-w-7xl px-6 text-center lg:px-8">
+      <div className="mx-auto max-w-6xl px-6 text-center lg:px-8">
         <div className={mulish.className}>
           <motion.div
             className="mx-auto max-w-2xl"
