@@ -18,8 +18,8 @@ const navigation = {
     ],
     account: [
       { name: 'Sign In', href: '/signin' },
-      { name: 'Terms of Service', href: '#' },
-      { name: 'Privacy Policy', href: '#' },
+      { name: 'Terms of Service', href: 'terms-of-service' },
+      { name: 'Privacy Policy', href: '/privacy-policy' },
     ],
     social: [
       {

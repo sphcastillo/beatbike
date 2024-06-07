@@ -74,7 +74,7 @@ export default function Newletter() {
                     </div>
                     <p className="mt-4 text-sm leading-6 text-gray-300">
                     We care about your data. Read our{' '}
-                    <a href="#" className="font-semibold text-white hover:text-[#DFFF00]">
+                    <a href="/privacy-policy" className="font-semibold text-white hover:text-[#DFFF00]">
                         privacy&nbsp;policy
                     </a>
                     .

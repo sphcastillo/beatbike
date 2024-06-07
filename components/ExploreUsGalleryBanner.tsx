@@ -38,9 +38,9 @@ function ExploreUsGalleryBanner() {
               height={200}
             />
           </div>
-          <div className=" w-full h-40 sm:h-46">
+          <div className=" w-full h-40 sm:h-46 hidden sm:block">
             <Image
-              className="h-full w-full object-cover  rounded-lg "
+              className="h-full w-full object-cover rounded-lg "
               src={ridewithUs}
               alt="Stronger Together"
               width={350}
