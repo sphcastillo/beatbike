@@ -86,12 +86,15 @@ export default function Locations() {
                   </div>
                   <div className={comfortaa.className}>
                     <p className="mt-6 flex justify-center items-center">
-                      <a   
+                      <motion.a   
                         href={feature.href}
                         className="text-sm font-semibold  text-center leading-6 text-[#DFFF00]"
+                        whileHover={{ scale: 1.2 }}
+                        onHoverStart={e => {}}
+                        onHoverEnd={e => {}}
                       >
                         Learn more <span aria-hidden="true">→</span>
-                      </a>
+                      </motion.a>
                     </p>
                   </div>
                 </dd>

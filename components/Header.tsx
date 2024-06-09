@@ -69,15 +69,26 @@ function Header() {
                                     ))}
                                 </div>
                             </div>
-                            <a href="/signin" className="text-sm font-semibold leading-6 text-[#DFFF00] tracking-wider ml-6">
+                            <motion.a 
+                                whileHover={{ scale: 1.2 }}
+                                onHoverStart={e => {}}
+                                onHoverEnd={e => {}}href="/signin" 
+                                className="text-sm font-semibold leading-6 text-[#DFFF00] tracking-wider ml-6"
+                            >
                                 Log in
-                            </a>
+                            </motion.a>
                         </motion.div>
 
                         <div className="flex md:hidden justify-end flex-1">
-                            <a href="/signin" className="text-sm font-semibold leading-6 text-[#DFFF00] tracking-wider ml-6">
+                            <motion.a 
+                                href="/signin"                     
+                                whileHover={{ scale: 1.2 }}
+                                onHoverStart={e => {}}
+                                onHoverEnd={e => {}} 
+                                className="text-sm font-semibold leading-6 text-[#DFFF00] tracking-wider ml-6"
+                            >
                                 Log in
-                            </a>
+                            </motion.a>
                             <button
                                 type="button"
                                 className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-400"

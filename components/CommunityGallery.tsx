@@ -14,7 +14,7 @@ import beatbikeFamily from "@/images/Gallery/beatbikeTeam.jpg";
 
 function CommunityGallery() {
   return (
-    <div className="pt-5">
+    <div className="pt-10 pb-12">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             <div className="grid gap-4">
                 <div>
