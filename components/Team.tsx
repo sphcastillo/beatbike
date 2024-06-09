@@ -4,6 +4,8 @@ import { Noto_Sans, Comfortaa, Mulish } from "next/font/google";
 import { motion } from "framer-motion";
 import { instructors } from "@/data/data";
 import spotifyLogo from "@/images/logo/spotify.png";
+//import {<i class="fa-brands fa-spotify"></i>} 
+import { FaSpotify } from 'react-icons/fa'
 
 const notoSans = Noto_Sans({ subsets: ["latin"] });
 const comfortaa = Comfortaa({ subsets: ["latin"] });
@@ -111,12 +113,7 @@ export default function Team() {
                 <li>
                     <a href={instructor.instagramUrl} className="text-[#DFFF00] hover:text-gray-300" target="_blank" rel="noopener noreferrer">
                       <span className="sr-only">Spotify</span>
-                      <Image
-                        src={spotifyLogo}
-                        alt="Spotify"
-                        width={24}
-                        height={24}
-                      />
+                      <FaSpotify className="h-6 w-6 text-[#DFFF00]" />
                     </a>
                   </li>
               </ul>

@@ -37,7 +37,7 @@ export default function Introduction() {
                 initial="initial"
                 whileInView="animate"
                 transition={fadeInAnimationVariants.transition}
-                viewport={{ once: true }}
+                // viewport={{ once: true }}
               >
                 <h2 className="text-3xl font-bold tracking-tight text-black">We are Beatbike</h2>
                 <p className="text-md mt-6 sm:text-xl leading-8 text-black">

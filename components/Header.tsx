@@ -14,7 +14,7 @@ const navigation = [
     { name: 'Studios', href: '/studios' },
     { name: 'Instructors', href: '/instructors' },
     { name: 'Contact', href: '/contact' },
-  ]
+]
   
 
 function Header() {
@@ -22,7 +22,7 @@ function Header() {
 
     return (
                 <header className="sticky top-0 z-50 bg-black">
-                    <nav className="flex items-center p-6 lg:px-8">
+                    <nav className="flex items-center p-6 lg:px-8" aria-label="Global">
 
                         <motion.div 
                             className="flex lg:flex-1"
@@ -58,10 +58,10 @@ function Header() {
                                 scale: 1,
                             }}
                             transition={{ duration: 1.5 }}
-                            className="hidden lg:flex lg:flex-1 lg:justify-end"
+                            className="hidden md:flex md:flex-1 md:justify-end"
                         >
                             <div className={notoSans.className}>
-                                <div className="hidden lg:flex lg:gap-x-12">
+                                <div className="hidden md:flex md:gap-x-12">
                                     {navigation.map((item) => (
                                     <a key={item.name} href={item.href} className="text-sm font-semibold leading-6 tracking-wider text-white">
                                         {item.name}
@@ -74,14 +74,17 @@ function Header() {
                             </a>
                         </motion.div>
 
-                        <div className="flex lg:hidden justify-end flex-1">
+                        <div className="flex md:hidden justify-end flex-1">
+                            <a href="/signin" className="text-sm font-semibold leading-6 text-[#DFFF00] tracking-wider ml-6">
+                                Log in
+                            </a>
                             <button
                                 type="button"
                                 className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-400"
                                 onClick={() => setMobileMenuOpen(true)}
                             >
                                 <span className="sr-only">Open main menu</span>
-                                <Bars3Icon className="h-6 w-6 text-[#DFFF00]" aria-hidden="true" />
+                                <Bars3Icon className="h-6 w-6 text-[#DFFF00] ml-6" aria-hidden="true" />
                             </button>
                         </div>
                     </nav>
