@@ -10,8 +10,8 @@ const mulish = Mulish({ subsets: ["latin"] });
 export default function SignIn() {
     return (
       <div className="bg-white h-full">
-        <div className="flex min-h-full flex-1 max-w-6xl mx-auto py-[]">
-          <div className="flex flex-1 flex-col justify-center p-[60px] lg:flex-none">
+        <div className="flex min-h-full flex-1 max-w-6xl mx-auto">
+          <div className="flex flex-1 flex-col justify-center p-[12px] sm:p-[60px] lg:flex-none">
             <div className={mulish.className}>
               <div className="mx-auto w-full max-w-sm lg:w-96">
                 <div>

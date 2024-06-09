@@ -57,7 +57,7 @@ const termsOfService = [
 function TermsOfService() {
   return (
     <div className={mulish.className}>
-        <div className=" bg-white pt-7 pb-[68px] px-[72px]">
+        <div className=" bg-white pt-7 pb-[68px] px-[48px] sm:px-[72px]">
           <div className="flex justify-center items-center py-3">
             <h1 className="text-3xl font-bold">Terms Of Service</h1>
           </div>
