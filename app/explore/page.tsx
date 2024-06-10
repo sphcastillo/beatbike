@@ -31,6 +31,7 @@ export default function Explore() {
             <Image
               className="h-96 w-full flex-none rounded-2xl object-cover shadow-xl lg:aspect-square lg:h-auto lg:max-w-sm"
               src={highfive}
+              priority
               alt="Beatbike team at pier"
             />
             <div className="w-full flex-auto">

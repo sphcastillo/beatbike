@@ -50,12 +50,6 @@ const faqs = [
   },
   {
     id: 8,
-    question: "What if I'm running late? Will you still hold my bike?",
-    answer:
-      "Yes! But please note that we release bikes EXACTLY 2 minutes prior to the start of class. If you are running late, give us a call to assure we hold your bike.",
-  },
-  {
-    id: 9,
     question: "What if I schedule a class, and don't cancel?",
     answer:
       "If you do not show to class or call to cancel, a fee of $15 (45 min class booked) or a $10 (30 min class booked) will be charged to your account and the class session will be returned to your account. If you do not have a credit card on file, your class will be forfeited. If you are on an unlimited package and you do not have a card on file, your package will be frozen until you update your card. You can read our full cancellation policy here.",

@@ -46,6 +46,7 @@ export default function Team() {
                 alt="team member"
                 width={192}
                 height={192}
+                priority
               />
               <motion.div
                 className={notoSans.className}
