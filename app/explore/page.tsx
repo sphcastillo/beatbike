@@ -19,7 +19,7 @@ const benefits = [
   'Elevate your fitness journey with empowering sessions that cultivate camaraderie, personal growth, and success.',
 ]
 
-export default function Explore() {
+export default function ExplorePage() {
   return (
     <div className="bg-[#333333]">
       <div className='px-6 max-w-7xl mx-auto'>

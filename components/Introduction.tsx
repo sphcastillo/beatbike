@@ -31,12 +31,12 @@ export default function Introduction() {
         <div className="overflow-hidden bg-white pt-12 sm:pt-24 pb-32 z-200">
           <div className="mx-auto max-w-7xl px-6 lg:flex lg:px-8">
             <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-12 gap-y-0 sm:gap-y-16 lg:mx-0 lg:min-w-full lg:max-w-none lg:flex-none lg:gap-y-8">
-              <motion.div 
+              <div 
                 className="lg:col-end-1 lg:w-full lg:max-w-lg lg:pb-8"
-                variants={fadeInAnimationVariants}
-                initial="initial"
-                whileInView="animate"
-                transition={fadeInAnimationVariants.transition}
+                // variants={fadeInAnimationVariants}
+                // initial="initial"
+                // whileInView="animate"
+                // transition={fadeInAnimationVariants.transition}
                 // viewport={{ once: true }}
               >
                 <h2 className="text-3xl font-bold tracking-tight text-black">We are Beatbike</h2>
@@ -59,7 +59,7 @@ export default function Introduction() {
                     Book a Ride
                   </motion.a>
                 </div>
-              </motion.div>
+              </div>
 
               <div className="z-0 flex flex-wrap items-start sm:justify-end gap-2 mt-8 sm:mt-0 sm:gap-8 lg:contents">
                 <div className="w-0 pl-[78px] flex-auto lg:ml-auto lg:w-auto lg:flex-none lg:self-end">

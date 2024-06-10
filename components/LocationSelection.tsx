@@ -21,31 +21,31 @@ const locations = [
 function LocationSelection() {
   const [selected, setSelected] = useState(locations[0]);
   return (
-    <fieldset className="lg:mt-12">
+    <div className="mt-12 mx-auto w-full">
       <div className={notoSans.className}>
-        <div className="flex text-center justify-center items-center">
-          <label className="text-2xl font-semibold leading-6 text-gray-900 pb-3 text-center">
+        <div className="w-full flex justify-center">
+          <h1 className="text-2xl font-semibold leading-6 text-gray-900 pb-3 text-center">
             Select Your Studio
-          </label>
+          </h1>
         </div>
       </div>
-      <RadioGroup>
+      <RadioGroup className="mt-6 grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-4">
         {locations.map((location) => (
           <Radio
             key={location.id}
             value={location}
-            className="group relative flex cursor-pointer rounded-lg gap-y-8 bg-white/5 py-4 px-5 text-white shadow-md transition focus:outline-none data-[focus]:outline-1 data-[focus]:outline-white data-[checked]:bg-white/10"
+            className="group relative flex cursor-pointer rounded-lg bg-white/5 py-4 px-5 text-black shadow-lg transition focus:outline-none data-[focus]:outline-1 data-[focus]:outline-black data-[checked]:bg-black/10"
           >
             <div className="flex w-full items-center justify-between">
-              <div className="text-sm/6">
-                <p className="font-semibold text-black">{location.title}</p>
+              <div className="text-[15px]">
+                <h5 className="font-semibold text-black">{location.title}</h5>
               </div>
-              <CheckCircleIcon className="size-6 fill-white opacity-0 transition group-data-[checked]:opacity-100" />
+              <CheckCircleIcon className="size-6 fill-[#DFFF00] opacity-0 transition group-data-[checked]:opacity-100" />
             </div>
           </Radio>
         ))}
       </RadioGroup>
-    </fieldset>
+    </div>
   );
 }
 
