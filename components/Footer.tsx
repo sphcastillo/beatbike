@@ -83,7 +83,7 @@ const navigation = {
           <div className="xl:grid xl:grid-cols-3 xl:gap-8">
             <div className="space-y-8">
                 <div className={comfortaa.className}>
-                  <h2 className="text-white text-2xl">Beatbike</h2>
+                  <a href="/" className="text-white text-2xl">Beatbike</a>
                 </div>
                 <div className={notoSans.className}>
                   <h4 className="text-lg leading-6 text-[#DFFF00]">
