@@ -25,13 +25,13 @@ const fadeInAnimationVariants = {
     return (
       <div className="bg-white py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <motion.div 
+          <div 
             className="mx-auto max-w-2xl lg:mx-0"
-            variants={fadeInAnimationVariants}
-            initial="initial"
-            whileInView="animate"
-            transition={fadeInAnimationVariants.transition}
-            viewport={{ once: true }}
+            // variants={fadeInAnimationVariants}
+            // initial="initial"
+            // whileInView="animate"
+            // transition={fadeInAnimationVariants.transition}
+            // viewport={{ once: true }}
           >
             <div className={notoSans.className}>
                 <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Meet Our Ride Leaders: The Beatbike Instructors</h2>
@@ -42,17 +42,17 @@ const fadeInAnimationVariants = {
                 best results for our clients.
                 </p>
             </div>
-          </motion.div>
+          </div>
           <ul
             role="list"
             className="mx-auto mt-20 grid max-w-2xl grid-cols-2 gap-x-8 gap-y-16 text-center sm:grid-cols-3 md:grid-cols-4 lg:mx-0 lg:max-w-none lg:grid-cols-5 xl:grid-cols-6"
           >
             {instructors.map((instructor, i) => (
-              <motion.li 
+              <li 
                 key={i}
-                whileInView={{ rotate: [0, 360] }}
-                transition={{ duration: 2 }}
-                viewport={{ once: true }}
+                // whileInView={{ rotate: [0, 360] }}
+                // transition={{ duration: 2 }}
+                // viewport={{ once: true }}
               >
                 <Image 
                     className="mx-auto h-24 w-24 rounded-full" 
@@ -64,7 +64,7 @@ const fadeInAnimationVariants = {
                 <div className={mulish.className}>
                     <h3 className="mt-6 text-base font-semibold leading-7 tracking-tight text-gray-900">{instructor.name}</h3>
                 </div>
-              </motion.li>
+              </li>
             ))}
           </ul>
         </div>
