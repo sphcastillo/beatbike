@@ -22,7 +22,6 @@ export const instructors: Instructor[]= [
       musicStyle: 'Americana · Folk · Indie',
       imageUrl:
         bailey,
-      xUrl: '#',
       instagramUrl: 'https://www.instagram.com/joey_4pawjay?igsh=OGQ5ZDc2ODk2ZA%3D%3D&utm_source=qr',
     },
     {
@@ -31,7 +30,6 @@ export const instructors: Instructor[]= [
         musicStyle: 'Reggae · Ska · Punk',
         imageUrl:
           amanda,
-        xUrl: '#',
         instagramUrl: 'https://www.instagram.com/joey_4pawjay?igsh=OGQ5ZDc2ODk2ZA%3D%3D&utm_source=qr',
       },
       {
@@ -40,7 +38,6 @@ export const instructors: Instructor[]= [
         musicStyle: 'Hardcore · Fast · Intense',
         imageUrl:
           spencer,
-        xUrl: '#',
         instagramUrl: 'https://www.instagram.com/joey_4pawjay?igsh=OGQ5ZDc2ODk2ZA%3D%3D&utm_source=qr',
       },
       {
@@ -49,7 +46,6 @@ export const instructors: Instructor[]= [
         musicStyle: 'Latin Pop · Reggaeton · Hip Hop',
         imageUrl:
           dana,
-        xUrl: '#',
         instagramUrl: 'https://www.instagram.com/joey_4pawjay?igsh=OGQ5ZDc2ODk2ZA%3D%3D&utm_source=qr',
       },
       {
@@ -58,7 +54,6 @@ export const instructors: Instructor[]= [
         musicStyle: "EDM · Downtempo · Hip Hop",
         imageUrl:
           dylan,
-        xUrl: '#',
         instagramUrl: 'https://www.instagram.com/joey_4pawjay?igsh=OGQ5ZDc2ODk2ZA%3D%3D&utm_source=qr',
       },
       {
@@ -67,7 +62,6 @@ export const instructors: Instructor[]= [
         musicStyle: 'Nostalgic · Indie · Soulful',
         imageUrl:
           beth,
-        xUrl: '#',
         instagramUrl: 'https://www.instagram.com/joey_4pawjay?igsh=OGQ5ZDc2ODk2ZA%3D%3D&utm_source=qr',
       },
       {
@@ -76,7 +70,6 @@ export const instructors: Instructor[]= [
         musicStyle: 'Hip Hop · EDM · Punk',
         imageUrl:
           jasmine,
-        xUrl: '#',
         instagramUrl: 'https://www.instagram.com/joey_4pawjay?igsh=OGQ5ZDc2ODk2ZA%3D%3D&utm_source=qr',
       },
       {
@@ -85,7 +78,6 @@ export const instructors: Instructor[]= [
         musicStyle: 'Synthwave · Eclectic · Indie Pop',
         imageUrl:
           suzy,
-        xUrl: '#',
         instagramUrl: 'https://www.instagram.com/joey_4pawjay?igsh=OGQ5ZDc2ODk2ZA%3D%3D&utm_source=qr',
       },
       {
@@ -94,7 +86,6 @@ export const instructors: Instructor[]= [
         musicStyle: 'Dance pop · Hip Hop · Upbeat',
         imageUrl:
           brian,
-        xUrl: '#',
         instagramUrl: 'https://www.instagram.com/joey_4pawjay?igsh=OGQ5ZDc2ODk2ZA%3D%3D&utm_source=qr',
       },
       {
@@ -103,7 +94,6 @@ export const instructors: Instructor[]= [
         musicStyle: 'Pop · Country · Hiipster',
         imageUrl:
           candis,
-        xUrl: '#',
         instagramUrl: 'https://www.instagram.com/joey_4pawjay?igsh=OGQ5ZDc2ODk2ZA%3D%3D&utm_source=qr',
       },
       {
@@ -112,7 +102,6 @@ export const instructors: Instructor[]= [
         musicStyle: 'Progressive House · Techno · Trance',
         imageUrl:
           grace,
-        xUrl: '#',
         instagramUrl: 'https://www.instagram.com/joey_4pawjay?igsh=OGQ5ZDc2ODk2ZA%3D%3D&utm_source=qr',
       },
       {
@@ -121,7 +110,6 @@ export const instructors: Instructor[]= [
         musicStyle: 'Latin Urban · Reggaeton · Dance Remixes',
         imageUrl:
           valeria,
-        xUrl: '#',
         instagramUrl: 'https://www.instagram.com/joey_4pawjay?igsh=OGQ5ZDc2ODk2ZA%3D%3D&utm_source=qr',
       },
       {
@@ -130,7 +118,6 @@ export const instructors: Instructor[]= [
         musicStyle: 'Rap-fuled · Hip Hop · Mainstream',
         imageUrl:
           joel,
-        xUrl: '#',
         instagramUrl: 'https://www.instagram.com/joey_4pawjay?igsh=OGQ5ZDc2ODk2ZA%3D%3D&utm_source=qr',
       },
       {
@@ -139,7 +126,6 @@ export const instructors: Instructor[]= [
         musicStyle: 'Feel-good · Club-ready · Bangers',
         imageUrl:
           sasha,
-        xUrl: '#',
         instagramUrl: 'https://www.instagram.com/joey_4pawjay?igsh=OGQ5ZDc2ODk2ZA%3D%3D&utm_source=qr',
       },
 

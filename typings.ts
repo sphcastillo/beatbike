@@ -8,5 +8,4 @@ export type Instructor = {
     // bio: string;
     // quote: string;
     // favoriteArtist: string;
-    xUrl: string;
 }
