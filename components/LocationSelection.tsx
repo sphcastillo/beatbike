@@ -11,10 +11,12 @@ const locations = [
   {
     id: 1,
     title: "Tarzana",
+    href: "/tarzana",
   },
   {
     id: 2,
     title: "Huntington Beach",
+    href: "/huntington-beach",
   },
 ];
 
@@ -36,12 +38,12 @@ function LocationSelection() {
             value={location}
             className="group relative flex cursor-pointer rounded-lg bg-white/5 py-4 px-5 text-black shadow-lg transition focus:outline-none data-[focus]:outline-1 data-[focus]:outline-black data-[checked]:bg-black/10"
           >
-            <div className="flex w-full items-center justify-between">
+            <a className="flex w-full items-center justify-between" href={location.href}>
               <div className="text-[15px]">
                 <h5 className="font-semibold text-black">{location.title}</h5>
               </div>
               <CheckCircleIcon className="size-6 fill-[#DFFF00] opacity-0 transition group-data-[checked]:opacity-100" />
-            </div>
+            </a>
           </Radio>
         ))}
       </RadioGroup>

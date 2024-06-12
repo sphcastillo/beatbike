@@ -43,7 +43,7 @@ const InstructorModal: React.FC<InstructorModalProps> = ({
           <div className="bg-gray-50 px-4 pt-3 sm:px-6 flex justify-end">
             <button
               type="button"
-              className="mt-3 rounded-md border border-transparent shadow-sm px-4 py-2 bg-[#DFFF00] text-base font-medium text-gray-900 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm cursor-pointer"
+              className="cursor-pointer rounded-md bg-[#DFFF00] px-3.5 py-2.5 text-sm z-100 font-semibold shadow-sm hover:bg-[#B0DB00] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
               onClick={onClose}
             >
               <IoClose className="h-4 w-4" />
@@ -53,7 +53,7 @@ const InstructorModal: React.FC<InstructorModalProps> = ({
             <div className="flex flex-col items-center bg-gray-50  md:max-w-xl ">
               <div className="order-1 md:order-none flex justify-center items-center mx-4 w-full">
                 <Image
-                  className="object-cover px-[15px] py-5 sm:h-96 w-full md:py-5 sm:px-[54px] "
+                  className="object-cover px-[16px] py-5 sm:h-94 w-full md:py-5 sm:px-[54px] "
                   src={instructor.imageUrl}
                   priority
                   alt="Instructor Profile Image"
@@ -67,8 +67,7 @@ const InstructorModal: React.FC<InstructorModalProps> = ({
                   </h5>
                 </div>
                 <ul role="list" className="my-3 flex justify-center gap-x-6">
-                  <li
-                  >
+                  <li className="">
                     <a
                       href={instructor.instagramUrl}
                       className="text-[#DFFF00] hover:text-[#B0DB00]"
@@ -98,30 +97,29 @@ const InstructorModal: React.FC<InstructorModalProps> = ({
                         <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
                         <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
                       </svg>
-
                     </a>
                   </li>
                   <li>
                     <a
                       href={instructor.instagramUrl}
-                      className="text-[#DFFF00] hover:text-gray-300"
+                      className="text-[#DFFF00] hover:text-[#B0DB00]"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
                       <span className="sr-only">Spotify</span>
-                      <FaSpotify className="h-6 w-6 text-[#DFFF00]" />
+                      <FaSpotify className="h-6 w-6 text-[#DFFF00] hover:text-[#B0DB00]" />
                     </a>
                   </li>
                 </ul>
                 <div className={mulish.className}>
-                  <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
+                  <p className="mb-3 text-sm text-center text-gray-700 dark:text-gray-400">
                     {instructor.quote}
                   </p>
                 </div>
 
-                <div className="">
+                <div className={mulish.className}>
                   <h3
-                    className="text-lg leading-6 font-medium text-gray-900"
+                    className="text-md leading-6 font-medium text-gray-900"
                     id="modal-title"
                   >
                     Teaches at:
@@ -145,9 +143,9 @@ const InstructorModal: React.FC<InstructorModalProps> = ({
                     </p>
                   </div>
                 </div>
-                <div className="">
+                <div className={mulish.className}>
                   <h3
-                    className="text-lg leading-6 font-medium text-gray-900"
+                    className="text-md leading-6 font-medium text-gray-900"
                     id="modal-title"
                   >
                     Favorite Artist:
@@ -158,16 +156,20 @@ const InstructorModal: React.FC<InstructorModalProps> = ({
                     </p>
                   </div>
                 </div>
-                <div className="my-3">
-                  <h3 className="text-sm text-gray-900 leading-relaxed">{instructor.bio}</h3>
+                <div className={mulish.className}>
+                  <h3 className="text-sm text-gray-900 leading-relaxed my-4">
+                    {instructor.bio}
+                  </h3>
                 </div>
               </div>
             </div>
             <div className="flex justify-center mt-2 mb-4">
-    <button className="px-6 py-2 text-gray-900 bg-[#DFFF00] rounded-lg hover:bg-blue-700">
-      View Schedule
-    </button>
-  </div>
+              <div className={notoSans.className}>
+                <button className="cursor-pointer rounded-md bg-[#DFFF00] px-3.5 py-2.5 text-sm z-100 font-semibold shadow-sm hover:bg-[#B0DB00] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                  View Schedule
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>

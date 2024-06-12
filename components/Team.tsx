@@ -36,7 +36,7 @@ export default function Team() {
     setModalOpen(true);
   };
   return (
-    <div className="bg-white py-24 sm:py-32">
+    <div className="bg-white pt-12 pb-24 sm:pt-20 sm:pb-32">
       <div className="mx-auto max-w-6xl px-6 text-center lg:px-8">
         <div className={mulish.className}>
           <motion.div
@@ -59,7 +59,7 @@ export default function Team() {
         </div>
         <ul
           role="list"
-          className="mx-auto mt-20 grid max-w-2xl grid-cols-2 gap-6 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3 lg:gap-8"
+          className="mx-auto mt-10 grid max-w-2xl grid-cols-2 gap-6 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3 lg:gap-8"
         >
           {instructors.map((instructor, index) => (
             
@@ -154,7 +154,7 @@ export default function Team() {
                       rel="noopener noreferrer"
                     >
                       <span className="sr-only">Spotify</span>
-                      <FaSpotify className="h-6 w-6 text-[#DFFF00]" />
+                      <FaSpotify className="h-6 w-6 text-[#DFFF00] hover:text-[#B0DB00]" />
                     </a>
                   </li>
                 </ul>
