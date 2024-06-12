@@ -102,7 +102,7 @@ const InstructorModal: React.FC<InstructorModalProps> = ({
                     >
                       <span className="sr-only">Spotify</span>
                       <FaSpotify className="h-6 w-6 text-[#DFFF00] hover:text-[#B0DB00]" />
-                      <div className="pl-3 text-[15px] text-gray-600 hover:text-[#B0DB00]">Listen to this instructor's playlist</div>
+                      <div className="pl-3 text-[15px] text-gray-600 hover:text-[#B0DB00]">Listen to this instructor&apos;s playlist</div>
                     </a>
                   </div>
                 </div>
