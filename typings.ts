@@ -4,8 +4,10 @@ export type Instructor = {
     imageUrl: any;
     instagramUrl: string;
     musicStyle: string;
-    // spotifyUrl: string;
-    // bio: string;
-    // quote: string;
-    // favoriteArtist: string;
+    location1 : string;
+    location2: string | null;
+    spotifyUrl: string;
+    bio: string;
+    quote: string;
+    favoriteArtist: string;
 }

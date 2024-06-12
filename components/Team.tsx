@@ -5,7 +5,6 @@ import { motion } from "framer-motion";
 import { instructors } from "@/data/data";
 import { FaSpotify } from "react-icons/fa";
 import { useState } from "react";
-import Link from "next/link";
 import InstructorModal from "./InstructorModal";
 import { Instructor as InstructorType } from "@/typings";
 
@@ -19,6 +18,12 @@ export interface Instructor {
   imageUrl: any;
   instagramUrl: string;
   musicStyle: string;
+  location1 : string;
+  location2: string | null;
+  spotifyUrl: string;
+  bio: string;
+  quote: string;
+  favoriteArtist: string;
 
 }
 
@@ -59,7 +64,7 @@ export default function Team() {
           {instructors.map((instructor, index) => (
             
             <li
-              className="rounded-2xl bg-[#797878] px-8 py-10"
+              className="rounded-2xl bg-[#797878] px-8 py-10 cursor-pointer"
               onClick={() => handleInstructorClick(instructor)}
               key={index}
             >

@@ -54,6 +54,27 @@ const mulish = Mulish({ subsets: ["latin"] });
                 <div className={mulish.className}>
                     <h3 className="mt-6 text-base font-semibold leading-7 tracking-tight text-gray-900">{instructor.name}</h3>
                 </div>
+
+                {/* <div className={mulish.className}>
+                  <div className="my-2">
+                    <p className="text-sm text-gray-500">
+                      {instructor.location1}
+
+                      {instructor.location2 !== null && (
+                        <>
+                          <svg
+                            viewBox="0 0 2 2"
+                            className="mx-2 inline h-0.5 w-0.5 fill-current"
+                            aria-hidden="true"
+                          >
+                            <circle cx={1} cy={1} r={1} />
+                          </svg>
+                          {instructor.location2}
+                        </>
+                      )}
+                    </p>
+                  </div>
+                </div> */}
               </motion.li>
             ))}
           </ul>

@@ -1,7 +1,8 @@
 import { Instructor } from "@/typings";
 import Image from "next/image";
 import { Noto_Sans, Comfortaa, Mulish } from "next/font/google";
-
+import { IoClose } from "react-icons/io5";
+import { FaSpotify } from "react-icons/fa";
 const notoSans = Noto_Sans({ subsets: ["latin"] });
 const comfortaa = Comfortaa({ subsets: ["latin"] });
 const mulish = Mulish({ subsets: ["latin"] });
@@ -38,68 +39,136 @@ const InstructorModal: React.FC<InstructorModalProps> = ({
           &#8203;
         </span>
 
-        <div className="inline-block align-bottom bg-gray-50 rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
+        <div className="z-80 mt-[100px] overflow-y-auto inline-block align-bottom bg-gray-50 rounded-lg text-left overflow-hidden shadow-xl transform transition-all mb-8 sm:mb-16 sm:align-middle sm:max-w-lg sm:w-full">
+          <div className="bg-gray-50 px-4 pt-3 sm:px-6 flex justify-end">
+            <button
+              type="button"
+              className="mt-3 rounded-md border border-transparent shadow-sm px-4 py-2 bg-[#DFFF00] text-base font-medium text-gray-900 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm cursor-pointer"
+              onClick={onClose}
+            >
+              <IoClose className="h-4 w-4" />
+            </button>
+          </div>
           <div>
-            <div className="flex flex-row items-center bg-gray-50 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
-              <div className="flex justify-center items-center mx-4 w-1/3">
+            <div className="flex flex-col items-center bg-gray-50  md:max-w-xl ">
+              <div className="order-1 md:order-none flex justify-center items-center mx-4 w-full">
                 <Image
-                  className="object-cover w-24 h-96 md:h-auto md:w-24 md:rounded-none "
+                  className="object-cover px-[15px] py-5 sm:h-96 w-full md:py-5 sm:px-[54px] "
                   src={instructor.imageUrl}
-                  alt=""
+                  priority
+                  alt="Instructor Profile Image"
                 />
               </div>
 
-              <div className="flex flex-col justify-between p-4 leading-normal w-2/3">
+              <div className="order-2 md:order-none flex flex-col justify-between p-4 leading-normal w-full">
                 <div className={notoSans.className}>
-                  <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                  <h5 className="text-center mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                     {instructor.name}
                   </h5>
                 </div>
+                <ul role="list" className="my-3 flex justify-center gap-x-6">
+                  <li
+                  >
+                    <a
+                      href={instructor.instagramUrl}
+                      className="text-[#DFFF00] hover:text-[#B0DB00]"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className="lucide lucide-instagram"
+                      >
+                        <rect
+                          width="20"
+                          height="20"
+                          x="2"
+                          y="2"
+                          rx="5"
+                          ry="5"
+                        />
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                        <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+                      </svg>
+
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href={instructor.instagramUrl}
+                      className="text-[#DFFF00] hover:text-gray-300"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <span className="sr-only">Spotify</span>
+                      <FaSpotify className="h-6 w-6 text-[#DFFF00]" />
+                    </a>
+                  </li>
+                </ul>
                 <div className={mulish.className}>
                   <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
-                    {instructor.musicStyle}
+                    {instructor.quote}
                   </p>
                 </div>
 
-                <div className="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
-              <button
-                type="button"
-                className="mt-3 w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-[#DFFF00] text-base font-medium text-gray-900 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
-                onClick={onClose}
-              >
-                Close
-              </button>
+                <div className="">
+                  <h3
+                    className="text-lg leading-6 font-medium text-gray-900"
+                    id="modal-title"
+                  >
+                    Teaches at:
+                  </h3>
+                  <div className="my-2">
+                    <p className="text-sm text-gray-500">
+                      {instructor.location1}
+
+                      {instructor.location2 !== null && (
+                        <>
+                          <svg
+                            viewBox="0 0 2 2"
+                            className="mx-2 inline h-0.5 w-0.5 fill-current"
+                            aria-hidden="true"
+                          >
+                            <circle cx={1} cy={1} r={1} />
+                          </svg>
+                          {instructor.location2}
+                        </>
+                      )}
+                    </p>
+                  </div>
+                </div>
+                <div className="">
+                  <h3
+                    className="text-lg leading-6 font-medium text-gray-900"
+                    id="modal-title"
+                  >
+                    Favorite Artist:
+                  </h3>
+                  <div className="mt-2">
+                    <p className="text-sm text-gray-500">
+                      {instructor.favoriteArtist}
+                    </p>
+                  </div>
+                </div>
+                <div className="my-3">
+                  <h3 className="text-sm text-gray-900 leading-relaxed">{instructor.bio}</h3>
+                </div>
               </div>
             </div>
-
-            </div>
+            <div className="flex justify-center mt-2 mb-4">
+    <button className="px-6 py-2 text-gray-900 bg-[#DFFF00] rounded-lg hover:bg-blue-700">
+      View Schedule
+    </button>
+  </div>
           </div>
-          {/* <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
-            <div className="sm:flex sm:items-start">
-              <div className="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
-                <h3
-                  className="text-lg leading-6 font-medium text-gray-900"
-                  id="modal-title"
-                >
-                  {instructor.name}
-                </h3>
-                <div className="mt-2">
-                  <p className="text-sm text-gray-500">
-                    Music Style: {instructor.musicStyle}
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div> */}
-          {/* <div className="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
-            <button
-              type="button"
-              className="mt-3 w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-blue-600 text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
-              onClick={onClose}
-            >
-              Close
-            </button>
-          </div> */}
         </div>
       </div>
     </div>
