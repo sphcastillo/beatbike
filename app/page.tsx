@@ -6,7 +6,6 @@ import Newletter from "@/components/Newsletter";
 import CommunityGallery from "@/components/CommunityGallery";
 
 export default function Home() {
-
     return (
       <main className="">
         <Hero />
