@@ -36,7 +36,7 @@ export default function Team() {
     setModalOpen(true);
   };
   return (
-    <div className="bg-white pt-12 pb-24 sm:pt-20 sm:pb-32">
+    <div className="bg-white pt-2 pb-24 sm:pt-12 sm:pb-32">
       <div className="mx-auto max-w-6xl px-6 text-center lg:px-8">
         <div className={mulish.className}>
           <motion.div

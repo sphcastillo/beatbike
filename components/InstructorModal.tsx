@@ -66,53 +66,49 @@ const InstructorModal: React.FC<InstructorModalProps> = ({
                     {instructor.name}
                   </h5>
                 </div>
-                <ul role="list" className="my-3 flex justify-center gap-x-6">
-                  <li className="">
-                    <a
-                      href={instructor.instagramUrl}
-                      className="text-[#DFFF00] hover:text-[#B0DB00]"
-                      target="_blank"
-                      rel="noopener noreferrer"
+                <div className="flex justify-center items-center">
+                  <a
+                    href={instructor.instagramUrl}
+                    className="text-[#DFFF00] hover:text-[#B0DB00]"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="28"
+                      height="28"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="lucide lucide-instagram"
                     >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        className="lucide lucide-instagram"
-                      >
-                        <rect
-                          width="20"
-                          height="20"
-                          x="2"
-                          y="2"
-                          rx="5"
-                          ry="5"
-                        />
-                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-                        <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
-                      </svg>
-                    </a>
-                  </li>
-                  <li>
+                      <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                      <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+                    </svg>
+                  </a>
+                </div>
+
+                <div className={mulish.className}>
+                  <div className="flex justify-center py-4">
                     <a
                       href={instructor.instagramUrl}
-                      className="text-[#DFFF00] hover:text-[#B0DB00]"
+                      className="flex"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
                       <span className="sr-only">Spotify</span>
                       <FaSpotify className="h-6 w-6 text-[#DFFF00] hover:text-[#B0DB00]" />
+                      <div className="pl-3 text-[15px] text-gray-600 hover:text-[#B0DB00]">Listen to this instructor's playlist</div>
                     </a>
-                  </li>
-                </ul>
+                  </div>
+                </div>
+
                 <div className={mulish.className}>
-                  <p className="mb-3 text-sm text-center text-gray-700 dark:text-gray-400">
+                  <p className="mb-3 mt-1 text-sm text-center text-gray-700 dark:text-gray-400">
                     {instructor.quote}
                   </p>
                 </div>
@@ -163,7 +159,7 @@ const InstructorModal: React.FC<InstructorModalProps> = ({
                 </div>
               </div>
             </div>
-            <div className="flex justify-center mt-2 mb-4">
+            <div className="flex justify-center mt-2 mb-6">
               <div className={notoSans.className}>
                 <button className="cursor-pointer rounded-md bg-[#DFFF00] px-3.5 py-2.5 text-sm z-100 font-semibold shadow-sm hover:bg-[#B0DB00] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                   View Schedule

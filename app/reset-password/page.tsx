@@ -11,8 +11,9 @@ const mulish = Mulish({ subsets: ["latin"] });
 
 function ResetPasswordPage() {
   const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   return (
-    <div className="mt-8 mb-12">
+    <div className="mt-8 mb-[72px]">
       <div>
         <Image
           className="mx-auto h-[65px] w-auto"
@@ -23,11 +24,11 @@ function ResetPasswordPage() {
         />
       </div>
       <div className={notoSans.className}>
-        <div className="flex justify-center items-center pt-4">
+        <div className="flex justify-center items-center pt-6">
           <h1 className="font-bold text-3xl">Reset Password</h1>
         </div>
         <div className={mulish.className}>
-          <div className="flex justify-center items-center pb-8 pt-3">
+          <div className="flex justify-center items-center pb-8 pt-5">
             <h1 className="font-semibold text-lg">
             Enter a new password:
             </h1>
@@ -37,7 +38,7 @@ function ResetPasswordPage() {
           <div className="relative">
             <input
               type={showPassword ? "text" : "password"}
-              className="border px-4 py-2"
+              className="block w-full rounded-md border-0 py-1.5 pl-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#DFFF00] sm:text-sm sm:leading-6"
             />
             <button
               type="button"
@@ -57,14 +58,14 @@ function ResetPasswordPage() {
           <div className="relative">
             <input
               type={showPassword ? "text" : "password"}
-              className="border px-4 py-2"
+              className="block w-full rounded-md border-0 py-1.5 pl-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#DFFF00] sm:text-sm sm:leading-6"
             />
             <button
               type="button"
               className="absolute right-2 top-3"
-              onClick={() => setShowPassword(!showPassword)}
+              onClick={() => setShowConfirmPassword(!showConfirmPassword)}
             >
-              {showPassword ? (
+              {showConfirmPassword ? (
                 <FaRegEyeSlash width={6} height={6} />
               ) : (
                 <FaEye width={6} height={6} />

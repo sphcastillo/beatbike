@@ -8,7 +8,7 @@ const mulish = Mulish({ subsets: ["latin"] });
 
 function ForgotPasswordPage() {
   return (
-    <div className="my-8">
+    <div className="mt-8 mb-[72px]">
       <div>
         <Image
           className="mx-auto h-[65px] w-auto"
@@ -19,12 +19,12 @@ function ForgotPasswordPage() {
         />
       </div>
       <div className={notoSans.className}>
-        <div className="flex justify-center items-center pt-4">
+        <div className="flex justify-center items-center pt-6">
           <h1 className="font-bold text-3xl">Forgot Password</h1>
         </div>
         <div className={mulish.className}>
-          <div className="flex justify-center items-center pb-8 pt-3">
-            <h1 className="font-semibold text-lg">
+          <div className="flex justify-center items-center pb-8 pt-5">
+            <h1 className="font-semibold text-lg text-center text-pretty">
               Please enter your email address below. We will send you an email
               to reset your password.
             </h1>
@@ -38,7 +38,7 @@ function ForgotPasswordPage() {
             type="email"
             name="email"
             id="email"
-            className="block rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+            className="block rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset  focus:ring-[#DFFF00] sm:text-sm sm:leading-6"
             placeholder="you@example.com"
           />
         </div>
