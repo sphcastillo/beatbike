@@ -1,39 +1,31 @@
-import mongoose, { Document, Schema, models, model } from 'mongoose';
+import mongoose, { Document, Schema, models, model, Model } from 'mongoose';
 import connectDB from '../db';
 
-export interface BeatbikeSubscriber extends Document{
+export interface IBeatbikeSubscriber extends Document{
     email: string;
     createdAt: Date;
 }
 
 
-const beatbikeSubscriberSchema =  new mongoose.Schema<BeatbikeSubscriber>({
-    email: {
-        type: String,
-        required: true,
-    },
-    createdAt: {
-        type: Date,
-        default: Date.now,
+const beatbikeSubscriberSchema = new Schema<IBeatbikeSubscriber>(
+    {
+        email: {
+            type: String,
+            required: true,
+        },
+        createdAt: {
+            type: Date,
+            default: Date.now,
+        }
     }
-});
+);
 
-const BeatbikeSubscriberModel = mongoose.model("BeatbikeSubscriber", beatbikeSubscriberSchema);
+export const BeatbikeSubscriberModel = (models.BeatbikeSubscriber)|| mongoose.model("BeatbikeSubscriber", beatbikeSubscriberSchema);
 
-// const BeatbikeSubscriberModel = models.BeatbikeSubscriber || model<BeatbikeSubscriber>(
-//     "BeatbikeSubscriber",
-//     beatbikeSubscriberSchema
-// )
-
-if (!BeatbikeSubscriberModel) {
-    console.log("BeatbikeSubscriberModel is undefined");
-} else {
-    console.log("BeatbikeSubscriberModel is defined");
-}
 
 
 // Function to add a Beatbike subscriber to the database
-export async function addBeatbikeSubscriber(email: string): Promise<BeatbikeSubscriber>{
+export async function addBeatbikeSubscriber(email: string): Promise<IBeatbikeSubscriber>{
     await connectDB();
 
     try {
@@ -52,7 +44,7 @@ export async function addBeatbikeSubscriber(email: string): Promise<BeatbikeSubs
 }
 
 // Function to fetch all subscribers from the database
-export async function fetchBeatbikeSubscribers(): Promise<BeatbikeSubscriber[]>{
+export async function fetchBeatbikeSubscribers(): Promise<IBeatbikeSubscriber[]>{
     await connectDB();
 
     try {

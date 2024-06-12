@@ -3,9 +3,9 @@ import { fetchBeatbikeSubscribers } from "@/mongodb/models/BeatbikeSubscriber";
 
 
 export default async function NewsletterForm() {
-  const beatbikeSubscribers = await fetchBeatbikeSubscribers();
+  // const beatbikeSubscribers = await fetchBeatbikeSubscribers();
 
-  console.log("Beatbike subscribers: ", beatbikeSubscribers);
+  // console.log("Beatbike subscribers: ", beatbikeSubscribers);
 
   return (
     <form 
