@@ -97,4 +97,3 @@ function FAQaccordion() {
 }
 
 export default FAQaccordion;
-

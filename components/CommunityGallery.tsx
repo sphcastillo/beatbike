@@ -14,10 +14,10 @@ import beatbikeFamily from "@/images/Gallery/beatbikeTeam.jpg";
 
 function CommunityGallery() {
   return (
-    <div className="pt-10 pb-12">
+    <div className="pt-10 pb-12 mx-auto px-2">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             <div className="grid gap-4">
-                <div>
+                <div className="flex justify-center items-center">
                     <Image 
                         className="h-auto max-w-full rounded-lg" 
                         src={getYourBikeNow}
@@ -26,7 +26,7 @@ function CommunityGallery() {
                         height={600}
                     />
                 </div>
-                <div>
+                <div className="flex justify-center items-center">
                     <Image  
                         className="h-auto max-w-full rounded-lg" 
                         src={beatbikeHitsHB} 
@@ -35,7 +35,7 @@ function CommunityGallery() {
                         height={300}
                     />
                 </div>
-                <div>
+                <div className="flex justify-center items-center">
                     <Image  
                         className="h-auto max-w-full rounded-lg" 
                         src={brianWearingBeatbike}
@@ -46,7 +46,7 @@ function CommunityGallery() {
                 </div>
             </div>
             <div className="grid gap-4">
-                <div>
+                <div className="flex justify-center items-center">
                     <Image  
                         className="h-auto max-w-full rounded-lg" 
                         src={getExcitedForMerch} 
@@ -55,7 +55,7 @@ function CommunityGallery() {
                         height={545}
                     />
                 </div>
-                <div>
+                <div className="flex justify-center items-center">
                     <Image  
                         className="h-auto max-w-full rounded-lg" 
                         src={Hydrate}
@@ -64,7 +64,7 @@ function CommunityGallery() {
                         height={600}
                     />
                 </div>
-                <div>
+                <div className="flex justify-center items-center">
                     <Image  
                         className="h-auto max-w-full rounded-lg" 
                         src={shoeRentalshere} 
@@ -75,7 +75,7 @@ function CommunityGallery() {
                 </div>
             </div>
             <div className="grid gap-4">
-                <div>
+                <div className="flex justify-center items-center">
                     <Image  
                         className="h-auto max-w-full rounded-lg" 
                         src={settingUp} 
@@ -84,7 +84,7 @@ function CommunityGallery() {
                         height={600}
                     />
                 </div>
-                <div>
+                <div className="flex justify-center items-center">
                     <Image  
                         className="h-auto max-w-full rounded-lg" 
                         src={beatbikeFamily} 
@@ -93,7 +93,7 @@ function CommunityGallery() {
                         height={300}
                     />
                 </div>
-                <div>
+                <div className="flex justify-center items-center">
                     <Image  
                         className="h-auto max-w-full rounded-lg" 
                         src={frontDesk}
@@ -104,7 +104,7 @@ function CommunityGallery() {
                 </div>
             </div>
             <div className="grid gap-4">
-                <div>
+                <div className="flex justify-center items-center">
                     <Image  
                         className="h-auto max-w-full rounded-lg" 
                         src={dreamBeatbikeduo}
@@ -113,7 +113,7 @@ function CommunityGallery() {
                         height={650}
                     />
                 </div>
-                <div>
+                <div className="flex justify-center items-center">
                     <Image  
                         className="h-auto max-w-full rounded-lg" 
                         src={celebrateBeatbike}
@@ -122,7 +122,7 @@ function CommunityGallery() {
                         height={600}
                     />
                 </div>
-                <div>
+                <div className="flex justify-center items-center">
                     <Image  
                         className="h-auto max-w-full rounded-lg" 
                         src={bikesAplenty}
