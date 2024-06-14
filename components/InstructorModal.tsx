@@ -2,7 +2,7 @@ import { Instructor } from "@/typings";
 import Image from "next/image";
 import { IoClose } from "react-icons/io5";
 import { FaSpotify } from "react-icons/fa";
-import { notoSans, comfortaa, mulish } from "@/app/fonts";
+import { notoSans, mulish } from "@/app/fonts";
 
 interface InstructorModalProps {
   instructor: Instructor | null;

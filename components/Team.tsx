@@ -26,6 +26,7 @@ export interface Instructor {
 export default function Team() {
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedInstructor, setSelectedInstructor] = useState<Instructor | null>(null);
+  const [isOptimized, setIsOptimized] = useState(true);
 
   const handleInstructorClick = (instructor: Instructor) => {
     setSelectedInstructor(instructor);
@@ -71,6 +72,8 @@ export default function Team() {
                   width={192}
                   height={192}
                   priority
+                  unoptimized={!isOptimized}
+                  onError={() => setIsOptimized(false)}
                 />
                 <motion.div
                   className={notoSans.className}

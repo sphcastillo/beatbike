@@ -3,8 +3,10 @@ import Image from "next/image";
 import { motion } from 'framer-motion';
 import { instructors } from "@/data/data";
 import { notoSans, mulish } from "@/app/fonts";
+import { useState } from "react";
 
   export default function Staff() {
+    const [isOptimized, setIsOptimized] = useState(true);
 
     return (
       <div className="bg-white py-24 sm:py-32">
@@ -45,6 +47,9 @@ import { notoSans, mulish } from "@/app/fonts";
                     alt="Staff member" 
                     width={500}
                     height={500}
+                    priority
+                    unoptimized={!isOptimized}
+                    onError={() => setIsOptimized(false)}
                 />
                 <div className={mulish.className}>
                     <h3 className="mt-6 text-base font-semibold leading-7 tracking-tight text-gray-900">{instructor.name}</h3>

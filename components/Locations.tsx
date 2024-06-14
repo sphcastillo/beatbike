@@ -4,6 +4,7 @@ import hbStudio from "@/images/studios/hbStudio.png";
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { comfortaa, mulish } from "@/app/fonts";
+import { useState } from "react";
 
 const features = [
   {
@@ -24,6 +25,7 @@ const features = [
 
 
 export default function Locations() {
+  const [isOptimized, setIsOptimized] = useState(true);
   return (
     <div className="bg-[#333333] py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -69,6 +71,8 @@ export default function Locations() {
                     src={feature.studioImage} 
                     alt="" 
                     className='aspect-[3/2] w-3/5 rounded-2xl object-cover'
+                    unoptimized={!isOptimized}
+                    onError={() => setIsOptimized(false)}
                   />
                 </div>
                 <div className={comfortaa.className}>

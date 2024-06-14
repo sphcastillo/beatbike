@@ -8,6 +8,8 @@ import { FaEye, FaRegEyeSlash } from "react-icons/fa";
 function ResetPasswordPage() {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [isOptimized, setIsOptimized] = useState(true);
+  
   return (
     <div className="mt-8 mb-[72px]">
       <div>
@@ -17,6 +19,8 @@ function ResetPasswordPage() {
           alt="Beatbike Logo"
           width={55}
           height={55}
+          unoptimized={!isOptimized}
+          onError={() => setIsOptimized(false)}
         />
       </div>
       <div className={notoSans.className}>

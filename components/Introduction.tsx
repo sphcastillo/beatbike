@@ -6,6 +6,7 @@ import beatbikeFans from '@/images/homepage/beatbikeFans.jpg';
 import happyRider from "@/images/homepage/happyRider.jpg";
 import { motion } from 'framer-motion';
 import { mulish } from "@/app/fonts";
+import { useState } from "react";
 
 const fadeInAnimationVariants = {
   initial: {
@@ -22,6 +23,7 @@ const fadeInAnimationVariants = {
 };
 
 export default function Introduction() {
+  const [isOptimized, setIsOptimized] = useState(true);
     return (
       <div  className={mulish.className}>
         <div className="overflow-hidden bg-white pt-12 sm:pt-24 pb-32 z-200">
@@ -61,30 +63,38 @@ export default function Introduction() {
                 <div className="w-0 pl-[78px] flex-auto lg:ml-auto lg:w-auto lg:flex-none lg:self-end">
                   <Image
                     src={beatbikeFans}
-                    alt=""
+                    alt="Beatbike Fans"
                     className="aspect-[7/5] w-[18rem] sm:w-[28rem] md:w-[34rem] max-w-none rounded-2xl bg-gray-50 object-cover"
+                    unoptimized={!isOptimized}
+                    onError={() => setIsOptimized(false)}
                   />
                 </div>
                 <div className="contents lg:col-span-2 lg:col-end-2 lg:ml-auto lg:flex lg:w-[37rem] lg:items-start lg:justify-end lg:gap-x-8">
                   <div className="sm:order-first flex w-64 flex-none justify-end self-end lg:w-auto">
                     <Image
                       src={studioLife}
-                      alt=""
+                      alt="Studio Life"
                       className="aspect-[5/6] hidden sm:block sm:w-[24rem] max-w-none flex-none rounded-2xl bg-gray-50 object-cover"
+                      unoptimized={!isOptimized}
+                      onError={() => setIsOptimized(false)}
                     />
                   </div>
                   <div className="flex w-96 pt-3 sm:pt-0 flex-auto justify-center sm:justify-end lg:w-auto lg:flex-none">
                     <Image
                       src={weAreBeatbike}
-                      alt=""
+                      alt="We are Beatbike!"
                       className="aspect-[7/5] w-[24rem] sm:w-[37rem] max-w-none flex-none rounded-2xl bg-gray-50 object-cover"
+                      unoptimized={!isOptimized}
+                      onError={() => setIsOptimized(false)}
                     />
                   </div>
                   <div className="hidden sm:block sm:flex-auto lg:w-auto lg:flex-none">
                     <Image
                       src={happyRider}
-                      alt=""
+                      alt="Happy Rider"
                       className="aspect-[4/3] w-[24rem] max-w-none rounded-2xl bg-gray-50 object-cover"
+                      unoptimized={!isOptimized}
+                      onError={() => setIsOptimized(false)}
                     />
                   </div>
                 </div>
