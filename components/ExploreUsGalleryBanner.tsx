@@ -1,5 +1,4 @@
 import Image from "next/image";
-import highFive from "@/images/exploreUs/highFive.jpg";
 import Beatbike from "@/images/exploreUs/beatbikeWallpaper.jpeg";
 import dreamteam from "@/images/exploreUs/theBeatbikeDreamTeam.jpg";
 import ridewithUs from "@/images/exploreUs/RideWithUs.jpg";

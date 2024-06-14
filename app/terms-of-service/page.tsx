@@ -1,5 +1,4 @@
-import { Mulish } from "next/font/google";
-const mulish = Mulish({ subsets: ["latin"] });
+import { mulish } from "@/app/fonts";
 
 const termsOfService = [
   {

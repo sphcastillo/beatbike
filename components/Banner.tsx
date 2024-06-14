@@ -1,9 +1,7 @@
 "use client";
 import { XMarkIcon } from "@heroicons/react/20/solid";
-import { Mulish } from "next/font/google";
 import { useState } from "react";
-
-const mulish = Mulish({ subsets: ["latin"] });
+import {  mulish } from "@/app/fonts";
 
 export default function Banner() {
   const [isVisible, setIsVisible] = useState(true);

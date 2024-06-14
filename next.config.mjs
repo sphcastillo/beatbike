@@ -1,9 +1,14 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     reactStrictMode: true,
-    // webpack: config => {
-    //     config.resolve.fallback = { fs: false, net: false, tls: false };
-    //     config.externals.push('pino-pretty', 'lokijs', 'encoding', { 'node-gyp-build': 'commonjs node-gyp-build' });
+    // experimental: {
+    //     esmExternals: "loose", 
+    //     serverComponentsExternalPackages: ["mongoose"] 
+    //   },
+    //   webpack: (config) => {
+    //     config.experiments = {
+    //       topLevelAwait: true
+    //     };
     //     return config;
     //   },
 };

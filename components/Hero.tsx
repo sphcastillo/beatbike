@@ -1,26 +1,10 @@
 'use client'
-import { Noto_Sans, Comfortaa, Mulish } from "next/font/google";
+import { notoSans, comfortaa, mulish } from "@/app/fonts";
 import { motion } from 'framer-motion';
 import { useEffect } from 'react';
 
-const notoSans = Noto_Sans({ subsets: ["latin"] });
-const comfortaa = Comfortaa({ subsets: ["latin"] });
-const mulish = Mulish({ subsets: ["latin"] });
-
 
 function Hero() {
-
-    // useEffect(() => {
-    //     const video = document.createElement('video');
-    //     video.src = '/Beatbike.mp4';
-    //     video.preload = 'auto';
-    //     document.body.appendChild(video);
-    
-    //     return () => {
-    //         document.body.removeChild(video);
-    //     };
-    // }, []);
-
     return (
         <section>
             <div className="relative isolate overflow-hidden pt-14">

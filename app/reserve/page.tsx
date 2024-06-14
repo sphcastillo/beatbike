@@ -1,10 +1,7 @@
 "use client";
 import Image from "next/image";
 import GoBeatbikeTeam from "@/images/homepage/GoBeatbikeTeam.jpg"
-import { Noto_Sans, Comfortaa, Mulish } from "next/font/google";
-const notoSans = Noto_Sans({ subsets: ["latin"] });
-const comfortaa = Comfortaa({ subsets: ["latin"] });
-const mulish = Mulish({ subsets: ["latin"] });
+import { notoSans } from "@/app/fonts";
 import LocationSelection from "@/components/LocationSelection";
 
 export default function ReservePage() {

@@ -2,12 +2,9 @@
 import { useState } from 'react';
 import { Dialog } from '@headlessui/react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
-import { Noto_Sans, Comfortaa, Mulish } from "next/font/google";
+import { notoSans, comfortaa, mulish } from "@/app/fonts";
 import { motion } from 'framer-motion';
 
-const notoSans = Noto_Sans({ subsets: ["latin"] });
-const comfortaa = Comfortaa({ subsets: ["latin"]  });
-const mulish = Mulish({ subsets: ["latin"] });
 
 const navigation = [
     { name: 'Explore', href: '/explore' },

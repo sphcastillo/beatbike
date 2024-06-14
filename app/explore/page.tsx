@@ -2,13 +2,9 @@ import { CheckCircleIcon } from '@heroicons/react/20/solid';
 import beatbikeFriends from "@/images/exploreUs/beatbikeFriendship.jpg";
 import highfive from "@/images/exploreUs/highFive.jpg";
 import Image from 'next/image';
-import { Noto_Sans, Comfortaa, Mulish } from "next/font/google";
+import { notoSans, mulish } from "@/app/fonts";
 import FAQaccordion from '@/components/FAQaccordion';
 import ExploreUsGalleryBanner from '@/components/ExploreUsGalleryBanner';
-
-const notoSans = Noto_Sans({ subsets: ["latin"] });
-const comfortaa = Comfortaa({ subsets: ["latin"]  });
-const mulish = Mulish({ subsets: ["latin"] });
 
 const benefits = [
   'Step into our non-competitive sanctuary where each 45-minute session unfolds into a vibrant dance party, igniting sweat and energy.',

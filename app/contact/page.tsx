@@ -4,12 +4,7 @@ import {
   EnvelopeIcon,
   PhoneIcon,
 } from "@heroicons/react/24/outline";
-import { Noto_Sans, Comfortaa, Mulish } from "next/font/google";
-
-
-const notoSans = Noto_Sans({ subsets: ["latin"] });
-const comfortaa = Comfortaa({ subsets: ["latin"] });
-const mulish = Mulish({ subsets: ["latin"] });
+import { notoSans, mulish } from "@/app/fonts";
 
 export default function ContactUs() {
   return (

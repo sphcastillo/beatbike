@@ -1,11 +1,7 @@
 import Image from "next/image";
 import BeatbikeLogo from "@/images/beatbikeLogo.png";
 import BeatbikeBike from "@/images/signIn/beatbikeBike.jpg";
-import { Noto_Sans, Comfortaa, Mulish } from "next/font/google";
-
-const notoSans = Noto_Sans({ subsets: ["latin"] });
-const comfortaa = Comfortaa({ subsets: ["latin"]  });
-const mulish = Mulish({ subsets: ["latin"] });
+import { mulish } from "@/app/fonts";
 
 export default function SignIn() {
     return (

@@ -1,8 +1,4 @@
-import { Noto_Sans, Comfortaa, Mulish } from "next/font/google";
-
-const notoSans = Noto_Sans({ subsets: ["latin"] });
-const comfortaa = Comfortaa({ subsets: ["latin"]  });
-const mulish = Mulish({ subsets: ["latin"] });
+import { notoSans, comfortaa, mulish } from "@/app/fonts";
 
 const navigation = {
     company: [

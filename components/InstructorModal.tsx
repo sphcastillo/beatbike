@@ -1,11 +1,8 @@
 import { Instructor } from "@/typings";
 import Image from "next/image";
-import { Noto_Sans, Comfortaa, Mulish } from "next/font/google";
 import { IoClose } from "react-icons/io5";
 import { FaSpotify } from "react-icons/fa";
-const notoSans = Noto_Sans({ subsets: ["latin"] });
-const comfortaa = Comfortaa({ subsets: ["latin"] });
-const mulish = Mulish({ subsets: ["latin"] });
+import { notoSans, comfortaa, mulish } from "@/app/fonts";
 
 interface InstructorModalProps {
   instructor: Instructor | null;

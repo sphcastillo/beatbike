@@ -1,16 +1,12 @@
 "use client";
 import Image from "next/image";
-import { Noto_Sans, Comfortaa, Mulish } from "next/font/google";
 import { motion } from "framer-motion";
 import { instructors } from "@/data/data";
 import { FaSpotify } from "react-icons/fa";
 import { useState } from "react";
 import InstructorModal from "./InstructorModal";
 import { Instructor as InstructorType } from "@/typings";
-
-const notoSans = Noto_Sans({ subsets: ["latin"] });
-const comfortaa = Comfortaa({ subsets: ["latin"] });
-const mulish = Mulish({ subsets: ["latin"] });
+import { notoSans, mulish } from "@/app/fonts";
 
 export interface Instructor {
   id: number;

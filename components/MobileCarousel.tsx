@@ -14,11 +14,7 @@ import heroCarousel12 from '@/images/heroCarousel/heroCarousel11.png';
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import Image from "next/image";
-import { Noto_Sans, Comfortaa, Mulish } from "next/font/google";
-
-const notoSans = Noto_Sans({ subsets: ["latin"] });
-const comfortaa = Comfortaa({ subsets: ["latin"]  });
-const mulish = Mulish({ subsets: ["latin"] });
+import { comfortaa, mulish } from "@/app/fonts";
 
 const heroCarouselImages = [
     {

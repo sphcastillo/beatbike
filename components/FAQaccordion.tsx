@@ -1,9 +1,7 @@
 'use client'
 import { Disclosure } from '@headlessui/react';
 import { ChevronUpIcon, ChevronDownIcon } from '@heroicons/react/24/outline';
-import { Mulish } from "next/font/google";
-
-const  mulish = Mulish({ subsets: ["latin"] });
+import {  mulish } from "@/app/fonts";
 
 const faqs = [
   {

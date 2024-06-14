@@ -1,13 +1,13 @@
-import mongoose, { Document, Schema, models, model, Model } from 'mongoose';
+import mongoose from 'mongoose';
 import connectDB from '../db';
 
-export interface IBeatbikeSubscriber extends Document{
+export interface BeatbikeSubscriber extends mongoose.Document{
     email: string;
     createdAt: Date;
 }
 
 
-const beatbikeSubscriberSchema = new Schema<IBeatbikeSubscriber>(
+const beatbikeSubscriberSchema = new mongoose.Schema<BeatbikeSubscriber>(
     {
         email: {
             type: String,
@@ -20,12 +20,11 @@ const beatbikeSubscriberSchema = new Schema<IBeatbikeSubscriber>(
     }
 );
 
-export const BeatbikeSubscriberModel = (models.BeatbikeSubscriber)|| mongoose.model("BeatbikeSubscriber", beatbikeSubscriberSchema);
 
-
+const BeatbikeSubscriberModel = mongoose.models.BeatbikeSubscriber || mongoose.model("BeatbikeSubscriber", beatbikeSubscriberSchema);
 
 // Function to add a Beatbike subscriber to the database
-export async function addBeatbikeSubscriber(email: string): Promise<IBeatbikeSubscriber>{
+export async function addBeatbikeSubscriber(email: string): Promise<BeatbikeSubscriber>{
     await connectDB();
 
     try {
@@ -44,7 +43,7 @@ export async function addBeatbikeSubscriber(email: string): Promise<IBeatbikeSub
 }
 
 // Function to fetch all subscribers from the database
-export async function fetchBeatbikeSubscribers(): Promise<IBeatbikeSubscriber[]>{
+export async function fetchBeatbikeSubscribers(): Promise<BeatbikeSubscriber[]>{
     await connectDB();
 
     try {

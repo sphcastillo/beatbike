@@ -1,11 +1,8 @@
 "use client";
 import { useState } from "react";
-import { Field, Label, Radio, RadioGroup } from "@headlessui/react";
+import { Radio, RadioGroup } from "@headlessui/react";
 import { CheckCircleIcon } from "@heroicons/react/20/solid";
-import { Noto_Sans, Comfortaa, Mulish } from "next/font/google";
-const notoSans = Noto_Sans({ subsets: ["latin"] });
-const comfortaa = Comfortaa({ subsets: ["latin"] });
-const mulish = Mulish({ subsets: ["latin"] });
+import { notoSans } from "@/app/fonts";
 
 const locations = [
   {

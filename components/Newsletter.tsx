@@ -1,12 +1,10 @@
 "use client";
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Comfortaa, Mulish } from "next/font/google";
+import { mulish } from "@/app/fonts";
 import getUrl from "@/lib/getUrl";
 import NewsletterForm from "./NewsletterForm";
 
-const comfortaa = Comfortaa({ subsets: ["latin"] });
-const mulish = Mulish({ subsets: ["latin"] });
 
 export default function Newsletter() {
   // const [email, setEmail] = useState("");

@@ -1,13 +1,9 @@
 "use client";
 import beatbikeLogo from "@/images/beatbikeLogo.png";
 import Image from "next/image";
-import { Noto_Sans, Comfortaa, Mulish } from "next/font/google";
+import { notoSans, mulish } from "@/app/fonts";
 import { useState } from "react";
 import { FaEye, FaRegEyeSlash } from "react-icons/fa";
-
-const notoSans = Noto_Sans({ subsets: ["latin"] });
-const comfortaa = Comfortaa({ subsets: ["latin"] });
-const mulish = Mulish({ subsets: ["latin"] });
 
 function ResetPasswordPage() {
   const [showPassword, setShowPassword] = useState(false);

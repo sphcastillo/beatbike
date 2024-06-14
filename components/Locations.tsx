@@ -2,11 +2,8 @@
 import tarzana from "@/images/studios/tarzanaStudio.jpg";
 import hbStudio from "@/images/studios/hbStudio.png";
 import Image from 'next/image';
-import { Noto_Sans, Mulish, Comfortaa } from "next/font/google";
 import { motion } from 'framer-motion';
-const notoSans = Noto_Sans({ subsets: ["latin"] });
-const mulish = Mulish({ subsets: ["latin"] });
-const comfortaa = Comfortaa({ subsets: ["latin"]  });
+import { comfortaa, mulish } from "@/app/fonts";
 
 const features = [
   {
