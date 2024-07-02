@@ -5,7 +5,7 @@ console.log("dbName: ", dbName);
 const collectionName = process.env.MONGO_COLLECTION_NAME;
 console.log("collectionName: ", collectionName);
 
-const connectionString = `mongodb+srv://sphcastillo:${process.env.MONGO_DB_PASSWORD}@newslettersubscriber.iyaf5cv.mongodb.net/${dbName}?retryWrites=true&w=majority&appName=NewsletterSubscriber`
+const connectionString = `mongodb+srv://sphcastillo:${process.env.MONGO_DB_PASSWORD}@beatbike.ctbxshe.mongodb.net/${dbName}?retryWrites=true&w=majority&appName=Beatbike`
 
 if(!connectionString){
     throw new Error('ATTENTION: Please provide a connection string');

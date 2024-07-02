@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import connectDB from '@/mongodb/db';
-import { INewsletterSubscriber, NewsletterSubscriber } from '@/mongodb/models/NewsletterSubscriber';
+import { NewsletterSubscriber } from '@/mongodb/models/NewsletterSubscriber';
 
 export interface AddNewsletterSubscriberRequest {
     email: string;

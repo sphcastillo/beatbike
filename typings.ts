@@ -12,11 +12,6 @@ export type Instructor = {
     favoriteArtist: string;
 }
 
-export interface NewsletterSubscriber {
-    email: string;
-    createdAt: Date;
-}
-
 export interface User {
     createdAt: Date;
     firstName: string;
