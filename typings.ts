@@ -11,3 +11,19 @@ export type Instructor = {
     quote: string;
     favoriteArtist: string;
 }
+
+export interface NewsletterSubscriber {
+    email: string;
+    createdAt: Date;
+}
+
+export interface User {
+    createdAt: Date;
+    firstName: string;
+    lastName: string;
+    email: string;
+    password: string;
+    phoneNumber: string;
+    preferredLocation: string;
+    birthDate: Date;
+}

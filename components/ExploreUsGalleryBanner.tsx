@@ -12,7 +12,7 @@ function ExploreUsGalleryBanner() {
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 sm:gap-4">
           <div className="sm:block w-full h-40 sm:h-46">
             <Image
-              className="h-full w-full object-cover  rounded-lg"
+              className="h-full w-full object-cover rounded-lg"
               src={femaleSquad}
               alt="Arm wrestling"
               width={350}

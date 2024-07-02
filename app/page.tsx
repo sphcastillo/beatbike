@@ -2,7 +2,7 @@ import Hero from "@/components/Hero";
 import Introduction from "@/components/Introduction";
 import Locations from "@/components/Locations";
 import Staff from "@/components/Staff";
-import Newletter from "@/components/Newsletter";
+import Newsletter from "@/components/Newsletter";
 import CommunityGallery from "@/components/CommunityGallery";
 
 export default function Home() {
@@ -13,7 +13,7 @@ export default function Home() {
         <Locations />
         <Staff />
         <CommunityGallery />
-        <Newletter />
+        <Newsletter />
       </main>
     );
 }
