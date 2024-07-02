@@ -9,15 +9,16 @@ export interface AddNewsletterSubscriberRequest {
 export async function POST(request: Request){
 
     const { email } : AddNewsletterSubscriberRequest = await request.json();
+    const collectionName = 'newslettersubscribers';
 
     try {
-        await connectDB();
+        const collection = await connectDB(collectionName);
 
         const newsletterSubscriberData = {
             email
         }
 
-        const data = await NewsletterSubscriber.create(newsletterSubscriberData)
+        const data = await collection.insertOne(newsletterSubscriberData)
         return NextResponse.json({ data })
     } catch (error) {
         return NextResponse.json(

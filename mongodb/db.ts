@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-const dbName = process.env.MONGO_DB_NAME;
+const dbName: string = process.env.MONGO_DB_NAME || '';
 console.log("dbName: ", dbName);
 const collectionName = process.env.MONGO_COLLECTION_NAME;
 console.log("collectionName: ", collectionName);
@@ -11,17 +11,19 @@ if(!connectionString){
     throw new Error('ATTENTION: Please provide a connection string');
 }
 
-const connectDB = async () => {
+const connectDB = async (collectionName: string) => {
     if(mongoose.connection?.readyState >= 1){
         console.log("--- Already connected to MongoDB ---");
-        return;
+        return mongoose.connection.useDb(dbName).collection(collectionName)
     }
 
     try {
         await mongoose.connect(connectionString);
-        console.log("--- CONGRATS ~ Connected to MongoDB ---");
+        console.log(`--- CONGRATS ~ Connected to MongoDB database: ${process.env.MONGO_DB_NAME} ---`)
+        return mongoose.connection.useDb(dbName).collection(collectionName);
     } catch(error){
         console.error("ATTENTION: Error connecting to MongoDB: ", error);
+        throw error;
     }
 }
 

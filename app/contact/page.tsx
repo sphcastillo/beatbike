@@ -1,3 +1,4 @@
+'use client'
 import ContactUsGalleryBanner from "@/components/ContactUsGalleryBanner";
 import {
   BuildingOffice2Icon,
@@ -5,8 +6,44 @@ import {
   PhoneIcon,
 } from "@heroicons/react/24/outline";
 import { notoSans, mulish } from "@/app/fonts";
+import { useState } from "react";
 
 export default function ContactUs() {
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [message, setMessage] = useState("");
+  const [delivered, setDelivered] = useState('');
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    setDelivered('');
+
+    const response = await fetch('/api/contactMessages' , {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ firstName, lastName, email, phoneNumber, message }),
+    });
+
+    const data = await response.json();
+
+    if(response.ok){
+      setDelivered('Message sent! 🎉');
+      setFirstName('');
+      setLastName('');
+      setEmail('');
+      setPhoneNumber('');
+      setMessage('');
+    }else {
+      setDelivered(data.error || 'Something went wrong. Please try again.');
+    }
+  
+  }
+
   return (
     <div className="relative isolate bg-white max-w-7xl mx-auto">
       <div className="py-4 px-2 md:px-6">
@@ -106,9 +143,8 @@ export default function ContactUs() {
           </div>
         </div>
         <form
-          action="#"
-          method="POST"
           className="px-6 pb-24 pt-20 sm:pb-32 lg:px-8 lg:py-48"
+          onSubmit={handleSubmit}
         >
           <div className="mx-auto max-w-xl lg:mr-0 lg:max-w-lg">
             <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
@@ -122,9 +158,9 @@ export default function ContactUs() {
                 <div className="mt-2.5">
                   <input
                     type="text"
-                    name="first-name"
-                    id="first-name"
-                    autoComplete="given-name"
+                    required
+                    value={firstName}
+                    onChange={(e) => setFirstName(e.target.value)}
                     className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   />
                 </div>
@@ -139,9 +175,9 @@ export default function ContactUs() {
                 <div className="mt-2.5">
                   <input
                     type="text"
-                    name="last-name"
-                    id="last-name"
-                    autoComplete="family-name"
+                    required
+                    value={lastName}
+                    onChange={(e) => setLastName(e.target.value)}
                     className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   />
                 </div>
@@ -156,9 +192,9 @@ export default function ContactUs() {
                 <div className="mt-2.5">
                   <input
                     type="email"
-                    name="email"
-                    id="email"
-                    autoComplete="email"
+                    required
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                     className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   />
                 </div>
@@ -173,9 +209,9 @@ export default function ContactUs() {
                 <div className="mt-2.5">
                   <input
                     type="tel"
-                    name="phone-number"
-                    id="phone-number"
-                    autoComplete="tel"
+                    value={phoneNumber}
+                    onChange={(e) => setPhoneNumber(e.target.value)}
+                    required
                     className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   />
                 </div>
@@ -189,11 +225,11 @@ export default function ContactUs() {
                 </label>
                 <div className="mt-2.5">
                   <textarea
-                    name="message"
-                    id="message"
+                    required
+                    value={message}
+                    onChange={(e) => setMessage(e.target.value)}
                     rows={4}
                     className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                    defaultValue={""}
                   />
                 </div>
               </div>
@@ -206,6 +242,9 @@ export default function ContactUs() {
                 Send message
               </button>
             </div>
+            {delivered && (
+              <p className="mt-4 text-sm leading-6 text-gray-300">{delivered}</p>
+            )}
           </div>
         </form>
       </div>

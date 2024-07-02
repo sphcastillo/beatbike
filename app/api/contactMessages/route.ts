@@ -12,9 +12,11 @@ export interface AddContactMessageRequest {
 export async function POST(request: Request){
     
         const { firstName, lastName, email, message } : AddContactMessageRequest = await request.json();
+        const collectionName = 'contactmessages';
     
         try {
-            await connectDB();
+
+            const collection = await connectDB(collectionName);
     
             const contactMessageData = {
                 firstName,
@@ -23,7 +25,7 @@ export async function POST(request: Request){
                 message
             }
     
-            const data = await ContactMessage.create(contactMessageData)
+            const data = await collection.insertOne(contactMessageData)
             return NextResponse.json({ data })
         } catch (error) {
             return NextResponse.json(
