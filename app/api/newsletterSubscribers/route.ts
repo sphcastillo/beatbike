@@ -4,6 +4,7 @@ import { NewsletterSubscriber } from '@/mongodb/models/NewsletterSubscriber';
 
 export interface AddNewsletterSubscriberRequest {
     email: string;
+    createdAt: Date;
 }
 
 export async function POST(request: Request){
@@ -15,7 +16,8 @@ export async function POST(request: Request){
         const collection = await connectDB(collectionName);
 
         const newsletterSubscriberData = {
-            email
+            email,
+            createdAt: new Date()
         }
 
         const data = await collection.insertOne(newsletterSubscriberData)

@@ -7,6 +7,7 @@ export interface AddContactMessageRequest {
     lastName: string;
     email: string;
     message: string;
+    createdAt: Date;
 }
 
 export async function POST(request: Request){
@@ -22,7 +23,8 @@ export async function POST(request: Request){
                 firstName,
                 lastName,
                 email,
-                message
+                message,
+                createdAt: new Date()
             }
     
             const data = await collection.insertOne(contactMessageData)
