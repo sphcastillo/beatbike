@@ -73,12 +73,12 @@ export default function ContactUs() {
                 {/* <svg x="100%" y={-1} className="overflow-visible fill-gray-50">
                   <path d="M-470.5 0h201v201h-201Z" strokeWidth={0} />
                 </svg> */}
-                <rect
+                {/* <rect
                   width="100%"
                   height="100%"
                   strokeWidth={0}
                   fill="url(#83fd4e5a-9d52-42fc-97b6-718e5d7ee527)"
-                />
+                /> */}
               </svg>
             </div>
             <div className={notoSans.className}>
