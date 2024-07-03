@@ -44,7 +44,7 @@ function Hero() {
                             <div className={mulish.className}>
                                 <a
                                     href="/reserve"
-                                    className="mt-4 px-4 py-2  bg-[#DFFF00] rounded hover:bg-[#B0DB00] hover:text-white"
+                                    className="mt-4 px-3.5 py-2.5 bg-[#DFFF00] font-semibold shadow-sm rounded hover:bg-[#B0DB00] hover:text-white"
                                 >
                                     Book Your Bike Now
                                 </a>
