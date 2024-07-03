@@ -22,29 +22,29 @@ function Hero() {
                 <div
                     className="mx-auto max-w-2xl py-32 sm:py-32 lg:py-40"
                 >
-                    <div className="hidden sm:mb-8 sm:flex sm:justify-center">
+                    <div className="mb-8 flex justify-center">
                         <div className={mulish.className}>
-                            <div className="relative px-3 py-1 text-xl sm:text-5xl font-bold leading-6 text-[#DFFF00] tracking-widest">
+                            <div className="relative px-3 py-1 text-4xl sm:text-5xl font-bold leading-6 text-[#DFFF00] tracking-widest">
                                 RIDE THE SOUND
                             </div>
                         </div>
                     </div>
-                    <div className="text-center">
+                    <div className="relative text-center">
                         <div className={comfortaa.className}>
                             <h1
-                                className="text-4xl tracking-tight text-white sm:text-8xl"
+                                className="text-lg tracking-tight text-white sm:text-2xl"
                             >
-                                Join our beat revolution
+                                Join our beat revolution.
                             </h1>
                         </div>
 
                         <div
-                            className="mt-10 flex items-center justify-center gap-x-6"
+                            className="relative mt-10 flex items-center justify-center gap-x-6"
                         >
                             <div className={mulish.className}>
                                 <a
                                     href="/reserve"
-                                    className="mt-4 px-4 py-2 text-white bg-blue-500 rounded hover:bg-blue-700"
+                                    className="mt-4 px-4 py-2  bg-[#DFFF00] rounded hover:bg-[#B0DB00] hover:text-white"
                                 >
                                     Book Your Bike Now
                                 </a>
