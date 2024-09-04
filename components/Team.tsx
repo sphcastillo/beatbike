@@ -61,7 +61,7 @@ export default function Team() {
           {instructors.map((instructor, index) => (
             
             <li
-              className="rounded-2xl bg-[#797878] px-8 py-10 cursor-pointer"
+              className="rounded-2xl bg-black/80  px-8 py-10 cursor-pointer"
               onClick={() => handleInstructorClick(instructor)}
               key={index}
             >
