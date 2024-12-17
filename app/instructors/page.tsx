@@ -5,9 +5,9 @@ import beatbikeLogo from "@/images/beatbikeLogo.png";
 function Instructors() {
   return (
     <div className="">
-      <div className="mt-8">
+      <div className="pt-8 bg-white">
         <Image
-          className="mx-auto h-[65px] w-auto"
+          className="bg-white mx-auto h-[65px] w-auto"
           src={beatbikeLogo}
           alt="Beatbike Logo"
           width={55}

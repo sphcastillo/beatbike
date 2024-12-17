@@ -7,8 +7,8 @@ import LocationSelection from "@/components/LocationSelection";
 export default function ReservePage() {
 
   return (
-    <div className="w-full mx-auto pb-4">
-      <div className="mx-auto max-w-7xl px-6 py-16 sm:py-40 lg:px-8">
+    <div className="w-full mx-auto pb-4 bg-white">
+      <div className="mx-auto max-w-7xl px-6 py-16 sm:py-24 lg:px-8">
         <div className="mx-auto max-w-2xl">
           <div className={notoSans.className}>
             <div className="flex justify-center">

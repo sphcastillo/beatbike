@@ -9,7 +9,7 @@ export default function Studios() {
     <div className="bg-white py-6 sm:py-12">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <StudioGalleryBanner />
-        <div className="mx-auto max-w-2xl space-y-16 divide-y divide-gray-100 lg:mx-0 lg:max-w-none">
+        <div className="py-6 sm:py-16 mx-auto max-w-2xl space-y-16 divide-y divide-gray-100 lg:mx-0 lg:max-w-none">
           <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:gap-y-10 pt-10 sm:pt-16 lg:grid-cols-3">
             <div className={mulish.className}>
               <h2 className="text-3xl font-bold tracking-tight text-gray-900">Locations</h2>

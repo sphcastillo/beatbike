@@ -3,8 +3,8 @@ import { notoSans, mulish } from "@/app/fonts";
 
 function HuntingtonBeachPage() {
   return (
-    <div className='my-8 '>
-      <div className='mx-8 my-4'>
+    <div className='py-8 bg-white'>
+      <div className='px-8'>
       <ContactUsGalleryBanner />
       </div>
       <div className={notoSans.className}>

@@ -18,7 +18,7 @@ const benefits = [
 export default function ExplorePage() {
   return (
     <div className="bg-[#333333]">
-      <div className='px-6 max-w-7xl mx-auto'>
+      <div className='py-6 sm:py-8 px-6 max-w-7xl mx-auto'>
         <ExploreUsGalleryBanner />
       </div>
       <div className="relative isolate pb-7">

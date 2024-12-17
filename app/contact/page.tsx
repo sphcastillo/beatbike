@@ -46,7 +46,7 @@ export default function ContactUs() {
 
   return (
     <div className="relative isolate bg-white max-w-7xl mx-auto">
-      <div className="py-4 px-2 md:px-6">
+      <div className="py-6 sm:py-8 px-2 md:px-6">
         <ContactUsGalleryBanner />
       </div>
       <div className="mx-auto grid max-w-7xl grid-cols-1 lg:grid-cols-2">
