@@ -148,7 +148,7 @@ const navigation = {
             </div>
           </div>
           <div className="mt-16 border-t border-white/10 pt-8 sm:mt-20 lg:mt-24">
-            <p className="text-xs leading-5 text-gray-400">Copyright &copy; 2024, Beatbike. All Rights Reserved.</p>
+            <p className="text-xs leading-5 text-gray-400">Copyright &copy; 2025, Beatbike. All Rights Reserved.</p>
             <p className="text-xs leading-5 text-gray-400 pt-1">Website designed & 
               <Link href='https://www.builtbysophia.com/' className="pl-1 hover:text-[#DFFF00]">Built By Sophia</Link>
             </p>
