@@ -5,7 +5,6 @@ import { instructors } from "@/data/data";
 import { FaSpotify } from "react-icons/fa";
 import { useState } from "react";
 import InstructorModal from "./InstructorModal";
-import { Instructor as InstructorType } from "@/typings";
 import { notoSans, mulish } from "@/app/fonts";
 
 export interface Instructor {
@@ -56,12 +55,12 @@ export default function Team() {
         </div>
         <ul
           role="list"
-          className="mx-auto mt-10 grid max-w-2xl grid-cols-2 gap-6 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3 lg:gap-8"
+          className="mx-auto mt-10 grid max-w-2xl grid-cols-2 gap-6 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3 lg:gap-8 "
         >
           {instructors.map((instructor, index) => (
             
             <li
-              className="rounded-2xl bg-black/80  px-8 py-10 cursor-pointer"
+              className="rounded-2xl bg-black/80  px-8 py-10 cursor-pointer shadow-2xl"
               onClick={() => handleInstructorClick(instructor)}
               key={index}
             >

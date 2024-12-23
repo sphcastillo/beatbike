@@ -214,3 +214,20 @@ export const instructors: Instructor[]= [
       },
 
   ]
+  const huntingtonBeachInstructors = instructors
+  .filter(
+      (instructor) =>
+          instructor.location1 === "Huntington Beach" || instructor.location2 === "Huntington Beach"
+  )
+  .map((instructor) => instructor.name);
+
+const tarzanaInstructors = instructors
+  .filter(
+      (instructor) =>
+          instructor.location1 === "Tarzana" || instructor.location2 === "Tarzana"
+  )
+  .map((instructor) => instructor.name);
+  
+  // Log or export the arrays if needed
+  console.log("Huntington Beach Instructors:", huntingtonBeachInstructors);
+  console.log("Tarzana Instructors:", tarzanaInstructors);
