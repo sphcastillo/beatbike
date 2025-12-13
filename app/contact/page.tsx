@@ -45,7 +45,7 @@ export default function ContactUs() {
   }
 
   return (
-    <div className="relative isolate bg-white max-w-7xl mx-auto">
+    <div className="relative isolate bg-white">
       <div className="py-6 sm:py-8 px-2 md:px-6">
         <ContactUsGalleryBanner />
       </div>
@@ -143,7 +143,7 @@ export default function ContactUs() {
           </div>
         </div>
         <form
-          className="px-6 pb-24 pt-20 sm:pb-32 lg:px-8 lg:py-48"
+          className="px-6 pb-24 pt-20 sm:pb-32 lg:px-8 lg:pt-16 lg:pb-36"
           onSubmit={handleSubmit}
         >
           <div className="mx-auto max-w-xl lg:mr-0 lg:max-w-lg">

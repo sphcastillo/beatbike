@@ -6,8 +6,8 @@ import { mulish } from "@/app/fonts";
 export default function SignIn() {
     return (
       <div className="bg-white h-full">
-        <div className="flex min-h-full flex-1 max-w-6xl mx-auto">
-          <div className="flex flex-1 flex-col justify-start sm:justify-center p-[60px] lg:flex-none">
+        <div className="flex min-h-full w-full">
+          <div className="flex w-[60%] flex-1 flex-col justify-start sm:justify-center p-[60px] lg:flex-none">
             <div className={mulish.className}>
               <div className="mx-auto w-full max-w-sm lg:w-96">
                 <div>
