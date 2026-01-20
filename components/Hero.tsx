@@ -6,8 +6,8 @@ import { useEffect } from 'react';
 
 function Hero() {
     return (
-        <section>
-            <div className="relative isolate overflow-hidden pt-14">
+        <section className="lg:min-h-[85vh]">
+            <div className="relative isolate overflow-hidden pt-14 min-h-[65vh] sm:min-h-[75vh] lg:min-h-[85vh]">
 
                 <video autoPlay playsInline loop muted className="absolute inset-0 z-0 h-full w-full object-cover">
                     <source src='/Beatbike.mp4' type="video/mp4" />
@@ -20,23 +20,31 @@ function Hero() {
 
                 </div>
                 <div
-                    className="mx-auto max-w-2xl py-32 sm:py-32 lg:py-40"
+                    className="mx-auto max-w-2xl h-full flex flex-col justify-center py-32 sm:py-32 lg:py-40"
                 >
                     <div className="mb-8 flex justify-center">
-                        <div className={mulish.className}>
-                            <div className="relative px-3 py-1 text-4xl sm:text-5xl font-bold leading-6 text-[#DFFF00] tracking-widest">
-                                RIDE THE SOUND
-                            </div>
-                        </div>
+                        <motion.div
+                            initial={{ opacity: 0, y: 30, scale: 0.95 }}
+                            animate={{ opacity: 1, y: 0, scale: 1 }}
+                            transition={{
+                                duration: 0.9,
+                                ease: "easeOut",
+                            }}
+                            className={`${mulish.className} relative px-3 py-1 text-4xl sm:text-5xl font-bold leading-6 text-[#DFFF00] tracking-widest text-center`}>
+                            RIDE THE SOUND
+                        </motion.div>
                     </div>
                     <div className="relative text-center">
-                        <div className={comfortaa.className}>
-                            <h1
-                                className="text-lg tracking-tight text-white sm:text-2xl"
-                            >
-                                Join our beat revolution.
-                            </h1>
-                        </div>
+
+                        <motion.h2
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.7, ease: "easeOut", delay: 0.2 }}
+                            className={`${comfortaa.className} text-lg tracking-tight text-white sm:text-2xl text-center`}
+                        >
+                            Join our beat revolution.
+                        </motion.h2>
+
 
                         <div
                             className="relative mt-10 flex items-center justify-center gap-x-6"
