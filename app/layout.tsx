@@ -6,7 +6,7 @@ import Banner from "@/components/Banner";
 
 export const metadata: Metadata = {
   title: "Beatbike",
-  description: "For portfolio purposes only",
+  description: "This project is displayed for portfolio purposes only. Beatbike is a former business and is no longer operating. All trademarks, names, and branding belong to their respective owners.",
 };
 
 export default function RootLayout({

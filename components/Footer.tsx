@@ -70,6 +70,8 @@ const navigation = {
 };
 
 export default function Footer() {
+  const currentYear = new Date().getFullYear();
+
   return (
     <footer className="bg-black" aria-labelledby="footer-heading">
       <h2 id="footer-heading" className="sr-only">
@@ -169,7 +171,7 @@ export default function Footer() {
         </div>
         <div className="mt-16 border-t border-white/10 pt-8 sm:mt-20 lg:mt-24">
           <p className="text-xs leading-5 text-gray-400">
-            Copyright &copy; 2026, Beatbike. All Rights Reserved.
+            © {currentYear} Beatbike. All Rights Reserved.
           </p>
           <p className="text-xs leading-5 text-gray-400 pt-1">
             Website designed &

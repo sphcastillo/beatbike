@@ -28,7 +28,7 @@ export default function Locations() {
   const [isOptimized, setIsOptimized] = useState(true);
   return (
     <div className="bg-[#333333] py-24 sm:py-32">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-6 lg:px-8 overflow-x-hidden">
         <div className={mulish.className}>
           <motion.div 
             className="mx-auto max-w-2xl lg:mx-0"
