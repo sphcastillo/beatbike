@@ -1,7 +1,7 @@
 "use client";
 import { XMarkIcon } from "@heroicons/react/20/solid";
 import { useState } from "react";
-import {  mulish } from "@/app/fonts";
+import { mulish, proximaNovaRegular } from "@/app/fonts";
 
 export default function Banner() {
   const [isVisible, setIsVisible] = useState(true);
@@ -15,10 +15,10 @@ export default function Banner() {
       {isVisible && (
         <div className={mulish.className}>
           <div className="flex items-center gap-x-6 bg-[#333333] px-6 py-2.5 sm:px-3.5 sm:before:flex-1">
-            <p className="text-sm leading-6 text-white text-center text-pretty">
-              <strong className="font-semibold text-pretty">
-                NEW CLASSES AVAILABLE EVERY SUNDAY AT 4:30 PM
-              </strong>
+            <p className={`${proximaNovaRegular.className} tracking-wide text-sm leading-6 text-white text-center text-pretty`}>
+
+              NEW CLASSES AVAILABLE EVERY SUNDAY AT 4:30 PM
+
               <svg
                 viewBox="0 0 2 2"
                 className="mx-2 inline h-0.5 w-0.5 fill-current"
@@ -26,7 +26,7 @@ export default function Banner() {
               >
                 <circle cx={1} cy={1} r={1} />
               </svg>
-              <a className="underline hover:text-[#DFFF00] text-pretty" href="/reserve">RESERVE NOW</a>
+              <a className={`${proximaNovaRegular.className} tracking-widest underline hover:text-[#DFFF00] text-pretty`} href="/reserve">RESERVE NOW</a>
             </p>
             <div className="flex flex-1 justify-end">
               <button

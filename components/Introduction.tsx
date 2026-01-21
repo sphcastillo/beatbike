@@ -5,7 +5,7 @@ import weAreBeatbike from "@/images/homepage/weAreBeatbike.png";
 import beatbikeFans from '@/images/homepage/beatbikeFans.jpg';
 import happyRider from "@/images/homepage/happyRider.jpg";
 import { motion } from 'framer-motion';
-import { mulish } from "@/app/fonts";
+import { mulish, proximaNovaSemibold, proximaNovaRegular, proximaNovaMedium, proximaNovaLight } from "@/app/fonts";
 import { useState } from "react";
 
 const fadeInAnimationVariants = {
@@ -37,8 +37,9 @@ export default function Introduction() {
                 // transition={fadeInAnimationVariants.transition}
                 // viewport={{ once: true }}
               >
-                <h2 className="text-3xl font-bold tracking-tight text-black">We are Beatbike</h2>
-                <p className="text-md mt-6 sm:text-xl leading-8 text-black">
+                <h2 className={`${proximaNovaMedium.className} uppercase text-[#DFFF00] text-xl pb-3`}>Community</h2>
+                <h1 className={`${proximaNovaRegular.className} uppercase text-3xl md:text-4xl tracking-wide text-black`}>We are Beatbike</h1>
+                <p className={`${proximaNovaLight.className} tracking-wide text-md mt-6 sm:text-xl text-black`}>
                 Welcome to Beatbike, where high-intensity meets low-impact in our invigorating 45-minute indoor cycling sessions led by our energetic instructors. Classes are meticulously crafted to fortify your mind, body, and soul, guided by expert coaches who lead you through dynamic segments of climbs, sprints, choreography, weights, and our iconic soulful moment. Immerse yourself in a transformative experience as you pedal towards holistic well-being in our state-of-the-art studio, surrounded by vibrant lighting and a supportive community. Join us on the journey to elevate your fitness experience with Beatbike.
                 </p>
                 {/* <p className="mt-6 text-base leading-7 text-white">
@@ -52,7 +53,7 @@ export default function Introduction() {
                     onHoverStart={e => {}}
                     onHoverEnd={e => {}}
                     href="/reserve"
-                    className="cursor-pointer rounded-md bg-[#DFFF00] px-3.5 py-2.5 text-sm z-100 font-semibold shadow-sm hover:bg-[#B0DB00] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                    className={`${proximaNovaRegular.className} uppercase cursor-pointer rounded-md bg-[#DFFF00] px-3.5 py-2.5 text-sm z-100 font-semibold shadow-sm hover:bg-[#B0DB00] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600`}
                   >
                     Book a Ride
                   </motion.a>

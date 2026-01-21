@@ -1,5 +1,5 @@
 'use client'
-import { notoSans, comfortaa, mulish } from "@/app/fonts";
+import { notoSans, comfortaa, mulish, proximaNovaSemibold, proximaNovaMedium, proximaNovaRegular } from "@/app/fonts";
 import { motion } from 'framer-motion';
 import { useEffect } from 'react';
 
@@ -30,7 +30,7 @@ function Hero() {
                                 duration: 0.9,
                                 ease: "easeOut",
                             }}
-                            className={`${mulish.className} relative px-3 py-1 text-4xl sm:text-5xl font-bold leading-6 text-[#DFFF00] tracking-widest text-center`}>
+                            className={`${proximaNovaSemibold.className} relative px-3 py-1 text-4xl sm:text-6xl font-bold leading-6 text-[#DFFF00] tracking-wider text-center`}>
                             RIDE THE SOUND
                         </motion.div>
                     </div>
@@ -40,7 +40,7 @@ function Hero() {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.7, ease: "easeOut", delay: 0.2 }}
-                            className={`${comfortaa.className} text-lg tracking-tight text-white sm:text-2xl text-center`}
+                            className={`${proximaNovaMedium.className} uppercase text-lg tracking-wide text-white sm:text-3xl text-center`}
                         >
                             Join our beat revolution.
                         </motion.h2>
@@ -49,14 +49,14 @@ function Hero() {
                         <div
                             className="relative mt-10 flex items-center justify-center gap-x-6"
                         >
-                            <div className={mulish.className}>
-                                <a
-                                    href="/reserve"
-                                    className="mt-4 px-3.5 py-2.5 bg-[#DFFF00] font-semibold shadow-sm rounded hover:bg-[#B0DB00] hover:text-white"
-                                >
-                                    Book Your Bike Now
-                                </a>
-                            </div>
+
+                            <a
+                                href="/reserve"
+                                className={`${proximaNovaRegular.className} uppercase mt-4 px-3.5 py-2.5 bg-[#DFFF00] font-semibold shadow-sm rounded hover:bg-[#B0DB00] hover:text-white`}
+                            >
+                                Book Your Bike Now
+                            </a>
+
                         </div>
 
                     </div>

@@ -7,7 +7,7 @@ import CommunityGallery from "@/components/CommunityGallery";
 
 export default function Home() {
     return (
-      <main className="">
+      <main>
         <Hero />
         <Introduction />
         <Locations />

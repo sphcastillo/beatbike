@@ -2,7 +2,7 @@
 import Image from "next/image";
 import { motion } from 'framer-motion';
 import { instructors } from "@/data/data";
-import { notoSans, mulish } from "@/app/fonts";
+import { notoSans, mulish, proximaNovaMedium, proximaNovaRegular, proximaNovaLight } from "@/app/fonts";
 import { useState } from "react";
 
   export default function Staff() {
@@ -20,15 +20,16 @@ import { useState } from "react";
             transition={{type: "spring", stiffness: 100, duration: 4 }}
             viewport={{ once: true }}
           >
-            <div className={notoSans.className}>
-                <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Meet Our Ride Leaders: The Beatbike Instructors</h2>
-            </div>
-            <div className={mulish.className}>
-                <p className="mt-6 text-lg leading-8 text-gray-600">
+
+              <h2 className={`${proximaNovaMedium.className} uppercase text-[#DFFF00] text-xl pb-3`}>The Beatbike Instructors</h2>
+                <h2 className={`${proximaNovaRegular.className} uppercase text-3xl md:text-4xl tracking-wide text-black`}>Meet Our Ride Leaders</h2>
+            
+          
+                <p className={`${proximaNovaLight.className} tracking-wide mt-6 text-lg leading-8 text-gray-600`}>
                 We’re a dynamic group of individuals who are passionate about what we do and dedicated to delivering the
                 best results for our clients.
                 </p>
-            </div>
+          
           </motion.div>
           <ul
             role="list"
@@ -52,7 +53,7 @@ import { useState } from "react";
                     onError={() => setIsOptimized(false)}
                 />
                 <div className={mulish.className}>
-                    <h3 className="mt-6 text-base font-semibold leading-7 tracking-tight text-gray-900">{instructor.name}</h3>
+                    <h3 className={`${proximaNovaMedium.className} uppercase mt-6 text-base font-semibold leading-7 tracking-normal text-gray-900`}>{instructor.name}</h3>
                 </div>
 
                 {/* <div className={mulish.className}>
