@@ -5,7 +5,7 @@ import { instructors } from "@/data/data";
 import { FaSpotify } from "react-icons/fa";
 import { useState } from "react";
 import InstructorModal from "./InstructorModal";
-import { notoSans, mulish } from "@/app/fonts";
+import { proximaNovaRegular, proximaNovaMedium, proximaNovaLight } from "@/app/fonts";
 
 export interface Instructor {
   id: number;
@@ -34,7 +34,7 @@ export default function Team() {
   return (
     <div className="bg-white pt-2 pb-24 sm:pt-12 sm:pb-32">
       <div className="mx-auto max-w-6xl px-6 text-center lg:px-8">
-        <div className={mulish.className}>
+        <div>
           <motion.div
             className="mx-auto max-w-2xl"
             initial={{
@@ -44,10 +44,9 @@ export default function Team() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl font-bold tracking-wider sm:text-4xl">
-              Meet our team
-            </h2>
-            <p className="mt-4 text-lg leading-8 tracking-wide text-gray-400">
+              <h2 className={`${proximaNovaMedium.className} uppercase text-[#DFFF00] text-xl pb-3`}>Beatbike Instructors</h2>
+              <h1 className={`${proximaNovaRegular.className} uppercase text-3xl md:text-4xl tracking-wide text-black`}>Meet Our Team</h1>
+            <p className={`${proximaNovaLight.className} tracking-wide text-md mt-6 sm:text-xl pt-4 text-gray-400`}>
               We’re a dynamic group of individuals who are passionate about what
               we do.
             </p>
@@ -59,10 +58,21 @@ export default function Team() {
         >
           {instructors.map((instructor, index) => (
             
-            <li
-              className="rounded-2xl bg-black/80  px-8 py-10 cursor-pointer shadow-2xl"
-              onClick={() => handleInstructorClick(instructor)}
-              key={index}
+            <motion.li
+            key={index}
+            onClick={() => handleInstructorClick(instructor)}
+            className="rounded-2xl bg-black/80 px-8 py-10 cursor-pointer shadow-2xl"
+            whileHover={{
+              scale: 1.05,
+              y: -6,
+              boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
+            }}
+            transition={{
+              type: "spring",
+              stiffness: 300,
+              damping: 20,
+            }}
+            whileTap={{ scale: 0.97 }}
             >
                 <Image
                   className="mx-auto h-28 w-28 rounded-full md:h-56 md:w-56"
@@ -75,29 +85,29 @@ export default function Team() {
                   onError={() => setIsOptimized(false)}
                 />
                 <motion.div
-                  className={notoSans.className}
+                  className={``}
                   initial={{ opacity: 0, y: 500 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{
                     duration: 1.25,
                   }}
                 >
-                  <h3 className="mt-6 text-[] font-semibold leading-7 tracking-normal text-[#DFFF00]">
+                  <h3 className={`${proximaNovaMedium.className} text-xl uppercase tracking-wider mt-6 leading-7 text-[#DFFF00]`}>
                     {instructor.name}
                   </h3>
                 </motion.div>
                 <motion.div
-                  className={notoSans.className}
+                  className={``}
                   initial={{ opacity: 0, y: 500 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{
                     duration: 1.25,
                   }}
                 >
-                  <p className="text-xs leading-6 text-white tracking-wide">
-                    MUSIC STYLE
+                  <p className={`${proximaNovaLight.className} uppercase tracking-wider text-xs leading-6 text-white`}>
+                    Music Style
                   </p>
-                  <p className="text-xs leading-6 text-[#DFFF00] tracking-wide">
+                  <p className={`${proximaNovaRegular.className} text-xs leading-6 text-[#DFFF00] tracking-wider`}>
                     {instructor.musicStyle}
                   </p>
                 </motion.div>
@@ -111,7 +121,7 @@ export default function Team() {
                   >
                     <a
                       href={instructor.instagramUrl}
-                      className="text-[#DFFF00] hover:text-[#B0DB00]"
+                      className={`text-[#DFFF00] hover:text-[#B0DB00]`}
                       target="_blank"
                       rel="noopener noreferrer"
                     >
@@ -156,7 +166,7 @@ export default function Team() {
                     </a>
                   </li>
                 </ul>
-            </li>
+            </motion.li>
 
           ))}
         </ul>
