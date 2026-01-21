@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import { Dialog } from '@headlessui/react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
-import { notoSans, comfortaa, mulish, proximaNovaRegular } from "@/app/fonts";
+import { comfortaa, proximaNovaRegular, proximaNovaMedium, proximaNovaSemibold, proximaNovaLight } from "@/app/fonts";
 import { motion } from 'framer-motion';
 
 
@@ -101,9 +101,9 @@ function Header() {
                 <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-[#000000] px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-white/10">
                     <div className="flex items-center justify-between">
                         <a href="#" className="-m-1.5 p-1.5">
-                            <div className={comfortaa.className}>
-                                <h2 className="text-white text-[20px]">Beatbike</h2>
-                            </div>
+
+                            <h2 className={`${comfortaa.className} text-white text-2xl`}>Beatbike</h2>
+
                         </a>
                         <button
                             type="button"
@@ -116,22 +116,22 @@ function Header() {
                     </div>
                     <div className="mt-6 flow-root">
                         <div className="-my-6 divide-y divide-gray-500/25">
-                            <div className="space-y-2 py-6">
+                            <div className="space-y-8 py-24">
                                 {navigation.map((item) => (
                                     <a
                                         key={item.name}
                                         href={item.href}
-                                        className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:text-[#DFFF00] hover:bg-[#333333]"
+                                        className={`${proximaNovaRegular.className} uppercase tracking-widest -mx-3 block text-xl px-3 py-2 leading-7 text-white hover:text-[#DFFF00] hover:bg-[#333333]`}
                                     >
                                         {item.name}
                                     </a>
                                 ))}
                             </div>
                             <div className="py-6">
-                                <div className={mulish.className}>
+                                <div>
                                     <a
                                         href="/signin"
-                                        className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-white hover:text-[#DFFF00] hover:bg-[#333333]"
+                                        className={`${proximaNovaRegular.className} -mx-3 block rounded-lg px-3 py-2.5 text-xl font-semibold leading-7 text-[#DFFF00] hover:bg-[#333333]`}
                                     >
                                         Log in
                                     </a>

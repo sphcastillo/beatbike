@@ -1,5 +1,6 @@
 'use client'
 import { useState } from "react";
+import { proximaNovaRegular, proximaNovaMedium, proximaNovaThin } from "@/app/fonts";
 
 export default function NewsletterForm() {
   const [email, setEmail] = useState("");
@@ -45,12 +46,12 @@ export default function NewsletterForm() {
           required
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          className="min-w-0 flex-auto rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-[#DFFF00] sm:text-sm sm:leading-6"
+          className={`${proximaNovaRegular.className} tracking-wide min-w-0 flex-auto rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-[#DFFF00] sm:text-sm sm:leading-6`}
           placeholder="Enter your email"
         />
         <button
           type="submit"
-          className="flex-none rounded-md bg-[#DFFF00] px-3.5 py-2.5 text-sm font-semibold shadow-sm hover:bg-[#B0DB00] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#DFFF00]"
+          className={`${proximaNovaRegular.className} uppercase tracking-wide flex-none rounded-md bg-[#DFFF00] px-3.5 py-2.5 text-sm font-semibold shadow-sm hover:bg-[#B0DB00] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#DFFF00]`}
         >
           Subscribe
         </button>
@@ -58,7 +59,7 @@ export default function NewsletterForm() {
       {message && 
         <p className="mt-4 text-sm leading-6 text-gray-300">{message}</p>
       }
-        <p className="mt-4 text-sm leading-6 text-gray-300">
+        <p className={`${proximaNovaThin.className} tracking-wide mt-4 text-sm leading-6 text-gray-300`}>
           We care about your data. Read our{" "}
           <a
             href="/privacy-policy"

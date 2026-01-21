@@ -1,4 +1,4 @@
-import { notoSans, comfortaa, mulish } from "@/app/fonts";
+import { comfortaa, proximaNovaMedium, proximaNovaRegular, proximaNovaLight } from "@/app/fonts";
 import Link from "next/link";
 
 const navigation = {
@@ -81,16 +81,16 @@ export default function Footer() {
         <div className="xl:grid xl:grid-cols-3 xl:gap-8">
           <div className="space-y-8">
             <div className={comfortaa.className}>
-              <a href="/" className="text-white text-2xl">
+              <a href="/" className="text-white text-3xl">
                 Beatbike
               </a>
             </div>
-            <div className={notoSans.className}>
-              <h4 className="text-lg leading-6 text-[#DFFF00]">
-                RIDE THE SOUND.
-              </h4>
-            </div>
-            <div className="flex space-x-6">
+
+            <h4 className={`${proximaNovaMedium.className} uppercase tracking-widest text-lg leading-6 text-[#DFFF00]`}>
+              RIDE THE SOUND.
+            </h4>
+
+            <div className="flex space-x-[26px]">
               {navigation.social.map((item) => (
                 <a
                   key={item.name}
@@ -105,17 +105,17 @@ export default function Footer() {
           </div>
           <div className="mt-16 grid grid-cols-1 gap-8 xl:col-span-2 xl:mt-0">
             <div className="md:grid md:grid-cols-3 md:gap-8">
-              <div className={mulish.className}>
-                <h3 className="text-md font-semibold leading-6 text-white">
+              <div>
+                <h3 className={`${proximaNovaMedium.className} uppercase tracking-widest text-md sm:text-lg leading-6 text-white`}>
                   Company
                 </h3>
                 <ul role="list" className="mt-6 space-y-4">
                   {navigation.company.map((item) => (
                     <li key={item.name}>
-                      <div className={mulish.className}>
+                      <div>
                         <a
                           href={item.href}
-                          className="text-sm leading-6 text-gray-300 hover:text-[#DFFF00]"
+                          className={`${proximaNovaRegular.className} tracking-widest text-sm leading-6 text-gray-300 hover:text-[#DFFF00]`}
                         >
                           {item.name}
                         </a>
@@ -125,18 +125,18 @@ export default function Footer() {
                 </ul>
               </div>
               <div className="mt-10 md:mt-0">
-                <div className={mulish.className}>
-                  <h3 className="text-md font-semibold leading-6 text-white">
+                <div>
+                  <h3 className={`${proximaNovaMedium.className} uppercase tracking-widest text-md sm:text-lg leading-6 text-white`}>
                     Support
                   </h3>
                 </div>
                 <ul role="list" className="mt-6 space-y-4">
                   {navigation.help.map((item) => (
                     <li key={item.name}>
-                      <div className={mulish.className}>
+                      <div>
                         <a
                           href={item.href}
-                          className="text-sm leading-6 text-gray-300  hover:text-[#DFFF00]"
+                          className={`${proximaNovaRegular.className} tracking-widest text-sm leading-6 text-gray-300  hover:text-[#DFFF00]`}
                         >
                           {item.name}
                         </a>
@@ -145,18 +145,18 @@ export default function Footer() {
                   ))}
                 </ul>
               </div>
-              <div className={mulish.className}>
+              <div>
                 <div className="mt-10 md:mt-0">
-                  <h3 className="text-md font-semibold leading-6 text-white">
+                  <h3 className={`${proximaNovaMedium.className} uppercase tracking-widest text-md sm:text-lg leading-6 text-white`}>
                     Account
                   </h3>
                   <ul role="list" className="mt-6 space-y-4">
                     {navigation.account.map((item) => (
                       <li key={item.name}>
-                        <div className={mulish.className}>
+                        <div>
                           <a
                             href={item.href}
-                            className="text-sm leading-6 text-gray-300  hover:text-[#DFFF00]"
+                            className={`${proximaNovaRegular.className} tracking-widest text-sm leading-6 text-gray-300  hover:text-[#DFFF00]`}
                           >
                             {item.name}
                           </a>

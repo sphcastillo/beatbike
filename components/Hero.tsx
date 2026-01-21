@@ -1,7 +1,6 @@
 'use client'
-import { notoSans, comfortaa, mulish, proximaNovaSemibold, proximaNovaMedium, proximaNovaRegular } from "@/app/fonts";
+import { proximaNovaSemibold, proximaNovaMedium, proximaNovaRegular } from "@/app/fonts";
 import { motion } from 'framer-motion';
-import { useEffect } from 'react';
 
 
 function Hero() {
@@ -54,7 +53,7 @@ function Hero() {
                                 href="/reserve"
                                 className={`${proximaNovaRegular.className} uppercase mt-4 px-3.5 py-2.5 bg-[#DFFF00] font-semibold shadow-sm rounded hover:bg-[#B0DB00] hover:text-white`}
                             >
-                                Book Your Bike Now
+                                Book Now
                             </a>
 
                         </div>

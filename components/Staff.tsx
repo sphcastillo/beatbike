@@ -2,7 +2,7 @@
 import Image from "next/image";
 import { motion } from 'framer-motion';
 import { instructors } from "@/data/data";
-import { notoSans, mulish, proximaNovaMedium, proximaNovaRegular, proximaNovaLight } from "@/app/fonts";
+import { mulish, proximaNovaMedium, proximaNovaRegular, proximaNovaLight } from "@/app/fonts";
 import { useState } from "react";
 
   export default function Staff() {
@@ -52,8 +52,8 @@ import { useState } from "react";
                     unoptimized={!isOptimized}
                     onError={() => setIsOptimized(false)}
                 />
-                <div className={mulish.className}>
-                    <h3 className={`${proximaNovaMedium.className} uppercase mt-6 text-base font-semibold leading-7 tracking-normal text-gray-900`}>{instructor.name}</h3>
+                <div>
+                    <h3 className={`${proximaNovaMedium.className} uppercase mt-6 text-base leading-7 tracking-wide text-gray-900`}>{instructor.name}</h3>
                 </div>
 
                 {/* <div className={mulish.className}>

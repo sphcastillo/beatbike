@@ -1,35 +1,16 @@
 'use client';
-import tarzana from "@/images/studios/tarzanaStudio.jpg";
-import hbStudio from "@/images/studios/hbStudio.png";
-import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { comfortaa, mulish } from "@/app/fonts";
+import { proximaNovaMedium, proximaNovaRegular, proximaNovaLight } from "@/app/fonts";
 import { useState } from "react";
-
-const features = [
-  {
-    name: 'Tarzana',
-    description:
-      'Experience the pulse of our Tarzana studio in Los Angeles, where every ride fuels your energy and community spirit.',
-    href: '/studios',
-    studioImage: tarzana
-  },
-  {
-    name: 'Huntington Beach',
-    description:
-      'Dive into the dynamic vibe of our Huntington Beach studio in Orange County, where every pedal stroke propels you closer to your fitness goals.',
-    href: '/studios',
-    studioImage: hbStudio
-  },
-]
-
+import { locationsData } from "@/data/locationsData";
+import Image from 'next/image';
 
 export default function Locations() {
   const [isOptimized, setIsOptimized] = useState(true);
   return (
     <div className="bg-[#333333] py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8 overflow-x-hidden">
-        <div className={mulish.className}>
+        <div>
           <motion.div 
             className="mx-auto max-w-2xl lg:mx-0"
             initial={{
@@ -45,8 +26,9 @@ export default function Locations() {
             transition={{ duration: 2 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">Double the Beat, Double the Thrill:</h2>
-            <p className="mt-6 text-lg leading-8 text-gray-300">
+            <h2 className={`${proximaNovaMedium.className} uppercase text-[#DFFF00] text-xl pb-3`}>Find Your Space</h2>
+            <h1 className={`${proximaNovaRegular.className} uppercase text-3xl md:text-4xl tracking-wide text-white`}>Double the Beat, Double the Thrill</h1>
+            <p className={`${proximaNovaLight.className} tracking-wide text-md mt-6 sm:text-xl mt-6 leading-8 text-gray-300`}>
             Feel the rhythm and conquer your workout goals at our two vibrant studios. Join us in SF valley or in &quot;Surf City&quot; HB for heart-pumping rides led by our dynamic instructors. Get ready to sweat and groove with Beatbike!
             </p>
           </motion.div>
@@ -60,7 +42,7 @@ export default function Locations() {
             transition={{ duration: 1.2 }}
             viewport={{ once: true }}             
             className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-2">
-            {features.map((feature) => (
+            {locationsData.map((feature) => (
               <div key={feature.name} className="flex-col flex">
 
                 
@@ -75,21 +57,21 @@ export default function Locations() {
                     onError={() => setIsOptimized(false)}
                   />
                 </div>
-                <div className={comfortaa.className}>
-                  <dt className="text-base font-semibold leading-7 text-white text-center pt-4">
+                <div>
+                  <dt className={`${proximaNovaRegular.className} text-lg uppercase tracking-wider leading-7 text-white text-center pt-4`}>
                   {feature.name}
                   </dt>
                 </div>
 
-                <dd className="mt-1 flex flex-auto flex-col text-base leading-7 text-gray-300">
-                  <div className={mulish.className}>
-                    <p className="flex-auto text-center">{feature.description}</p>
-                  </div>
-                  <div className={comfortaa.className}>
+                <dd className="flex flex-auto flex-col text-base leading-7 text-gray-300">
+                  
+                    <p className={`${proximaNovaLight.className} tracking-wide text-md mt-6 flex-auto text-center`}>{feature.description}</p>
+                  
+                  <div>
                     <p className="mt-6 flex justify-center items-center">
                       <motion.a   
                         href={feature.href}
-                        className="text-sm font-semibold  text-center leading-6 text-[#DFFF00]"
+                        className={`${proximaNovaRegular.className} uppercase text-sm text-center leading-6 text-[#DFFF00]`}
                         whileHover={{ scale: 1.2 }}
                         onHoverStart={e => {}}
                         onHoverEnd={e => {}}
