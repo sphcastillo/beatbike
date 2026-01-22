@@ -1,5 +1,3 @@
-import { mulish } from "@/app/fonts";
-
 const termsOfService = [
   {
     id: 1,
@@ -55,7 +53,6 @@ const termsOfService = [
 
 function TermsOfService() {
   return (
-    <div className={mulish.className}>
         <div className=" bg-white pt-7 pb-[68px] px-[48px] sm:px-[72px]">
           <div className="flex justify-center items-center py-3">
             <h1 className="text-3xl font-bold">Terms Of Service</h1>
@@ -81,7 +78,6 @@ function TermsOfService() {
             <h2>818-342-6030</h2>
           </div>
         </div>
-    </div>
   )
 }
 

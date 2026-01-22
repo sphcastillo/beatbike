@@ -14,7 +14,7 @@ import heroCarousel12 from '@/images/heroCarousel/heroCarousel11.png';
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import Image from "next/image";
-import { comfortaa, mulish } from "@/app/fonts";
+import { comfortaa } from "@/app/fonts";
 
 const heroCarouselImages = [
     {
@@ -97,7 +97,7 @@ function MobileCarousel() {
             </div>
             <div className='absolute flex justify-center w-full mt-0 top-0 pt-40 left-0 '>
                 <div className='text-center'>
-                    <div className={mulish.className}>
+                    <div>
                         <div className="relative px-3 py-1 text-lg leading-6 text-[#DFFF00] tracking-widest">
                             RIDE THE SOUND
                         </div>
@@ -110,7 +110,7 @@ function MobileCarousel() {
                         </div>
                     </div>
                     <div className='pt-7'>
-                        <div className={mulish.className}>
+                        <div>
                             <a href="/" className="rounded-md bg-[#DFFF00] px-3.5 py-2.5 text-sm font-semibold tracking-wider shadow-sm hover:bg-[#B0DB00] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-400">
                                 Get started
                             </a>

@@ -1,8 +1,8 @@
 "use client"
 import Image from "next/image";
 import { motion } from 'framer-motion';
-import { instructors } from "@/data/data";
-import { mulish, proximaNovaMedium, proximaNovaRegular, proximaNovaLight } from "@/app/fonts";
+import { instructorsData } from "@/data/instructorsData";
+import { proximaNovaMedium, proximaNovaRegular, proximaNovaLight } from "@/app/fonts";
 import { useState } from "react";
 
   export default function Staff() {
@@ -35,7 +35,7 @@ import { useState } from "react";
             role="list"
             className="mx-auto mt-20 grid max-w-2xl grid-cols-2 gap-x-8 gap-y-9 sm:gap-y-16 text-center sm:grid-cols-3 md:grid-cols-4 lg:mx-0 lg:max-w-none lg:grid-cols-5 xl:grid-cols-6"
           >
-            {instructors.map((instructor, i) => (
+            {instructorsData.map((instructor, i) => (
               <motion.li 
                 key={i}
                 whileInView={{ rotate: [0, 360] }}
@@ -44,7 +44,7 @@ import { useState } from "react";
               >
                 <Image 
                     className="mx-auto h-24 w-24 rounded-full" 
-                    src={instructor.imageUrl} 
+                    src={instructor.imageSrc} 
                     alt="Staff member" 
                     width={500}
                     height={500}
@@ -56,7 +56,7 @@ import { useState } from "react";
                     <h3 className={`${proximaNovaMedium.className} uppercase mt-6 text-base leading-7 tracking-wide text-gray-900`}>{instructor.name}</h3>
                 </div>
 
-                {/* <div className={mulish.className}>
+                {/* <div>
                   <div className="my-2">
                     <p className="text-sm text-gray-500">
                       {instructor.location1}

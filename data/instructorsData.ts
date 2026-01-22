@@ -12,16 +12,18 @@ import sasha from "@/images/instructors/sasha.jpg";
 import grace from "@/images/instructors/Grace.jpg";
 import joel from '@/images/instructors/joel.jpg';
 import beth from '@/images/instructors/beth.jpg';
+import headshotJoel from "@/images/calendarJoe.jpg";
 import { Instructor } from "@/typings";
 
 
-export const instructors: Instructor[]= [
+export const instructorsData: Instructor[]= [
     {
       id: 1,
       name: 'Bailey',
       musicStyle: 'Americana · Folk · Indie',
-      imageUrl:
+      imageSrc:
         bailey,
+      headshot: headshotJoel,
       instagramUrl: 'https://www.instagram.com/joey_4pawjay?igsh=OGQ5ZDc2ODk2ZA%3D%3D&utm_source=qr',
       location1: "Tarzana",
       location2: "Huntington Beach",
@@ -34,8 +36,9 @@ export const instructors: Instructor[]= [
         id: 2,
         name: 'Spencer',
         musicStyle: 'Hardcore · Fast · Intense',
-        imageUrl:
+        imageSrc:
           spencer,
+        headshot: headshotJoel,
         instagramUrl: 'https://www.instagram.com/joey_4pawjay?igsh=OGQ5ZDc2ODk2ZA%3D%3D&utm_source=qr',
         location1: "Huntington Beach",
         location2: null,
@@ -48,8 +51,9 @@ export const instructors: Instructor[]= [
         id: 3,
         name: 'Dana',
         musicStyle: 'Latin Pop · Reggaeton · Hip Hop',
-        imageUrl:
+        imageSrc:
           dana,
+        headshot: headshotJoel,
         instagramUrl: 'https://www.instagram.com/joey_4pawjay?igsh=OGQ5ZDc2ODk2ZA%3D%3D&utm_source=qr',
         location1: "Tarzana",
         location2: "Huntington Beach",
@@ -62,8 +66,9 @@ export const instructors: Instructor[]= [
         id: 4,
         name: 'Dylan',
         musicStyle: "EDM · Downtempo · Hip Hop",
-        imageUrl:
+        imageSrc:
           dylan,
+        headshot: headshotJoel,
         instagramUrl: 'https://www.instagram.com/joey_4pawjay?igsh=OGQ5ZDc2ODk2ZA%3D%3D&utm_source=qr',
         location1: "Huntington Beach",
         location2: null,
@@ -76,8 +81,9 @@ export const instructors: Instructor[]= [
         id: 5,
         name: 'Beth',
         musicStyle: 'Nostalgic · Indie · Soulful',
-        imageUrl:
+        imageSrc: 
           beth,
+        headshot: headshotJoel,
         instagramUrl: 'https://www.instagram.com/joey_4pawjay?igsh=OGQ5ZDc2ODk2ZA%3D%3D&utm_source=qr',
         location1: "Tarzana",
         location2: null,
@@ -90,8 +96,9 @@ export const instructors: Instructor[]= [
         id: 6,
         name: 'Jasmine',
         musicStyle: 'Hip Hop · EDM · Punk',
-        imageUrl:
+        imageSrc:
           jasmine,
+        headshot: headshotJoel,
         instagramUrl: 'https://www.instagram.com/joey_4pawjay?igsh=OGQ5ZDc2ODk2ZA%3D%3D&utm_source=qr',
         location1: "Huntington Beach",
         location2: null,
@@ -104,8 +111,9 @@ export const instructors: Instructor[]= [
         id: 7,
         name: 'Amanda',
         musicStyle: 'Reggae · Ska · Punk',
-        imageUrl:
+        imageSrc:
           amanda,
+        headshot: headshotJoel,
         instagramUrl: 'https://www.instagram.com/joey_4pawjay?igsh=OGQ5ZDc2ODk2ZA%3D%3D&utm_source=qr',
         location1: "Tarzana",
         location2: "Huntington Beach",
@@ -118,8 +126,9 @@ export const instructors: Instructor[]= [
         id: 8,
         name: 'Suzy',
         musicStyle: 'Synthwave · Eclectic · Indie Pop',
-        imageUrl:
+        imageSrc:
           suzy,
+        headshot: headshotJoel,
         instagramUrl: 'https://www.instagram.com/joey_4pawjay?igsh=OGQ5ZDc2ODk2ZA%3D%3D&utm_source=qr',
         location1: "Tarzana",
         location2: null,
@@ -132,8 +141,9 @@ export const instructors: Instructor[]= [
         id: 9,
         name: 'Brian',
         musicStyle: 'Dance pop · Hip Hop · Upbeat',
-        imageUrl:
+        imageSrc:
           brian,
+        headshot: headshotJoel,
         instagramUrl: 'https://www.instagram.com/joey_4pawjay?igsh=OGQ5ZDc2ODk2ZA%3D%3D&utm_source=qr',
         location1: "Tarzana",
         location2: "Huntington Beach",
@@ -145,9 +155,10 @@ export const instructors: Instructor[]= [
       {
         id: 10,
         name: 'Candis',
-        musicStyle: 'Pop · Country · Hiipster',
-        imageUrl:
+        musicStyle: 'Pop · Country · Hipster',
+        imageSrc:
           candis,
+        headshot: headshotJoel,
         instagramUrl: 'https://www.instagram.com/joey_4pawjay?igsh=OGQ5ZDc2ODk2ZA%3D%3D&utm_source=qr',
         location1: "Tarzana",
         location2: null,
@@ -160,8 +171,9 @@ export const instructors: Instructor[]= [
         id: 11,
         name: 'Grace',
         musicStyle: 'Progressive House · Techno · Trance',
-        imageUrl:
+        imageSrc:
           grace,
+        headshot: headshotJoel,
         instagramUrl: 'https://www.instagram.com/joey_4pawjay?igsh=OGQ5ZDc2ODk2ZA%3D%3D&utm_source=qr',
         location1: "Huntington Beach",
         location2: null,
@@ -174,8 +186,9 @@ export const instructors: Instructor[]= [
         id: 12,
         name: 'Valeria',
         musicStyle: 'Latin Urban · Reggaeton · Dance Remixes',
-        imageUrl:
+        imageSrc:
           valeria,
+        headshot: headshotJoel,
         instagramUrl: 'https://www.instagram.com/joey_4pawjay?igsh=OGQ5ZDc2ODk2ZA%3D%3D&utm_source=qr',
         location1: "Tarzana",
         location2: "Huntington Beach",
@@ -187,9 +200,10 @@ export const instructors: Instructor[]= [
       {
         id: 13,
         name: 'Joel',
-        musicStyle: 'Rap-fuled · Hip Hop · Mainstream',
-        imageUrl:
+        musicStyle: 'British Rap · Hip Hop · Mainstream',
+        imageSrc:
           joel,
+        headshot: headshotJoel,
         instagramUrl: 'https://www.instagram.com/joey_4pawjay?igsh=OGQ5ZDc2ODk2ZA%3D%3D&utm_source=qr',
         location1: "Tarzana",
         location2: "Huntington Beach",
@@ -202,8 +216,9 @@ export const instructors: Instructor[]= [
         id: 14,
         name: 'Sasha',
         musicStyle: 'Feel-good · Club-ready · Bangers',
-        imageUrl:
+        imageSrc:
           sasha,
+        headshot: headshotJoel,
         instagramUrl: 'https://www.instagram.com/joey_4pawjay?igsh=OGQ5ZDc2ODk2ZA%3D%3D&utm_source=qr',
         location1: "Huntington Beach",
         location2: null,
@@ -214,20 +229,12 @@ export const instructors: Instructor[]= [
       },
 
   ]
-  const huntingtonBeachInstructors = instructors
-  .filter(
-      (instructor) =>
-          instructor.location1 === "Huntington Beach" || instructor.location2 === "Huntington Beach"
-  )
-  .map((instructor) => instructor.name);
 
-const tarzanaInstructors = instructors
-  .filter(
-      (instructor) =>
-          instructor.location1 === "Tarzana" || instructor.location2 === "Tarzana"
-  )
-  .map((instructor) => instructor.name);
+  const getInstructorsByLocation = (location: string) =>
+    instructorsData
+      .filter((i) => i.location1 === location || i.location2 === location)
+      .map((i) => i.name);
   
-  // Log or export the arrays if needed
-  console.log("Huntington Beach Instructors:", huntingtonBeachInstructors);
-  console.log("Tarzana Instructors:", tarzanaInstructors);
+  const huntingtonBeachInstructors = getInstructorsByLocation("Huntington Beach");
+  const tarzanaInstructors = getInstructorsByLocation("Tarzana");
+  

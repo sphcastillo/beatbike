@@ -1,7 +1,9 @@
+import type { StaticImageData } from "next/image";
+
 export type Instructor = {
     id: number;
     name: string;
-    imageUrl: any;
+    imageSrc: StaticImageData;
     instagramUrl: string;
     musicStyle: string;
     location1 : string;
@@ -10,6 +12,7 @@ export type Instructor = {
     bio: string;
     quote: string;
     favoriteArtist: string;
+    headshot: StaticImageData;
 }
 
 export interface User {

@@ -5,6 +5,8 @@ import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/20/solid'
 import { EllipsisVerticalIcon } from '@heroicons/react/24/outline'
 import { proximaNovaThin ,proximaNovaLight, proximaNovaRegular, proximaNovaMedium, proximaNovaSemibold } from "@/app/fonts";
+import Image from 'next/image';
+import calendarJoe from "@/images/calendarJoe.jpg";
 
 type DayCell = {
   date: string 
@@ -16,9 +18,8 @@ type DayCell = {
 const meetings = [
   {
     id: 1,
-    name: 'Leslie Alexander',
-    imageUrl:
-      'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+    name: 'Joel S.',
+    imageSrc: calendarJoe,
     start: '1:00 PM',
     startDatetime: '2026-01-21T13:00',
     end: '2:30 PM',
@@ -174,7 +175,7 @@ export default function StudioCalendar() {
               key={meeting.id}
               className="group flex items-center gap-x-4 rounded-xl px-4 py-2 focus-within:bg-gray-100 hover:bg-gray-100"
             >
-              <img src={meeting.imageUrl} alt="" className="size-10 flex-none rounded-full" />
+              <Image src={meeting.imageSrc} alt="" className="size-10 flex-none rounded-full" width={40} height={40} />
               <div className="flex-auto">
                 <p className={`${proximaNovaRegular.className} text-gray-900 tracking-wider`}>{meeting.name}</p>
                 <p className={`${proximaNovaRegular.className} mt-0.5`}>

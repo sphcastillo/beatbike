@@ -1,7 +1,7 @@
 "use client";
 import { XMarkIcon } from "@heroicons/react/20/solid";
 import { useState } from "react";
-import { mulish, proximaNovaRegular } from "@/app/fonts";
+import { proximaNovaRegular } from "@/app/fonts";
 
 export default function Banner() {
   const [isVisible, setIsVisible] = useState(true);
@@ -13,7 +13,7 @@ export default function Banner() {
   return (
     <>
       {isVisible && (
-        <div className={mulish.className}>
+        <div>
           <div className="flex items-center gap-x-6 bg-[#333333] px-6 py-2.5 sm:px-3.5 sm:before:flex-1">
             <p className={`${proximaNovaRegular.className} tracking-wide text-sm leading-6 text-white text-center text-pretty`}>
 

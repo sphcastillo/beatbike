@@ -1,7 +1,6 @@
 "use client";
 import beatbikeLogo from "@/images/beatbikeLogo.png";
 import Image from "next/image";
-import { notoSans, mulish } from "@/app/fonts";
 import { useState } from "react";
 import { FaEye, FaRegEyeSlash } from "react-icons/fa";
 
@@ -23,11 +22,11 @@ function ResetPasswordPage() {
           onError={() => setIsOptimized(false)}
         />
       </div>
-      <div className={notoSans.className}>
+      <div>
         <div className="flex justify-center items-center pt-6">
           <h1 className="font-bold text-3xl">Reset Password</h1>
         </div>
-        <div className={mulish.className}>
+        <div>
           <div className="flex justify-center items-center pb-8 pt-5">
             <h1 className="font-semibold text-lg">
             Enter a new password:

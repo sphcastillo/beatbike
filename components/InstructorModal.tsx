@@ -51,7 +51,7 @@ const InstructorModal: React.FC<InstructorModalProps> = ({
               <div className="order-1 md:order-none flex justify-center items-center mx-4 w-full">
                 <Image
                   className="object-cover px-[16px] py-5 sm:h-94 w-full md:py-5 sm:px-[54px] "
-                  src={instructor.imageUrl}
+                  src={instructor.imageSrc}
                   priority
                   alt="Instructor Profile Image"
                 />

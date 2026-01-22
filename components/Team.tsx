@@ -1,26 +1,12 @@
 "use client";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { instructors } from "@/data/data";
+import { instructorsData } from "@/data/instructorsData";
 import { FaSpotify } from "react-icons/fa";
 import { useState } from "react";
 import InstructorModal from "./InstructorModal";
 import { proximaNovaRegular, proximaNovaMedium, proximaNovaLight } from "@/app/fonts";
-
-export interface Instructor {
-  id: number;
-  name: string;
-  imageUrl: any;
-  instagramUrl: string;
-  musicStyle: string;
-  location1 : string;
-  location2: string | null;
-  spotifyUrl: string;
-  bio: string;
-  quote: string;
-  favoriteArtist: string;
-
-}
+import type { Instructor } from "@/typings"; 
 
 export default function Team() {
   const [modalOpen, setModalOpen] = useState(false);
@@ -56,7 +42,7 @@ export default function Team() {
           role="list"
           className="mx-auto mt-10 grid max-w-2xl grid-cols-2 gap-6 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3 lg:gap-8 "
         >
-          {instructors.map((instructor, index) => (
+          {instructorsData.map((instructor, index) => (
             
             <motion.li
             key={index}
@@ -76,8 +62,8 @@ export default function Team() {
             >
                 <Image
                   className="mx-auto h-28 w-28 rounded-full md:h-56 md:w-56"
-                  src={instructor.imageUrl}
-                  alt="team member"
+                  src={instructor.imageSrc}
+                  alt={`${instructor.name} instructor`}
                   width={192}
                   height={192}
                   priority
@@ -170,7 +156,7 @@ export default function Team() {
 
           ))}
         </ul>
-        {modalOpen && <InstructorModal instructor={selectedInstructor} onClose={() => setModalOpen(false)} />}
+        {modalOpen && <InstructorModal  instructor={selectedInstructor} onClose={() => setModalOpen(false)} />}
       </div>
     </div>
   );
