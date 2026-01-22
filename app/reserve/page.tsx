@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import GoBeatbikeTeam from "@/images/homepage/GoBeatbikeTeam.jpg"
-import { notoSans } from "@/app/fonts";
+import { proximaNovaRegular, proximaNovaMedium, proximaNovaLight } from "@/app/fonts";
 import LocationSelection from "@/components/LocationSelection";
 
 export default function ReservePage() {
@@ -10,9 +10,9 @@ export default function ReservePage() {
     <div className="w-full mx-auto pb-4 bg-white">
       <div className="mx-auto max-w-7xl px-6 py-16 sm:py-24 lg:px-8">
         <div className="mx-auto max-w-2xl">
-          <div className={notoSans.className}>
+          <div>
             <div className="flex justify-center">
-              <h1 className="max-w-2xl text-center text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl lg:col-span-2 xl:col-auto">
+              <h1 className={`${proximaNovaRegular.className} uppercase text-3xl md:text-4xl tracking-wide max-w-2xl text-center text-gray-900 sm:text-6xl lg:col-span-2 xl:col-auto`}>
                 Book Your Ride
               </h1>
             </div>

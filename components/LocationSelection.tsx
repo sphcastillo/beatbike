@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { Radio, RadioGroup } from "@headlessui/react";
 import { CheckCircleIcon } from "@heroicons/react/20/solid";
-import { notoSans } from "@/app/fonts";
+import { proximaNovaMedium, proximaNovaRegular, proximaNovaLight } from "@/app/fonts";
 
 const locations = [
   {
@@ -21,9 +21,9 @@ function LocationSelection() {
   const [selected, setSelected] = useState(locations[0]);
   return (
     <div className="mt-12 mx-auto w-full">
-      <div className={notoSans.className}>
+      <div>
         <div className="w-full flex justify-center">
-          <h1 className="text-2xl font-semibold leading-6 text-gray-900 pb-3 text-center">
+          <h1 className={`${proximaNovaMedium.className} uppercase text-[#DFFF00] text-2xl leading-6 pb-3 text-center`}>
             Select Your Studio
           </h1>
         </div>
@@ -33,12 +33,12 @@ function LocationSelection() {
           <Radio
             key={location.id}
             value={location}
-            className="group relative flex cursor-pointer rounded-lg bg-white/5 py-4 px-5 text-black shadow-lg transition focus:outline-none data-[focus]:outline-1 data-[focus]:outline-black data-[checked]:bg-black/10"
+            className="group relative flex cursor-pointer rounded-lg bg-white/5 py-4 px-5 text-black border-gray-900/30 border-[1px] shadow-lg transition focus:outline-none data-[focus]:outline-1 data-[focus]:outline-black data-[checked]:bg-black/10"
           >
             <a className="flex w-full items-center justify-between" href={location.href}>
-              <div className="text-[15px]">
-                <h5 className="font-semibold text-black">{location.title}</h5>
-              </div>
+
+              <h5 className={`${proximaNovaRegular.className} uppercase text-sm text-gray-900`}>{location.title}</h5>
+
               <CheckCircleIcon className="size-6 fill-[#DFFF00] opacity-0 transition group-data-[checked]:opacity-100" />
             </a>
           </Radio>
