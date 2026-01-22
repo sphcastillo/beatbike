@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { ClerkProvider } from '@clerk/nextjs'
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Banner from "@/components/Banner";
@@ -15,6 +16,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
+    <ClerkProvider>
     <html lang="en">
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -26,5 +28,6 @@ export default function RootLayout({
         <Footer />
       </body>
     </html>
+    </ClerkProvider>
   );
 }
