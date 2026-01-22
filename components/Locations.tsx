@@ -28,7 +28,7 @@ export default function Locations() {
           >
             <h2 className={`${proximaNovaMedium.className} uppercase text-[#DFFF00] text-xl pb-3`}>Find Your Space</h2>
             <h1 className={`${proximaNovaRegular.className} uppercase text-3xl md:text-4xl tracking-wide text-white`}>Double the Beat, Double the Thrill</h1>
-            <p className={`${proximaNovaLight.className} tracking-wide text-md sm:text-xl mt-6 leading-8 text-gray-300`}>
+            <p className={`${proximaNovaLight.className} tracking-wide text-md sm:text-xl mt-6 leading-8 text-white/80`}>
             Feel the rhythm and conquer your workout goals at our two vibrant studios. Join us in SF valley or in &quot;Surf City&quot; HB for heart-pumping rides led by our dynamic instructors. Get ready to sweat and groove with Beatbike!
             </p>
           </motion.div>

@@ -5,6 +5,7 @@ import { proximaNovaRegular, proximaNovaMedium, proximaNovaLight } from "@/app/f
 import FAQaccordion from '@/components/FAQaccordion';
 import Beatbike from "@/images/exploreUs/beatbikeWallpaper.jpeg";
 import beatbikeCelebration from "@/images/studios/BeatbikeCelebration.jpg";
+import strongerTogether from '@/images/homepage/strongerTogether.png';
 import { benefits } from '@/data/exploreData';
 
 
@@ -13,8 +14,8 @@ export default function ExplorePage() {
     <div>
       <div className='py-6 sm:py-8 px-6 max-w-7xl mx-auto'>
       </div>
-      <div className="relative isolate">
-        <div id='explore-us-1' className="mx-auto max-w-7xl pt-8 sm:px-6 lg:px-8">
+      <div className="relative isolate pb-24 lg:pb-0">
+        <div className="mx-auto max-w-7xl pt-8 sm:px-6 lg:px-8">
           <div className="mx-auto flex max-w-2xl flex-col gap-16 sm:rounded-3xl sm:p-8 lg:mx-0 lg:max-w-none lg:flex-row lg:items-center lg:py-20 xl:gap-x-20 xl:px-20">
             <Image
               className="h-96 w-full flex-none sm:rounded-2xl object-cover shadow-xl lg:aspect-square lg:h-auto lg:max-w-sm"
@@ -54,12 +55,46 @@ export default function ExplorePage() {
           </div>
         </div>
       </div>
-      <div id="explore-us-2" className="relative isolate py-24">
+      <div id="explore-us-1" className="relative isolate bg-[#333333] py-40 sm:py-32 lg:py-0">
         <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
-        <div className="mx-auto flex max-w-2xl flex-col-reverse gap-16 sm:rounded-3xl sm:p-8 lg:mx-0 lg:max-w-none lg:flex-row lg:items-center lg:py-20 xl:gap-x-20 xl:px-20">
+          <div className="mx-auto flex max-w-2xl flex-col  gap-16 sm:rounded-3xl sm:p-8 lg:mx-0 lg:max-w-none lg:flex-row lg:items-center lg:py-20 xl:gap-x-20 xl:px-20">
+
+            <Image
+              className="h-96 w-full flex-none sm:rounded-2xl object-cover shadow-xl 
+                   lg:aspect-square lg:h-auto lg:max-w-md xl:max-w-lg"
+              src={strongerTogether}
+              alt="Beatbike community celebrating after class"
+            />
+
+            <div className="w-full flex-auto px-8">
+              <h2 className={`${proximaNovaMedium.className} uppercase text-[#DFFF00] text-xl pb-3`}>
+                Community
+              </h2>
+
+              <h1 className={`${proximaNovaRegular.className} uppercase text-3xl md:text-4xl tracking-wide text-white text-pretty`}>
+                Stronger Together
+              </h1>
+
+              <p className={`${proximaNovaLight.className} tracking-wide text-md mt-6 sm:text-xl text-white/80`}>
+                At the heart of Beatbike is a diverse, inclusive community that moves together. We’re here to lift each other up, ride side by side, and create a space where all bodies and all journeys are celebrated. No competition—just collective energy and shared momentum.
+              </p>
+            </div>
 
 
+          </div>
+        </div>
+      </div>
+      <div id="explore-us-2" className="relative isolate py-40 sm:py-32 lg:py-0">
+        <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
+          <div className="mx-auto flex max-w-2xl flex-col gap-16 sm:rounded-3xl sm:p-8 lg:mx-0 lg:max-w-none lg:flex-row-reverse lg:items-center lg:py-20 xl:gap-x-20 xl:px-20">
 
+
+            <Image
+              className="h-96 w-full flex-none sm:rounded-2xl object-cover shadow-xl 
+                   lg:aspect-square lg:h-auto lg:max-w-md xl:max-w-lg"
+              src={beatbikeCelebration}
+              alt="Beatbike community celebrating after class"
+            />
             <div className="w-full flex-auto px-8">
               <h2 className={`${proximaNovaMedium.className} uppercase text-[#DFFF00] text-xl pb-3`}>
                 The Beatbike Experience
@@ -75,12 +110,6 @@ export default function ExplorePage() {
                 is built on connection, encouragement, and high-fives that never get old.
               </p>
             </div>
-            <Image
-              className="h-96 w-full flex-none sm:rounded-2xl object-cover shadow-xl lg:aspect-square lg:h-auto lg:max-w-md xl:max-w-lg"
-              src={beatbikeCelebration}
-              id='explore-us-2-image'
-              alt="Beatbike community celebrating after class"
-            />
 
           </div>
         </div>
@@ -90,7 +119,7 @@ export default function ExplorePage() {
         style={{
           backgroundImage: `url(${Beatbike.src})`,
           backgroundSize: "cover",
-          backgroundPosition: "center 30%", 
+          backgroundPosition: "center 30%",
           backgroundRepeat: "no-repeat",
         }}
       >

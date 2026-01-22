@@ -37,7 +37,7 @@ export default function Introduction() {
             // transition={fadeInAnimationVariants.transition}
             // viewport={{ once: true }}
             >
-              <h2 className={`${proximaNovaMedium.className} uppercase text-[#DFFF00] text-xl pb-3`}>Community</h2>
+              <h2 className={`${proximaNovaMedium.className} uppercase text-[#DFFF00] text-xl pb-3`}>Welcome to the Ride!</h2>
               <h1 className={`${proximaNovaRegular.className} uppercase text-3xl md:text-4xl tracking-wide text-black`}>We are Beatbike</h1>
               <p className={`${proximaNovaLight.className} tracking-wide text-md mt-6 sm:text-xl text-black text-pretty`}>
                 Welcome to Beatbike, where high-intensity meets low-impact in our invigorating 45-minute indoor cycling sessions led by our energetic instructors. Classes are meticulously crafted to fortify your mind, body, and soul, guided by expert coaches who lead you through dynamic segments of climbs, sprints, choreography, weights, and our iconic soulful moment. Immerse yourself in a transformative experience as you pedal towards holistic well-being in our state-of-the-art studio, surrounded by vibrant lighting and a supportive community. Join us on the journey to elevate your fitness experience with Beatbike.

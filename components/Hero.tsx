@@ -1,5 +1,5 @@
 'use client'
-import { proximaNovaSemibold, proximaNovaMedium, proximaNovaRegular } from "@/app/fonts";
+import { proximaNovaSemibold, proximaNovaMedium, proximaNovaRegular, comfortaa } from "@/app/fonts";
 import { motion } from 'framer-motion';
 
 
@@ -29,8 +29,8 @@ function Hero() {
                                 duration: 0.9,
                                 ease: "easeOut",
                             }}
-                            className={`${proximaNovaSemibold.className} relative px-3 py-1 text-4xl sm:text-6xl font-bold leading-6 text-[#DFFF00] tracking-wider text-center`}>
-                            RIDE THE SOUND
+                            className={`${comfortaa.className} relative px-3 py-1 text-4xl sm:text-6xl font-bold leading-6 text-[#DFFF00] tracking-wider text-center`}>
+                            Beatbike
                         </motion.div>
                     </div>
                     <div className="relative text-center">
@@ -41,7 +41,7 @@ function Hero() {
                             transition={{ duration: 0.7, ease: "easeOut", delay: 0.2 }}
                             className={`${proximaNovaMedium.className} uppercase text-lg tracking-wide text-white sm:text-3xl text-center`}
                         >
-                            Join our beat revolution.
+                            Feel the Beat. Find Your Power.
                         </motion.h2>
 
 
