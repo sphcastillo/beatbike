@@ -59,7 +59,10 @@ function Header() {
                     <div>
                         <div className="hidden md:flex md:gap-x-12">
                             {navigation.map((item) => (
-                                <a key={item.name} href={item.href} className={`${proximaNovaRegular.className} uppercase text-sm font-semibold leading-6 tracking-widest text-white`}>
+                                <a 
+                                    key={item.name} 
+                                    href={item.href} 
+                                    className={`${proximaNovaRegular.className} uppercase text-sm leading-6 tracking-widest text-white border-b-2 border-transparent hover:border-[#DFFF00] pb-1 transition-colors`}>
                                     {item.name}
                                 </a>
                             ))}
@@ -121,7 +124,8 @@ function Header() {
                                     <a
                                         key={item.name}
                                         href={item.href}
-                                        className={`${proximaNovaRegular.className} uppercase tracking-widest -mx-3 block text-xl px-3 py-2 leading-7 text-white hover:text-[#DFFF00] hover:bg-[#333333]`}
+                                        className={`${proximaNovaRegular.className} uppercase tracking-widest -mx-3 block text-xl px-3 py-2 leading-7 text-white border-b-2 border-transparent hover:border-[#DFFF00] pb-1 transition-colors`}
+
                                     >
                                         {item.name}
                                     </a>
@@ -131,7 +135,7 @@ function Header() {
                                 <div>
                                     <a
                                         href="/signin"
-                                        className={`${proximaNovaRegular.className} -mx-3 block rounded-lg px-3 py-2.5 text-xl font-semibold leading-7 text-[#DFFF00] hover:bg-[#333333]`}
+                                        className={`${proximaNovaRegular.className} -mx-3 block rounded-lg px-3 py-2.5 text-xl font-semibold leading-7 text-[#DFFF00]`}
                                     >
                                         Log in
                                     </a>
