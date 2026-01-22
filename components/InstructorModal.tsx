@@ -2,7 +2,7 @@ import { Instructor } from "@/typings";
 import Image from "next/image";
 import { IoClose } from "react-icons/io5";
 import { FaSpotify } from "react-icons/fa";
-import { notoSans, mulish } from "@/app/fonts";
+import { proximaNovaLight, proximaNovaRegular, proximaNovaMedium, proximaNovaThin } from "@/app/fonts";
 
 interface InstructorModalProps {
   instructor: Instructor | null;
@@ -40,7 +40,7 @@ const InstructorModal: React.FC<InstructorModalProps> = ({
           <div className="bg-gray-50 px-4 pt-3 sm:px-6 flex justify-end">
             <button
               type="button"
-              className="cursor-pointer rounded-md bg-[#DFFF00] px-3.5 py-2.5 text-sm z-100 font-semibold shadow-sm hover:bg-[#B0DB00] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+              className="cursor-pointer px-3.5 py-2.5 text-sm z-100"
               onClick={onClose}
             >
               <IoClose className="h-4 w-4" />
@@ -58,11 +58,11 @@ const InstructorModal: React.FC<InstructorModalProps> = ({
               </div>
 
               <div className="order-2 md:order-none flex flex-col justify-between p-4 leading-normal w-full">
-                <div className={notoSans.className}>
-                  <h5 className="text-center mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                    {instructor.name}
-                  </h5>
-                </div>
+
+                <h5 className={`${proximaNovaMedium.className} uppercase tracking-wider text-center mb-2 text-2xl text-gray-900`}>
+                  {instructor.name}
+                </h5>
+
                 <div className="flex justify-center items-center">
                   <a
                     href={instructor.instagramUrl}
@@ -89,7 +89,7 @@ const InstructorModal: React.FC<InstructorModalProps> = ({
                   </a>
                 </div>
 
-                <div className={mulish.className}>
+                <div>
                   <div className="flex justify-center py-4">
                     <a
                       href={instructor.instagramUrl}
@@ -99,26 +99,26 @@ const InstructorModal: React.FC<InstructorModalProps> = ({
                     >
                       <span className="sr-only">Spotify</span>
                       <FaSpotify className="h-6 w-6 text-[#DFFF00] hover:text-[#B0DB00]" />
-                      <div className="pl-3 text-[15px] text-gray-600 hover:text-[#B0DB00]">Listen to this instructor&apos;s playlist</div>
+                      <div className={`${proximaNovaLight.className} uppercase pl-3 text-sm text-gray-600 hover:text-[#B0DB00]`}>Listen to this instructor&apos;s playlist</div>
                     </a>
                   </div>
                 </div>
 
-                <div className={mulish.className}>
-                  <p className="mb-3 mt-1 text-sm text-center text-gray-700 dark:text-gray-400">
-                    {instructor.quote}
-                  </p>
-                </div>
 
-                <div className={mulish.className}>
+                <p className={`${proximaNovaThin.className} tracking-wide mb-3 mt-1 text-sm text-center text-gray-700`}>
+                  {instructor.quote}
+                </p>
+
+
+                <div>
                   <h3
-                    className="text-md leading-6 font-medium text-gray-900"
+                    className={`${proximaNovaRegular.className} uppercase tracking-normal text-md leading-6 text-gray-900`}
                     id="modal-title"
                   >
                     Teaches at:
                   </h3>
                   <div className="my-2">
-                    <p className="text-sm text-gray-500">
+                    <p className={`${proximaNovaRegular.className} tracking-wide text-sm text-gray-500`}>
                       {instructor.location1}
 
                       {instructor.location2 !== null && (
@@ -136,32 +136,32 @@ const InstructorModal: React.FC<InstructorModalProps> = ({
                     </p>
                   </div>
                 </div>
-                <div className={mulish.className}>
+                <div>
                   <h3
-                    className="text-md leading-6 font-medium text-gray-900"
+                    className={`${proximaNovaRegular.className} uppercase tracking-normal text-md leading-6 text-gray-900`}
                     id="modal-title"
                   >
                     Favorite Artist:
                   </h3>
                   <div className="mt-2">
-                    <p className="text-sm text-gray-500">
+                    <p className={`${proximaNovaRegular.className} tracking-wide text-sm text-gray-500`}>
                       {instructor.favoriteArtist}
                     </p>
                   </div>
                 </div>
-                <div className={mulish.className}>
-                  <h3 className="text-sm text-gray-900 leading-relaxed my-4">
-                    {instructor.bio}
-                  </h3>
-                </div>
+
+                <h3 className={`${proximaNovaRegular.className} tracking-wide text-sm text-gray-900 leading-relaxed my-4`}>
+                  {instructor.bio}
+                </h3>
+
               </div>
             </div>
             <div className="flex justify-center mt-2 mb-6">
-              <div className={notoSans.className}>
-                <button className="cursor-pointer rounded-md bg-[#DFFF00] px-3.5 py-2.5 text-sm z-100 font-semibold shadow-sm hover:bg-[#B0DB00] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-                  View Schedule
-                </button>
-              </div>
+
+              <button className={`${proximaNovaRegular.className} uppercase tracking-wide cursor-pointer rounded-md bg-[#DFFF00] px-3.5 py-2.5 text-sm z-100 shadow-sm hover:bg-[#B0DB00]`}>
+                View Schedule
+              </button>
+
             </div>
           </div>
         </div>

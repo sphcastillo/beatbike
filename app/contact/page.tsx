@@ -5,7 +5,7 @@ import {
   EnvelopeIcon,
   PhoneIcon,
 } from "@heroicons/react/24/outline";
-import { notoSans, mulish } from "@/app/fonts";
+import { proximaNovaLight, proximaNovaRegular, proximaNovaMedium, proximaNovaSemibold } from "@/app/fonts";
 import { useState } from "react";
 
 export default function ContactUs() {
@@ -21,7 +21,7 @@ export default function ContactUs() {
 
     setDelivered('');
 
-    const response = await fetch('/api/contactMessages' , {
+    const response = await fetch('/api/contactMessages', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -31,28 +31,28 @@ export default function ContactUs() {
 
     const data = await response.json();
 
-    if(response.ok){
+    if (response.ok) {
       setDelivered('Message sent! 🎉');
       setFirstName('');
       setLastName('');
       setEmail('');
       setPhoneNumber('');
       setMessage('');
-    }else {
+    } else {
       setDelivered(data.error || 'Something went wrong. Please try again.');
     }
-  
+
   }
 
   return (
     <div className="relative isolate bg-white">
       <div className="py-6 sm:py-8 px-2 md:px-6">
-        <ContactUsGalleryBanner />
+        {/* <ContactUsGalleryBanner /> */}
       </div>
       <div className="mx-auto grid max-w-7xl grid-cols-1 lg:grid-cols-2">
         <div className="relative px-6 pb-20 pt-10 sm:pt-24 lg:static lg:px-8 lg:py-32">
           <div className="mx-auto max-w-xl lg:mx-0 lg:max-w-lg">
-            <div className="absolute inset-y-0 left-0 -z-10 w-full overflow-hidden bg-gray-100 ring-1 ring-gray-900/10 lg:w-1/2">
+            <div className="absolute inset-y-0 left-0 -z-10 w-full overflow-hidden bg-gray-100 lg:w-1/2">
               <svg
                 className="absolute inset-0 h-full w-full"
                 aria-hidden="true"
@@ -81,21 +81,18 @@ export default function ContactUs() {
                 /> */}
               </svg>
             </div>
-            <div className={notoSans.className}>
-              <h2 className="text-3xl font-bold tracking-tight text-gray-900">
-                Get in touch
-              </h2>
-            </div>
-            <div className={mulish.className}>
-              <p className="mt-6 text-lg leading-8 text-gray-600">
-                Got questions, feedback, or just want to say hi? Reach out to us
-                at Beatbike! Whether you&apos;re looking to book a class,
-                inquire about memberships, or connect with our vibrant
-                community, our team is here to assist you. Drop us a line via
-                phone, email, or visit us at one of our dynamic locations.
-                Let&apos;s pedal towards your fitness goals together!
-              </p>
-            </div>
+            <h2 className={`${proximaNovaMedium.className} uppercase text-[#DFFF00] text-xl pb-3`}>Got questions?</h2>
+            <h1 className={`${proximaNovaRegular.className} uppercase text-3xl md:text-4xl tracking-wide text-black`}>Get in touch</h1>
+
+            <p className={`${proximaNovaLight.className} tracking-wide text-md mt-6 sm:text-xl pt-6 text-gray-600`}>
+              Got questions, feedback, or just want to say hi? Reach out to us
+              at Beatbike! Whether you&apos;re looking to book a class,
+              inquire about memberships, or connect with our vibrant
+              community, our team is here to assist you. Drop us a line via
+              phone, email, or visit us at one of our dynamic locations.
+              Let&apos;s pedal towards your fitness goals together!
+            </p>
+
             <dl className="mt-10 space-y-4 text-base leading-7 text-gray-600">
               {/* <div className="flex gap-x-4">
                 <dt className="flex-none">
@@ -120,18 +117,18 @@ export default function ContactUs() {
                   </a>
                 </dd>
               </div> */}
-              <div className="flex gap-x-4">
+              <div className="flex gap-x-4 hover:text-gray-900">
                 <dt className="flex-none">
                   <span className="sr-only">Email</span>
                   <EnvelopeIcon
-                    className="h-7 w-6 text-gray-400"
+                    className="h-7 w-6 text-gray-400 hover:text-gray-900"
                     aria-hidden="true"
                   />
                 </dt>
                 <dd>
-                  <div className={mulish.className}>
+                  <div>
                     <a
-                      className="hover:text-gray-900"
+                      className={`${proximaNovaRegular.className} tracking-wide text-md hover:text-gray-900`}
                       href="mailto:info@beatbike.com"
                     >
                       info@beatbike.com
@@ -148,10 +145,10 @@ export default function ContactUs() {
         >
           <div className="mx-auto max-w-xl lg:mr-0 lg:max-w-lg">
             <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
-              <div className={notoSans.className}>
+              <div>
                 <label
                   htmlFor="first-name"
-                  className="block text-sm font-semibold leading-6 text-gray-900"
+                  className={`${proximaNovaMedium.className} uppercase tracking-wide block text-sm leading-6 text-gray-900`}
                 >
                   First name
                 </label>
@@ -168,7 +165,7 @@ export default function ContactUs() {
               <div>
                 <label
                   htmlFor="last-name"
-                  className="block text-sm font-semibold leading-6 text-gray-900"
+                  className={`${proximaNovaMedium.className} uppercase tracking-wide block text-sm leading-6 text-gray-900`}
                 >
                   Last name
                 </label>
@@ -185,7 +182,7 @@ export default function ContactUs() {
               <div className="sm:col-span-2">
                 <label
                   htmlFor="email"
-                  className="block text-sm font-semibold leading-6 text-gray-900"
+                  className={`${proximaNovaMedium.className} uppercase tracking-wide block text-sm leading-6 text-gray-900`}
                 >
                   Email
                 </label>
@@ -202,7 +199,7 @@ export default function ContactUs() {
               <div className="sm:col-span-2">
                 <label
                   htmlFor="phone-number"
-                  className="block text-sm font-semibold leading-6 text-gray-900"
+                  className={`${proximaNovaMedium.className} uppercase tracking-wider block text-sm leading-6 text-gray-900`}
                 >
                   Phone number
                 </label>
@@ -219,7 +216,7 @@ export default function ContactUs() {
               <div className="sm:col-span-2">
                 <label
                   htmlFor="message"
-                  className="block text-sm font-semibold leading-6 text-gray-900"
+                  className={`${proximaNovaMedium.className} uppercase tracking-wider block text-sm leading-6 text-gray-900`}
                 >
                   Message
                 </label>
@@ -234,10 +231,10 @@ export default function ContactUs() {
                 </div>
               </div>
             </div>
-            <div className="mt-8 flex justify-end">
+            <div className="mt-8 flex justify-center">
               <button
                 type="submit"
-                className="rounded-md bg-[#DFFF00] px-3.5 py-2.5 text-center text-sm font-semibold text-black shadow-sm hover:bg-[#B0DB00] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#B0DB00]"
+                className={`${proximaNovaRegular.className} uppercase tracking-wide rounded-md bg-[#DFFF00] px-3.5 py-2.5 text-center text-sm text-black shadow-sm hover:bg-[#B0DB00] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#B0DB00]`}
               >
                 Send message
               </button>
