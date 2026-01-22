@@ -1,51 +1,18 @@
+'use client'
+
+import { useMemo, useState } from 'react'
 import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/20/solid'
 import { EllipsisVerticalIcon } from '@heroicons/react/24/outline'
+import { proximaNovaThin ,proximaNovaLight, proximaNovaRegular, proximaNovaMedium, proximaNovaSemibold } from "@/app/fonts";
 
-const days = [
-  { date: '2021-12-27' },
-  { date: '2021-12-28' },
-  { date: '2021-12-29' },
-  { date: '2021-12-30' },
-  { date: '2021-12-31' },
-  { date: '2022-01-01', isCurrentMonth: true },
-  { date: '2022-01-02', isCurrentMonth: true },
-  { date: '2022-01-03', isCurrentMonth: true },
-  { date: '2022-01-04', isCurrentMonth: true },
-  { date: '2022-01-05', isCurrentMonth: true },
-  { date: '2022-01-06', isCurrentMonth: true },
-  { date: '2022-01-07', isCurrentMonth: true },
-  { date: '2022-01-08', isCurrentMonth: true },
-  { date: '2022-01-09', isCurrentMonth: true },
-  { date: '2022-01-10', isCurrentMonth: true },
-  { date: '2022-01-11', isCurrentMonth: true },
-  { date: '2022-01-12', isCurrentMonth: true, isToday: true },
-  { date: '2022-01-13', isCurrentMonth: true },
-  { date: '2022-01-14', isCurrentMonth: true },
-  { date: '2022-01-15', isCurrentMonth: true },
-  { date: '2022-01-16', isCurrentMonth: true },
-  { date: '2022-01-17', isCurrentMonth: true },
-  { date: '2022-01-18', isCurrentMonth: true },
-  { date: '2022-01-19', isCurrentMonth: true },
-  { date: '2022-01-20', isCurrentMonth: true },
-  { date: '2022-01-21', isCurrentMonth: true, isSelected: true },
-  { date: '2022-01-22', isCurrentMonth: true },
-  { date: '2022-01-23', isCurrentMonth: true },
-  { date: '2022-01-24', isCurrentMonth: true },
-  { date: '2022-01-25', isCurrentMonth: true },
-  { date: '2022-01-26', isCurrentMonth: true },
-  { date: '2022-01-27', isCurrentMonth: true },
-  { date: '2022-01-28', isCurrentMonth: true },
-  { date: '2022-01-29', isCurrentMonth: true },
-  { date: '2022-01-30', isCurrentMonth: true },
-  { date: '2022-01-31', isCurrentMonth: true },
-  { date: '2022-02-01' },
-  { date: '2022-02-02' },
-  { date: '2022-02-03' },
-  { date: '2022-02-04' },
-  { date: '2022-02-05' },
-  { date: '2022-02-06' },
-]
+type DayCell = {
+  date: string 
+  isCurrentMonth: boolean
+  isToday: boolean
+  isSelected: boolean
+}
+
 const meetings = [
   {
     id: 1,
@@ -53,39 +20,115 @@ const meetings = [
     imageUrl:
       'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
     start: '1:00 PM',
-    startDatetime: '2022-01-21T13:00',
+    startDatetime: '2026-01-21T13:00',
     end: '2:30 PM',
-    endDatetime: '2022-01-21T14:30',
+    endDatetime: '2026-01-21T14:30',
   },
-  // More meetings...
 ]
 
-// function classNames(...classes) {
-//   return classes.filter(Boolean).join(' ')
-// }
+function pad2(n: number) {
+  return String(n).padStart(2, '0')
+}
+
+function toISODate(d: Date) {
+
+  return `${d.getFullYear()}-${pad2(d.getMonth() + 1)}-${pad2(d.getDate())}`
+}
+
+function startOfMonth(d: Date) {
+  return new Date(d.getFullYear(), d.getMonth(), 1)
+}
+
+function endOfMonth(d: Date) {
+  return new Date(d.getFullYear(), d.getMonth() + 1, 0)
+}
+
+
+function weekdayMonFirst(d: Date) {
+  const js = d.getDay() 
+  return (js + 6) % 7
+}
+
+function addDays(d: Date, amount: number) {
+  const copy = new Date(d)
+  copy.setDate(copy.getDate() + amount)
+  return copy
+}
+
+function addMonths(d: Date, amount: number) {
+  return new Date(d.getFullYear(), d.getMonth() + amount, 1)
+}
+
+function formatMonthYear(d: Date) {
+  return new Intl.DateTimeFormat('en-US', { month: 'long', year: 'numeric' }).format(d)
+}
+
+function formatLongDate(iso: string) {
+  const [y, m, day] = iso.split('-').map(Number)
+  const d = new Date(y, m - 1, day)
+  return new Intl.DateTimeFormat('en-US', { month: 'long', day: 'numeric', year: 'numeric' }).format(d)
+}
+
+function buildMonthGrid(viewDate: Date, selectedISO: string): DayCell[] {
+  const todayISO = toISODate(new Date())
+
+  const monthStart = startOfMonth(viewDate)
+  const monthEnd = endOfMonth(viewDate)
+
+  const gridStart = addDays(monthStart, -weekdayMonFirst(monthStart))
+
+  const gridEnd = addDays(monthEnd, 6 - weekdayMonFirst(monthEnd))
+
+  const days: DayCell[] = []
+  for (let d = new Date(gridStart); d <= gridEnd; d = addDays(d, 1)) {
+    const iso = toISODate(d)
+    days.push({
+      date: iso,
+      isCurrentMonth: d.getMonth() === viewDate.getMonth(),
+      isToday: iso === todayISO,
+      isSelected: iso === selectedISO,
+    })
+  }
+  return days
+}
+
+function cx(...classes: Array<string | false | undefined | null>) {
+  return classes.filter(Boolean).join(' ')
+}
 
 export default function StudioCalendar() {
+  const today = useMemo(() => new Date(), [])
+  const [viewDate, setViewDate] = useState(() => startOfMonth(today))
+  const [selectedDate, setSelectedDate] = useState(() => toISODate(today))
+
+  const days = useMemo(() => buildMonthGrid(viewDate, selectedDate), [viewDate, selectedDate])
+
   return (
     <div className="md:grid md:grid-cols-2 md:divide-x md:divide-gray-200">
       <div className="md:pr-14">
         <div className="flex items-center">
-          <h2 className="flex-auto text-sm font-semibold text-gray-900">January 2022</h2>
+          <h2 className={`${proximaNovaRegular.className} tracking-wide uppercase flex-auto text-md text-gray-900`}>{formatMonthYear(viewDate)}</h2>
+
           <button
             type="button"
+            onClick={() => setViewDate((d) => addMonths(d, -1))}
             className="-my-1.5 flex flex-none items-center justify-center p-1.5 text-gray-400 hover:text-gray-500"
           >
             <span className="sr-only">Previous month</span>
             <ChevronLeftIcon className="size-5" aria-hidden="true" />
           </button>
+
           <button
             type="button"
-            className="-my-1.5 -mr-1.5 ml-2 flex flex-none items-center justify-center p-1.5 text-gray-400 hover:text-gray-500"
+            onClick={() => setViewDate((d) => addMonths(d, 1))}
+            className={`${proximaNovaRegular.className} -my-1.5 -mr-1.5 ml-2 flex flex-none items-center justify-center p-1.5 text-gray-400 hover:text-gray-500`}
           >
             <span className="sr-only">Next month</span>
             <ChevronRightIcon className="size-5" aria-hidden="true" />
           </button>
         </div>
-        <div className="mt-10 grid grid-cols-7 text-center text-xs/6 text-gray-500">
+
+        <div className={`${proximaNovaRegular.className} mt-10 grid grid-cols-7 text-center text-xs/6 text-gray-500`}>
           <div>M</div>
           <div>T</div>
           <div>W</div>
@@ -94,12 +137,14 @@ export default function StudioCalendar() {
           <div>S</div>
           <div>S</div>
         </div>
+
         <div className="mt-2 grid grid-cols-7 text-sm">
-          {/* {days.map((day, dayIdx) => (
-            <div key={day.date} className={classNames(dayIdx > 6 && 'border-t border-gray-200', 'py-2')}>
+          {days.map((day, dayIdx) => (
+            <div key={day.date} className={cx(dayIdx > 6 && 'border-t border-gray-200', 'py-2')}>
               <button
                 type="button"
-                className={classNames(
+                onClick={() => setSelectedDate(day.date)}
+                className={cx(
                   day.isSelected && 'text-white',
                   !day.isSelected && day.isToday && 'text-indigo-600',
                   !day.isSelected && !day.isToday && day.isCurrentMonth && 'text-gray-900',
@@ -111,16 +156,18 @@ export default function StudioCalendar() {
                   'mx-auto flex size-8 items-center justify-center rounded-full',
                 )}
               >
-                <time dateTime={day.date}>{day.date.split('-').pop().replace(/^0/, '')}</time>
+                <time dateTime={day.date}>{day.date.split('-').pop()!.replace(/^0/, '')}</time>
               </button>
             </div>
-          ))} */}
+          ))}
         </div>
       </div>
+
       <section className="mt-12 md:mt-0 md:pl-14">
-        <h2 className="text-base font-semibold text-gray-900">
-          Schedule for <time dateTime="2022-01-21">January 21, 2022</time>
+        <h2 className={`${proximaNovaRegular.className} uppercase tracking-wide text-base text-gray-900`}>
+          Schedule for <time dateTime={selectedDate}>{formatLongDate(selectedDate)}</time>
         </h2>
+
         <ol className="mt-4 flex flex-col gap-y-1 text-sm/6 text-gray-500">
           {meetings.map((meeting) => (
             <li
@@ -129,12 +176,13 @@ export default function StudioCalendar() {
             >
               <img src={meeting.imageUrl} alt="" className="size-10 flex-none rounded-full" />
               <div className="flex-auto">
-                <p className="text-gray-900">{meeting.name}</p>
-                <p className="mt-0.5">
+                <p className={`${proximaNovaRegular.className} text-gray-900 tracking-wider`}>{meeting.name}</p>
+                <p className={`${proximaNovaRegular.className} mt-0.5`}>
                   <time dateTime={meeting.startDatetime}>{meeting.start}</time> -{' '}
                   <time dateTime={meeting.endDatetime}>{meeting.end}</time>
                 </p>
               </div>
+
               <Menu as="div" className="relative opacity-0 focus-within:opacity-100 group-hover:opacity-100">
                 <div>
                   <MenuButton className="-m-2 flex items-center rounded-full p-1.5 text-gray-500 hover:text-gray-600">
@@ -143,10 +191,7 @@ export default function StudioCalendar() {
                   </MenuButton>
                 </div>
 
-                <MenuItems
-                //   transition
-                  className="absolute right-0 z-10 mt-2 w-36 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black/5 focus:outline-none data-[closed]:scale-95 data-[closed]:opacity-0 data-[enter]:duration-100 data-[leave]:duration-75 data-[enter]:ease-out data-[leave]:ease-in"
-                >
+                <MenuItems className="absolute right-0 z-10 mt-2 w-36 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black/5 focus:outline-none data-[closed]:scale-95 data-[closed]:opacity-0 data-[enter]:duration-100 data-[leave]:duration-75 data-[enter]:ease-out data-[leave]:ease-in">
                   <div className="py-1">
                     <MenuItem>
                       <a
