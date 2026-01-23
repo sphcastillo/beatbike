@@ -5,95 +5,10 @@
 // Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
 
 generator client {
-  provider = "prisma-client-js"
-  output   = "../node_modules/@prisma/client/.prisma/client"
+  provider = "prisma-client"
+  output   = "../lib/generated/prisma"
 }
 
 datasource db {
   provider = "postgresql"
-}
-
-enum BookingStatus {
-  CONFIRMED
-  CANCELED
-}
-
-model User {
-  id         String    @id @default(cuid())
-  email      String    @unique
-  firstName  String?
-  lastName   String?
-  externalId String?   @unique // Clerk/Mindbody-style identity id (optional for now)
-
-  bookings   Booking[]
-
-  createdAt  DateTime  @default(now())
-  updatedAt  DateTime  @updatedAt
-}
-
-model Studio {
-  id         String   @id @default(cuid())
-  name       String
-  address    String?
-  city       String?
-  state      String?
-  timezone   String? // "America/New_York", etc.
-
-  classes    Class[]
-
-  createdAt  DateTime @default(now())
-  updatedAt  DateTime @updatedAt
-}
-
-model Instructor {
-  id         String   @id @default(cuid())
-  name       String
-  bio        String?
-  imageUrl   String?
-
-  classes    Class[]
-
-  createdAt  DateTime @default(now())
-  updatedAt  DateTime @updatedAt
-}
-
-model Class {
-  id            String      @id @default(cuid())
-  title         String
-  description   String?
-  startsAt      DateTime
-  endsAt        DateTime
-  capacity      Int         @default(20)
-
-  studioId      String
-  studio        Studio      @relation(fields: [studioId], references: [id], onDelete: Restrict)
-
-  instructorId  String?
-  instructor    Instructor? @relation(fields: [instructorId], references: [id], onDelete: SetNull)
-
-  bookings      Booking[]
-
-  createdAt     DateTime    @default(now())
-  updatedAt     DateTime    @updatedAt
-
-  @@index([startsAt])
-  @@index([studioId, startsAt])
-}
-
-model Booking {
-  id        String        @id @default(cuid())
-  status    BookingStatus @default(CONFIRMED)
-
-  userId    String
-  user      User          @relation(fields: [userId], references: [id], onDelete: Cascade)
-
-  classId   String
-  class     Class         @relation(fields: [classId], references: [id], onDelete: Cascade)
-
-  createdAt DateTime      @default(now())
-  updatedAt DateTime      @updatedAt
-
-  // Prevent the same user booking the same class twice
-  @@unique([userId, classId])
-  @@index([classId, status])
 }
