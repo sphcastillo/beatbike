@@ -87,6 +87,7 @@ const hbWeekendTimes = ["7.00am","8.15am","9.30am","10.45am","12.00pm"];
 
 type StudioSchedule = {
   studioName: string;
+  slug: string;  
   city?: string;
   state?: string;
   instructorNames: string[];
@@ -97,6 +98,7 @@ type StudioSchedule = {
 const schedulePlan: StudioSchedule[] = [
   {
     studioName: "Tarzana",
+    slug: "tarzana",
     city: "Los Angeles",
     state: "CA",
     instructorNames: tarzanaInstructorNames,
@@ -112,6 +114,7 @@ const schedulePlan: StudioSchedule[] = [
   },
   {
     studioName: "Huntington Beach",
+    slug: "huntington-beach",
     city: "Huntington Beach",
     state: "CA",
     instructorNames: hbInstructorNames,
@@ -158,8 +161,17 @@ async function main() {
   for (const studioPlan of schedulePlan) {
     const studio = await prisma.studio.upsert({
       where: { name: studioPlan.studioName },
-      update: { city: studioPlan.city, state: studioPlan.state },
-      create: { name: studioPlan.studioName, city: studioPlan.city, state: studioPlan.state },
+      update: {
+        city: studioPlan.city,
+        state: studioPlan.state,
+        slug: studioPlan.slug, // ✅ include in update too
+      },
+      create: {
+        name: studioPlan.studioName,
+        slug: studioPlan.slug, 
+        city: studioPlan.city,
+        state: studioPlan.state,
+      },
     });
 
     // Assign instructors to studio
