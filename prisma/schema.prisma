@@ -1,14 +1,124 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
-
 generator client {
   provider = "prisma-client"
-  output   = "../lib/generated/prisma"
+  output   = "../app/generated/prisma"
 }
 
 datasource db {
   provider = "postgresql"
 }
+
+model User {
+  id        String   @id @default(cuid())
+  clerkId   String   @unique
+  email     String?  @unique
+  firstName String?
+  lastName  String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  bookings  Booking[]
+}
+
+model Studio {
+  id        String   @id @default(cuid())
+  name      String   @unique
+  city      String?
+  state     String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  classes   ClassSession[]
+  studioInstructors StudioInstructor[]
+}
+
+model Instructor {
+  id        String   @id @default(cuid())
+  name      String   @unique
+  bio       String?
+  imageUrl  String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  classes   ClassSession[]
+  studioInstructors StudioInstructor[]
+}
+
+model StudioInstructor {
+  studioId     String
+  instructorId String
+  createdAt    DateTime @default(now())
+
+  studio       Studio      @relation(fields: [studioId], references: [id], onDelete: Cascade)
+  instructor   Instructor  @relation(fields: [instructorId], references: [id], onDelete: Cascade)
+
+  @@id([studioId, instructorId])
+  @@index([instructorId])
+}
+
+model ClassType {
+  id          String       @id @default(cuid())
+  name        String       @unique // "Cycle" or "$12 at 12"
+  modality    ClassModality
+  durationMin Int
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+
+  sessions    ClassSession[]
+}
+
+
+model ClassSession {
+  id           String   @id @default(cuid())
+  startsAt     DateTime
+  endsAt       DateTime
+  capacity     Int      @default(20)
+
+  studioId     String
+  studio       Studio   @relation(fields: [studioId], references: [id], onDelete: Cascade)
+
+  instructorId String?
+  instructor   Instructor? @relation(fields: [instructorId], references: [id], onDelete: SetNull)
+
+  classTypeId  String
+  classType    ClassType @relation(fields: [classTypeId], references: [id], onDelete: Restrict)
+
+  bookings     Booking[]
+
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  @@index([startsAt])
+  @@index([studioId])
+  @@index([instructorId])
+  @@index([classTypeId])
+
+  // prevents duplicates (same studio, same start time, same class type)
+  @@unique([studioId, startsAt, classTypeId])
+}
+
+model Booking {
+  id        String        @id @default(cuid())
+  status    BookingStatus @default(BOOKED)
+  createdAt DateTime      @default(now())
+  updatedAt DateTime      @updatedAt
+
+  userId    String
+  user      User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  classId   String
+  class     ClassSession  @relation(fields: [classId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, classId])
+  @@index([userId])
+  @@index([classId])
+}
+
+enum BookingStatus {
+  BOOKED
+  CANCELED
+}
+
+enum ClassModality {
+  CYCLE
+}
+
