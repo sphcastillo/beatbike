@@ -1,5 +1,5 @@
 "use client";
-
+import { proximaNovaMedium, proximaNovaRegular, proximaNovaLight } from "@/app/fonts";
 import { useRouter } from "next/navigation";
 
 const LOCATIONS = [
@@ -12,7 +12,7 @@ export default function LocationSwitcher({ currentSlug }: { currentSlug: string 
 
   return (
     <div className="flex items-center gap-2">
-      <label className="text-sm text-gray-600">Location</label>
+      <label className={`${proximaNovaRegular.className} text-md text-gray-700`}>Location</label>
       <select
         className="rounded-md border px-3 py-2 text-sm"
         value={currentSlug}

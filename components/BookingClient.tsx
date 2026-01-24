@@ -25,5 +25,5 @@ export default function BookingClient({
     // later: call an API route or server action here
   };
 
-  return <BookingCalendar sessions={sessions} onBook={handleBook} />;
+  return <BookingCalendar  sessions={sessions} onBook={handleBook} />;
 }

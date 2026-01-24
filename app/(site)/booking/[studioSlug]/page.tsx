@@ -1,6 +1,9 @@
-import prisma  from "@/lib/prisma";
+import prisma from "@/lib/prisma";
 import LocationSwitcher from "@/components/LocationSwitcher";
 import BookingClient from "@/components/BookingClient";
+import { proximaNovaMedium, comfortaa } from "@/app/fonts";
+import Image from "next/image";
+
 
 export default async function BookingPage({
   params,
@@ -16,7 +19,7 @@ export default async function BookingPage({
 
   const from = new Date();
   from.setDate(from.getDate() - 7);
-  
+
   const to = new Date();
   to.setDate(to.getDate() + 30);
 
@@ -53,7 +56,10 @@ export default async function BookingPage({
   return (
     <div className="p-8">
       <div className="flex items-center justify-between gap-4">
-        <h1 className="text-3xl font-semibold">{studio.name} Booking</h1>
+        <div className="space-y-2">        
+          <h1 className={`${comfortaa.className} text-2xl `}>Beatbike</h1>
+          <h2 className={`${proximaNovaMedium.className} text-lg `}>{studio.name} Studio</h2></div>
+
         <LocationSwitcher currentSlug={studio.slug} />
       </div>
 

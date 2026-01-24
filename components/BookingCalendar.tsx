@@ -1,5 +1,5 @@
 "use client";
-
+import { proximaNovaMedium, proximaNovaRegular, proximaNovaLight } from "@/app/fonts";
 import { useMemo, useState } from "react";
 
 type Session = {
@@ -188,7 +188,7 @@ export default function BookingCalendar({
                 </div>
 
                 <button
-                  className="rounded-lg bg-black px-4 py-2 text-sm text-white hover:opacity-90"
+                  className={`${proximaNovaMedium.className} uppercase tracking-wider rounded-lg bg-black px-4 py-2 text-sm text-white hover:opacity-90`}
                   onClick={() => onBook(s.id)}
                 >
                   Book
