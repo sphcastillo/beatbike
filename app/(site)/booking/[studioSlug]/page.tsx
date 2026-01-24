@@ -1,4 +1,4 @@
-import prisma from "@/lib/prisma";
+import prisma  from "@/lib/prisma";
 import LocationSwitcher from "@/components/LocationSwitcher";
 import BookingClient from "@/components/BookingClient";
 
