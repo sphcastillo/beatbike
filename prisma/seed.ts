@@ -33,12 +33,14 @@ Acceptance checks after seed:
 - No instructor exceeds 2 sessions/day in a studio
 **/
 
-import { PrismaClient, ClassModality } from "../app/generated/prisma/client";
+import { PrismaClient, ClassModality } from "../lib/generated/prisma/client/index";
 import { PrismaPg } from "@prisma/adapter-pg";
+import { Pool } from "pg";
 
-const prisma = new PrismaClient({
-  adapter: new PrismaPg({ connectionString: process.env.DATABASE_URL }),
-});
+const pool = new Pool({ connectionString: process.env.DATABASE_URL });
+const adapter = new PrismaPg(pool);
+
+const prisma = new PrismaClient({ adapter });
 
 // ---------- helpers ----------
 const addMinutes = (d: Date, mins: number) => new Date(d.getTime() + mins * 60_000);

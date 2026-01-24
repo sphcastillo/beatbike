@@ -8,16 +8,16 @@ const locations = [
   {
     id: 1,
     title: "Tarzana",
-    href: "/tarzana",
+    href: "/booking/tarzana",
   },
   {
     id: 2,
     title: "Huntington Beach",
-    href: "/huntington-beach",
+    href: "/booking/huntington-beach",
   },
 ];
 
-function LocationSelection() {
+export default function LocationSelection() {
   const [selected, setSelected] = useState(locations[0]);
   return (
     <div className="mt-12 mx-auto w-full">
@@ -48,4 +48,4 @@ function LocationSelection() {
   );
 }
 
-export default LocationSelection;
+
