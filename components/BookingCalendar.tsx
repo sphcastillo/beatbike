@@ -4,8 +4,8 @@ import { useMemo, useState } from "react";
 
 type Session = {
   id: string;
-  startsAt: string; 
-  endsAt: string;   
+  startsAt: string;
+  endsAt: string;
   capacity: number;
   instructor: { name: string; imageUrl: string | null } | null;
   classType: { name: string; durationMin: number };
@@ -168,35 +168,60 @@ export default function BookingCalendar({
 
       {/* Day schedule */}
       <section className="mt-12 md:mt-0 md:pl-14">
-        <h2 className="uppercase tracking-wide text-base text-gray-900">
+        <h2 className={`${proximaNovaMedium.className} uppercase tracking-wide text-pretty text-lg pb-4 text-gray-900`}>
           Schedule for <time dateTime={selectedDate}>{formatLongDate(selectedDate)}</time>
         </h2>
 
-        {sessionsForSelectedDay.length === 0 ? (
-          <p className="mt-4 text-sm text-gray-500">No classes scheduled.</p>
-        ) : (
-          <ul className="mt-4 space-y-2">
-            {sessionsForSelectedDay.map((s) => (
-              <li key={s.id} className="rounded-xl border px-4 py-3 flex items-center justify-between gap-4">
-                <div>
-                  <div className="text-sm text-gray-900">
-                    {s.classType.name} • {formatTime(s.startsAt)} – {formatTime(s.endsAt)}
-                  </div>
-                  <div className="mt-1 text-sm text-gray-500">
-                    Instructor: {s.instructor?.name ?? "TBD"}
-                  </div>
+        {sessionsForSelectedDay.map((s) => {
+          const now = new Date();
+          const starts = new Date(s.startsAt);
+          const hasStarted = starts.getTime() <= now.getTime();
+
+          return (
+            <li
+              key={s.id}
+              className={cx(
+                "rounded-xl border px-4 py-3 flex items-center justify-between gap-4",
+                hasStarted && "opacity-60"
+              )}
+            >
+              <div>
+                <div className={`${proximaNovaMedium.className} uppercase tracking-wide text-sm text-gray-900`}>
+                  {s.classType.name} • {formatTime(s.startsAt)} – {formatTime(s.endsAt)}
                 </div>
 
-                <button
-                  className={`${proximaNovaMedium.className} uppercase tracking-wider rounded-lg bg-black px-4 py-2 text-sm text-white hover:opacity-90`}
-                  onClick={() => onBook(s.id)}
-                >
-                  Book
-                </button>
-              </li>
-            ))}
-          </ul>
-        )}
+                <div className={`${proximaNovaRegular.className} tracking-wide mt-1 text-sm text-gray-500`}>
+                  Instructor: {s.instructor?.name ?? "TBD"}
+                </div>
+
+                {hasStarted && (
+                  <div className="mt-1 text-xs text-gray-500 uppercase tracking-wide">
+                    Class already started
+                  </div>
+                )}
+              </div>
+
+              <button
+                type="button"
+                disabled={hasStarted}
+                className={cx(
+                  proximaNovaMedium.className,
+                  "uppercase tracking-wider rounded-lg px-4 py-2 text-sm",
+                  hasStarted
+                    ? "bg-gray-200 text-gray-500 cursor-not-allowed"
+                    : "bg-black text-white hover:opacity-90"
+                )}
+                onClick={() => {
+                  if (hasStarted) return;
+                  onBook(s.id);
+                }}
+              >
+                {hasStarted ? "Closed" : "Book"}
+              </button>
+            </li>
+          );
+        })}
+
       </section>
     </div>
   );

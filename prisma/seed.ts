@@ -77,19 +77,19 @@ function pickInstructorForDay(
 }
 
 // ---------- your data ----------
-const tarzanaInstructorNames = ["Bailey","Dana","Beth","Amanda","Suzy","Brian","Candis","Valeria","Joel"];
-const hbInstructorNames = ["Bailey","Spencer","Dana","Dylan","Jasmine","Amanda","Brian","Grace","Valeria","Joel","Sasha"];
+const tarzanaInstructorNames = ["Bailey", "Dana", "Beth", "Amanda", "Suzy", "Brian", "Candis", "Valeria", "Joel"];
+const hbInstructorNames = ["Bailey", "Spencer", "Dana", "Dylan", "Jasmine", "Amanda", "Brian", "Grace", "Valeria", "Joel", "Sasha"];
 
-const tarzanaWeekdayTimes = ["5.45am","7.00am","8.15am","9.30am","10.45am","4.15pm","5.30pm","6.45pm"];
-const tarzanaWeekendTimes = ["7.00am","8.15am","9.30am","10.45am","12.00pm"];
+const tarzanaWeekdayTimes = ["5.45am", "7.00am", "8.15am", "9.30am", "10.45am", "4.15pm", "5.30pm", "6.45pm"];
+const tarzanaWeekendTimes = ["7.00am", "8.15am", "9.30am", "10.45am", "12.00pm"];
 
-const hbMonFriTimes = ["5.45am","7.00am","8.15am","9.30am","10.45am","4.15pm","5.30pm","6.45pm"];
-const hbTueThuTimes = ["5.45am","7.00am","8.15am","9.30am","10.45am","12.00pm","4.15pm","5.30pm","6.45pm"];
-const hbWeekendTimes = ["7.00am","8.15am","9.30am","10.45am","12.00pm"];
+const hbMonFriTimes = ["5.45am", "7.00am", "8.15am", "9.30am", "10.45am", "4.15pm", "5.30pm", "6.45pm"];
+const hbTueThuTimes = ["5.45am", "7.00am", "8.15am", "9.30am", "10.45am", "12.00pm", "4.15pm", "5.30pm", "6.45pm"];
+const hbWeekendTimes = ["7.00am", "8.15am", "9.30am", "10.45am", "12.00pm"];
 
 type StudioSchedule = {
   studioName: string;
-  slug: string;  
+  slug: string;
   city?: string;
   state?: string;
   instructorNames: string[];
@@ -170,7 +170,7 @@ async function main() {
       },
       create: {
         name: studioPlan.studioName,
-        slug: studioPlan.slug, 
+        slug: studioPlan.slug,
         city: studioPlan.city,
         state: studioPlan.state,
       },
@@ -188,13 +188,14 @@ async function main() {
     // Fetch instructor ids for this studio
     const studioInstructorIds = studioPlan.instructorNames.map((n) => instructorIdByName.get(n)!);
 
-    // 4) Generate ONE WEEK of classes starting next Monday (so it’s predictable)
     const now = new Date();
-    const day = now.getDay(); // 0=Sun..6=Sat
-    const daysUntilMonday = (8 - day) % 7 || 7; // next Monday
+    // Monday-start index: Mon=0 ... Sun=6
+    const monFirstIdx = (now.getDay() + 6) % 7;
+
     const monday = new Date(now);
-    monday.setDate(now.getDate() + daysUntilMonday);
+    monday.setDate(now.getDate() - monFirstIdx); 
     monday.setHours(0, 0, 0, 0);
+
 
     // Create sessions for each day
     for (let dayIdx = 0; dayIdx < 7; dayIdx++) {
