@@ -129,7 +129,7 @@ export default function StudioCalendar() {
           </button>
         </div>
 
-        <div className={`${proximaNovaRegular.className} mt-10 grid grid-cols-7 text-center text-xs/6 text-gray-500`}>
+        <div className={`${proximaNovaRegular.className} mt-10 grid grid-cols-7 text-center text-xs/6 text-gray-600`}>
           <div>M</div>
           <div>T</div>
           <div>W</div>
@@ -146,16 +146,27 @@ export default function StudioCalendar() {
                 type="button"
                 onClick={() => setSelectedDate(day.date)}
                 className={cx(
-                  day.isSelected && 'text-white',
-                  !day.isSelected && day.isToday && 'text-indigo-600',
+                  // base
+                  'mx-auto flex size-8 items-center justify-center rounded-full',
+                
+                  // selected states
+                  day.isSelected && day.isToday && 'bg-green-600 text-white',
+                  day.isSelected && !day.isToday && 'bg-gray-900 text-white',
+                
+                  // today (not selected)
+                  !day.isSelected && day.isToday && 'text-yellow-600',
+                
+                  // normal days
                   !day.isSelected && !day.isToday && day.isCurrentMonth && 'text-gray-900',
                   !day.isSelected && !day.isToday && !day.isCurrentMonth && 'text-gray-400',
-                  day.isSelected && day.isToday && 'bg-indigo-600',
-                  day.isSelected && !day.isToday && 'bg-gray-900',
+                
+                  // hover
                   !day.isSelected && 'hover:bg-gray-200',
-                  (day.isSelected || day.isToday) && 'font-semibold',
-                  'mx-auto flex size-8 items-center justify-center rounded-full',
+                
+                  // emphasis
+                  (day.isSelected || day.isToday) && 'font-semibold'
                 )}
+                
               >
                 <time dateTime={day.date}>{day.date.split('-').pop()!.replace(/^0/, '')}</time>
               </button>

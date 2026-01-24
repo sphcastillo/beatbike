@@ -151,7 +151,7 @@ export default function BookingCalendar({
                 onClick={() => setSelectedDate(day.date)}
                 className={cx(
                   day.isSelected && "text-white bg-gray-900",
-                  !day.isSelected && day.isToday && "text-indigo-600",
+                  !day.isSelected && day.isToday && "text-[#B0DB00]",
                   !day.isSelected && !day.isToday && day.isCurrentMonth && "text-gray-900",
                   !day.isSelected && !day.isToday && !day.isCurrentMonth && "text-gray-400",
                   !day.isSelected && "hover:bg-gray-200",
@@ -181,7 +181,7 @@ export default function BookingCalendar({
             <li
               key={s.id}
               className={cx(
-                "rounded-xl border px-4 py-3 flex items-center justify-between gap-4",
+                "rounded-xl border px-4 py-3 my-2 flex items-center justify-between gap-4",
                 hasStarted && "opacity-60"
               )}
             >
@@ -209,7 +209,7 @@ export default function BookingCalendar({
                   "uppercase tracking-wider rounded-lg px-4 py-2 text-sm",
                   hasStarted
                     ? "bg-gray-200 text-gray-500 cursor-not-allowed"
-                    : "bg-black text-white hover:opacity-90"
+                    : "bg-black text-white hover:bg-[#B0DB00] hover:text-gray-700"
                 )}
                 onClick={() => {
                   if (hasStarted) return;
