@@ -136,7 +136,7 @@ export default function Studios() {
 
                     <div className="pt-6 flex justify-center">
                       <a
-                        href="/reserve"
+                        href="/select-studio"
                         className={`${proximaNovaRegular.className} uppercase rounded-md bg-[#DFFF00] px-4 py-2.5 text-sm shadow-sm hover:bg-[#B0DB00] transition-transform duration-200 hover:scale-110`}
                       >
                         Reserve

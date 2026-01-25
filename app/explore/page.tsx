@@ -123,7 +123,7 @@ export default function ExplorePage() {
 
               <div className="mt-10 flex justify-center" data-animate="item">
                 <a
-                  href="/reserve"
+                  href="/select-studio"
                   className={`${proximaNovaRegular.className} uppercase cursor-pointer rounded-md bg-[#DFFF00] px-3.5 py-2.5 text-sm z-100 font-semibold shadow-sm hover:bg-[#B0DB00] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600`}
                 >
                   Book Your Bike Now <span aria-hidden="true">&rarr;</span>

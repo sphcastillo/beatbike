@@ -4,6 +4,10 @@ import BookingClient from "@/components/BookingClient";
 import { proximaNovaMedium, comfortaa } from "@/app/fonts";
 import Image from "next/image";
 
+// Ensure this page is always rendered dynamically (no stale cached HTML/data in prod).
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 
 export default async function BookingPage({
   params,

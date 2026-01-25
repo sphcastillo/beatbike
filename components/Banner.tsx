@@ -26,7 +26,7 @@ export default function Banner() {
               >
                 <circle cx={1} cy={1} r={1} />
               </svg>
-              <a className={`${proximaNovaRegular.className} tracking-widest underline hover:text-[#DFFF00] text-pretty`} href="/reserve">RESERVE NOW</a>
+              <a className={`${proximaNovaRegular.className} tracking-widest underline hover:text-[#DFFF00] text-pretty`} href="/select-studio">RESERVE NOW</a>
             </p>
             <div className="flex flex-1 justify-end">
               <button

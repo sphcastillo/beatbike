@@ -1,10 +1,11 @@
-"use client";
 import Image from "next/image";
 import GoBeatbikeTeam from "@/images/homepage/GoBeatbikeTeam.jpg"
-import { proximaNovaRegular, proximaNovaMedium, proximaNovaLight } from "@/app/fonts";
+import { proximaNovaRegular } from "@/app/fonts";
 import LocationSelection from "@/components/LocationSelection";
 
-export default function ReservePage() {
+
+
+export default function SelectStudioPage() {
 
   return (
     <div className="w-full mx-auto pb-4 bg-white">

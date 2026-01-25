@@ -49,7 +49,7 @@ export default function Introduction() {
                   whileHover={{ scale: 1.2 }}
                   onHoverStart={e => { }}
                   onHoverEnd={e => { }}
-                  href="/reserve"
+                  href="/select-studio"
                   className={`${proximaNovaRegular.className} uppercase cursor-pointer rounded-md bg-[#DFFF00] px-3.5 py-2.5 text-sm z-100 font-semibold shadow-sm hover:bg-[#B0DB00] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600`}
                 >
                   Book a Ride

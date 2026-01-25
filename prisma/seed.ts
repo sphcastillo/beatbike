@@ -45,6 +45,27 @@ const prisma = new PrismaClient({ adapter });
 // ---------- helpers ----------
 const addMinutes = (d: Date, mins: number) => new Date(d.getTime() + mins * 60_000);
 
+// NOTE:
+// `data/instructorsData.ts` uses Next static image imports (`StaticImageData`), which cannot be
+// imported/used from this Node seed script. For seeding, store a stable string path in DB instead.
+// These should be URLs your app can serve (typically from `public/`), e.g. `/images/instructors/...`.
+const instructorImageUrlByName: Record<string, string> = {
+  Bailey: "/images/instructors/bailey.jpg",
+  Spencer: "/images/instructors/spencer.jpg",
+  Dana: "/images/instructors/dana.jpg",
+  Dylan: "/images/instructors/dylan.jpg",
+  Beth: "/images/instructors/beth.jpg",
+  Jasmine: "/images/instructors/jasmine.jpg",
+  Amanda: "/images/instructors/amanda.jpg",
+  Suzy: "/images/instructors/suzy.jpg",
+  Brian: "/images/instructors/brian.jpg",
+  Candis: "/images/instructors/Candis.jpg",
+  Grace: "/images/instructors/Grace.jpg",
+  Valeria: "/images/instructors/valeria.jpg",
+  Joel: "/images/instructors/joel.jpg",
+  Sasha: "/images/instructors/sasha.jpg",
+};
+
 function parseTimeToDate(baseDate: Date, timeStr: string) {
   // timeStr examples: "5.45am", "12.00pm"
   const match = timeStr.trim().toLowerCase().match(/^(\d{1,2})\.(\d{2})(am|pm)$/);
@@ -74,6 +95,11 @@ function pickInstructorForDay(
   const available = instructorIds.filter((id) => (counts[id] ?? 0) < maxPerDay);
   if (available.length === 0) return null;
   return pickRandom(available);
+}
+
+function weekdayMonFirst(d: Date) {
+  // 0=Mon ... 6=Sun
+  return (d.getDay() + 6) % 7;
 }
 
 // ---------- your data ----------
@@ -153,11 +179,24 @@ async function main() {
       prisma.instructor.upsert({
         where: { name },
         update: {},
-        create: { name },
+        create: {
+          name,
+          imageUrl: instructorImageUrlByName[name] ?? null,
+        },
       })
     )
   );
   const instructorIdByName = new Map(instructorRows.map((i) => [i.name, i.id]));
+
+  // Backfill images safely (only if missing)
+  await Promise.all(
+    Object.entries(instructorImageUrlByName).map(([name, imageUrl]) =>
+      prisma.instructor.updateMany({
+        where: { name, imageUrl: null },
+        data: { imageUrl },
+      })
+    )
+  );
 
   // 3) Create studios + assignment table
   for (const studioPlan of schedulePlan) {
@@ -188,19 +227,15 @@ async function main() {
     // Fetch instructor ids for this studio
     const studioInstructorIds = studioPlan.instructorNames.map((n) => instructorIdByName.get(n)!);
 
-    const now = new Date();
-    // Monday-start index: Mon=0 ... Sun=6
-    const monFirstIdx = (now.getDay() + 6) % 7;
+    // Create sessions for upcoming days (so you see future classes, not just the current week-to-date)
+    const startDate = new Date();
+    startDate.setHours(0, 0, 0, 0);
+    const daysToGenerate = 30; // inclusive (today + next 30 days)
 
-    const monday = new Date(now);
-    monday.setDate(now.getDate() - monFirstIdx); 
-    monday.setHours(0, 0, 0, 0);
-
-
-    // Create sessions for each day
-    for (let dayIdx = 0; dayIdx < 7; dayIdx++) {
-      const date = new Date(monday);
-      date.setDate(monday.getDate() + dayIdx);
+    for (let dayOffset = 0; dayOffset <= daysToGenerate; dayOffset++) {
+      const date = new Date(startDate);
+      date.setDate(startDate.getDate() + dayOffset);
+      const dayIdx = weekdayMonFirst(date); // Mon=0 ... Sun=6
 
       // per-day limit tracking
       const perDayCounts: Record<string, number> = {};
@@ -236,7 +271,7 @@ async function main() {
           update: {
             endsAt,
             capacity: 20,
-            instructorId: instructorId ?? null,
+            // Non-destructive: preserve existing instructor assignments if you re-run seed.
           },
           create: {
             studioId: studio.id,

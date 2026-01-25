@@ -50,7 +50,7 @@ function Hero() {
                         >
 
                             <a
-                                href="/reserve"
+                                href="/select-studio"
                                 className={`${proximaNovaRegular.className} uppercase mt-4 px-3.5 py-2.5 bg-[#DFFF00] font-semibold shadow-sm rounded hover:bg-[#B0DB00] hover:text-white`}
                             >
                                 Book Now
