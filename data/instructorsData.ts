@@ -1,18 +1,18 @@
-import bailey from "@/images/instructors/bailey.jpg";
-import amanda from "@/images/instructors/amanda.jpg";
-import dana from "@/images/instructors/dana.jpg";
-import dylan from "@/images/instructors/dylan.jpg";
-import jasmine from "@/images/instructors/jasmine.jpg";
-import suzy from "@/images/instructors/suzy.jpg";
-import brian from "@/images/instructors/brian.jpg";
-import candis from "@/images/instructors/Candis.jpg";
-import valeria from "@/images/instructors/valeria.jpg";
-import spencer from '@/images/instructors/spencer.jpg';
-import sasha from "@/images/instructors/sasha.jpg";
-import grace from "@/images/instructors/Grace.jpg";
-import joel from '@/images/instructors/joel.jpg';
-import beth from '@/images/instructors/beth.jpg';
-import headshotJoel from "@/images/calendarJoe.jpg";
+import bailey from "@/public/images/instructors/bailey.jpg";
+import amanda from "@/public/images/instructors/amanda.jpg";
+import dana from "@/public/images/instructors/dana.jpg";
+import dylan from "@/public/images/instructors/dylan.jpg";
+import jasmine from "@/public/images/instructors/jasmine.jpg";
+import suzy from "@/public/images/instructors/suzy.jpg";
+import brian from "@/public/images/instructors/brian.jpg";
+import candis from "@/public/images/instructors/Candis.jpg";
+import valeria from "@/public/images/instructors/valeria.jpg";
+import spencer from '@/public/images/instructors/spencer.jpg';
+import sasha from "@/public/images/instructors/sasha.jpg";
+import grace from "@/public/images/instructors/Grace.jpg";
+import joel from '@/public/images/instructors/joel.jpg';
+import beth from '@/public/images/instructors/beth.jpg';
+import headshotJoel from "@/public/images/teamHeadshots/calendarJoe.jpg";
 import { Instructor } from "@/typings";
 
 

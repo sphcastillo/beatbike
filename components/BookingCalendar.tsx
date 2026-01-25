@@ -18,6 +18,13 @@ type DayCell = {
   isSelected: boolean;
 };
 
+function getInitials(name: string) {
+  const parts = name.trim().split(/\s+/).filter(Boolean);
+  const first = parts[0]?.[0] ?? "";
+  const second = parts.length > 1 ? parts[parts.length - 1]?.[0] ?? "" : parts[0]?.[1] ?? "";
+  return (first + second).toUpperCase() || "?";
+}
+
 function pad2(n: number) {
   return String(n).padStart(2, "0");
 }
@@ -185,20 +192,38 @@ export default function BookingCalendar({
                 hasStarted && "opacity-60"
               )}
             >
-              <div>
-                <div className={`${proximaNovaMedium.className} uppercase tracking-wide text-sm text-gray-900`}>
-                  {s.classType.name} • {formatTime(s.startsAt)} – {formatTime(s.endsAt)}
+              <div className="flex items-center gap-4 min-w-0">
+                <div className="size-12 rounded-full overflow-hidden bg-gray-100 flex items-center justify-center shrink-0">
+                  {s.instructor?.imageUrl ? (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img
+                      src={s.instructor.imageUrl}
+                      alt={s.instructor?.name ? `${s.instructor.name} headshot` : "Instructor headshot"}
+                      className="h-full w-full object-cover"
+                      loading="lazy"
+                    />
+                  ) : (
+                    <span className="text-xs font-semibold text-gray-600">
+                      {getInitials(s.instructor?.name ?? "TBD")}
+                    </span>
+                  )}
                 </div>
 
-                <div className={`${proximaNovaRegular.className} tracking-wide mt-1 text-sm text-gray-500`}>
-                  Instructor: {s.instructor?.name ?? "TBD"}
-                </div>
-
-                {hasStarted && (
-                  <div className="mt-1 text-xs text-gray-500 uppercase tracking-wide">
-                    Class already started
+                <div className="min-w-0">
+                  <div className={`${proximaNovaMedium.className} uppercase tracking-wide text-sm text-gray-900`}>
+                    {s.classType.name} • {formatTime(s.startsAt)} – {formatTime(s.endsAt)}
                   </div>
-                )}
+
+                  <div className={`${proximaNovaRegular.className} tracking-wide mt-1 text-sm text-gray-500`}>
+                    Instructor: {s.instructor?.name ?? "TBD"}
+                  </div>
+
+                  {hasStarted && (
+                    <div className="mt-1 text-xs text-gray-500 uppercase tracking-wide">
+                      Class already started
+                    </div>
+                  )}
+                </div>
               </div>
 
               <button
