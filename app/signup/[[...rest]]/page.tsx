@@ -1,5 +1,5 @@
 import { proximaNovaRegular, proximaNovaMedium, proximaNovaLight, proximaNovaThin } from "@/app/fonts";
-import BeatbikeLogo from "@/images/beatbikeLogo.png";
+import BeatbikeLogo from "@/public/images/beatbikeLogo.png";
 import Image from "next/image";
 import { ExclamationCircleIcon } from '@heroicons/react/20/solid';
 import { SignUp } from "@clerk/nextjs";

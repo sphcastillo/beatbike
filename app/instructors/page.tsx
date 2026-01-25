@@ -1,6 +1,6 @@
 import Team from "@/components/Team";
 import Image from "next/image";
-import beatbikeLogo from "@/images/beatbikeLogo.png";
+import beatbikeLogo from "@/public/images/beatbikeLogo.png";
 
 function Instructors() {
   return (

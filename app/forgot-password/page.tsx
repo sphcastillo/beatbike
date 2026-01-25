@@ -1,4 +1,4 @@
-import beatbikeLogo from "@/images/beatbikeLogo.png";
+import beatbikeLogo from "@/public/images/beatbikeLogo.png";
 import Image from "next/image";
 import { proximaNovaRegular, proximaNovaMedium, proximaNovaLight } from "@/app/fonts";
 

@@ -1,5 +1,5 @@
 import Image from "next/image";
-import BeatbikeLogo from "@/images/beatbikeLogo.png";
+import BeatbikeLogo from "@/public/images/beatbikeLogo.png";
 import BeatbikeBike from "@/images/signIn/beatbikeBike.jpg";
 import { proximaNovaRegular, proximaNovaMedium, proximaNovaLight } from "@/app/fonts";
 import { SignIn } from "@clerk/nextjs";
