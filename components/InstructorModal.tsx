@@ -36,7 +36,7 @@ const InstructorModal: React.FC<InstructorModalProps> = ({
           &#8203;
         </span>
 
-        <div className="z-80 mt-[100px] overflow-y-auto inline-block align-bottom bg-gray-50 rounded-lg text-left overflow-hidden shadow-xl transform transition-all mb-8 sm:mb-16 sm:align-middle sm:max-w-lg sm:w-full">
+        <div className="z-80 mt-[100px] overflow-y-auto inline-block align-bottom bg-gray-50 rounded-2xl text-left overflow-hidden shadow-xl transform transition-all mb-8 sm:mb-16 sm:align-middle sm:max-w-lg sm:w-full">
           <div className="bg-gray-50 px-4 pt-3 sm:px-6 flex justify-end">
             <button
               type="button"
@@ -158,9 +158,9 @@ const InstructorModal: React.FC<InstructorModalProps> = ({
             </div>
             <div className="flex justify-center mt-2 mb-6">
 
-              <button className={`${proximaNovaRegular.className} uppercase tracking-wide cursor-pointer rounded-md bg-[#DFFF00] px-3.5 py-2.5 text-sm z-100 shadow-sm hover:bg-[#B0DB00]`}>
+              <a href="/select-studio" className={`${proximaNovaRegular.className} uppercase tracking-wide cursor-pointer rounded-md bg-[#DFFF00] px-3.5 py-2.5 text-sm z-100 shadow-sm hover:bg-[#B0DB00]`}>
                 View Schedule
-              </button>
+              </a>
 
             </div>
           </div>

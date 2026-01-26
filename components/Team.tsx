@@ -55,7 +55,7 @@ export default function Team() {
 
   return (
     <div className="bg-white pt-2 pb-24 sm:pt-12 sm:pb-32">
-      <div className="mx-auto max-w-6xl px-6 text-center lg:px-8">
+      <div className="mx-auto max-w-6xl px-3 sm:px-6 text-center lg:px-8">
         <motion.div
           className="mx-auto max-w-2xl"
           variants={headerVariants}
@@ -77,7 +77,7 @@ export default function Team() {
 
         <motion.ul
           role="list"
-          className="mx-auto mt-10 grid max-w-2xl grid-cols-2 gap-6 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3 lg:gap-8"
+          className="mx-auto mt-10 grid max-w-2xl grid-cols-2 gap-3 sm:gap-6 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3 lg:gap-8"
           variants={containerVariants}
           initial="hidden"
           whileInView="show"
