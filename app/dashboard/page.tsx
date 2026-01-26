@@ -1,44 +1,24 @@
-import { auth, currentUser } from "@clerk/nextjs/server";
+import { ensureUser } from "@/lib/ensureUser";
 import prisma from "@/lib/prisma";
 import Link from "next/link";
 import { proximaNovaMedium, proximaNovaRegular, proximaNovaSemibold, proximaNovaLight } from "@/app/fonts";
 
 export default async function DashboardPage() {
-  const { userId } = await auth();
-  const clerkUser = await currentUser();
+  const { user } = await ensureUser();
 
-  if (!userId || !clerkUser) return null;
+  const firstName = user.firstName ?? "there";
 
-  // 1) Ensure user exists in your DB (or fetch)
-  const firstName =
-    clerkUser.firstName ??
-    clerkUser.username ??
-    "there";
-
-  const primaryEmail =
-    clerkUser.emailAddresses.find((e) => e.id === clerkUser.primaryEmailAddressId)?.emailAddress ??
-    clerkUser.emailAddresses[0]?.emailAddress ??
-    "";
-
-  // Pull upcoming reservations
-  const user =
-    (await prisma.user.findUnique({ where: { clerkId: userId } })) ??
-    (await prisma.user.create({
-      data: {
-        clerkId: userId,
-        email: primaryEmail || null,
-        firstName: clerkUser.firstName ?? null,
-        lastName: clerkUser.lastName ?? null,
-      },
-    }));
+  const creditsAgg = await prisma.creditsLedger.aggregate({
+    where: { userId: user.id },
+    _sum: { delta: true },
+  });
+  const credits = creditsAgg._sum.delta ?? 0;
 
   const upcomingBookings = await prisma.booking.findMany({
     where: {
       userId: user.id,
       status: "BOOKED",
-      class: {
-        startsAt: { gte: new Date() },
-      },
+      class: { startsAt: { gte: new Date() } },
     },
     orderBy: { class: { startsAt: "asc" } },
     take: 5,
@@ -50,7 +30,6 @@ export default async function DashboardPage() {
   });
 
   const hasUpcomingReservations = upcomingBookings.length > 0;
-  
 
   return (
     <div className="min-h-screen bg-zinc-50 p-6 sm:p-10">
@@ -247,12 +226,12 @@ export default async function DashboardPage() {
             <div className="rounded-xl border border-zinc-200 bg-zinc-50 p-4">
               <dt className={`${proximaNovaRegular.className} text-xs uppercase tracking-wide text-zinc-500`}>Name</dt>
               <dd className={`${proximaNovaMedium.className} mt-1 text-sm text-zinc-900`}>
-                {[clerkUser.firstName, clerkUser.lastName].filter(Boolean).join(" ") || clerkUser.username || "—"}
+                {[user.firstName, user.lastName].filter(Boolean).join(" ") || "—"}
               </dd>
             </div>
             <div className="rounded-xl border border-zinc-200 bg-zinc-50 p-4">
               <dt className={`${proximaNovaRegular.className} text-xs uppercase tracking-wide text-zinc-500`}>Email</dt>
-              <dd className={`${proximaNovaMedium.className} mt-1 text-sm text-zinc-900`}>{primaryEmail || "—"}</dd>
+              <dd className={`${proximaNovaMedium.className} mt-1 text-sm text-zinc-900`}>{user.email || "—"}</dd>
             </div>
           </dl>
         </div>

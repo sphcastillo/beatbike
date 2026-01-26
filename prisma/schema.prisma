@@ -16,7 +16,8 @@ model User {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  bookings  Booking[]
+  bookings       Booking[]
+  creditsLedgers CreditsLedger[]
 }
 
 model Studio {
@@ -28,7 +29,7 @@ model Studio {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  classes   ClassSession[]
+  classes           ClassSession[]
   studioInstructors StudioInstructor[]
 }
 
@@ -40,7 +41,7 @@ model Instructor {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  classes   ClassSession[]
+  classes           ClassSession[]
   studioInstructors StudioInstructor[]
 }
 
@@ -49,52 +50,66 @@ model StudioInstructor {
   instructorId String
   createdAt    DateTime @default(now())
 
-  studio       Studio      @relation(fields: [studioId], references: [id], onDelete: Cascade)
-  instructor   Instructor  @relation(fields: [instructorId], references: [id], onDelete: Cascade)
+  studio     Studio     @relation(fields: [studioId], references: [id], onDelete: Cascade)
+  instructor Instructor @relation(fields: [instructorId], references: [id], onDelete: Cascade)
 
   @@id([studioId, instructorId])
   @@index([instructorId])
 }
 
 model ClassType {
-  id          String       @id @default(cuid())
-  name        String       @unique // "Cycle" or "$12 at 12"
+  id          String        @id @default(cuid())
+  name        String        @unique // "Cycle" or "$12 at 12"
   modality    ClassModality
   durationMin Int
-  createdAt   DateTime     @default(now())
-  updatedAt   DateTime     @updatedAt
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
 
-  sessions    ClassSession[]
+  sessions ClassSession[]
 }
 
-
 model ClassSession {
-  id           String   @id @default(cuid())
-  startsAt     DateTime
-  endsAt       DateTime
-  capacity     Int      @default(20)
+  id       String   @id @default(cuid())
+  startsAt DateTime
+  endsAt   DateTime
+  capacity Int      @default(20)
 
-  studioId     String
-  studio       Studio   @relation(fields: [studioId], references: [id], onDelete: Cascade)
+  studioId String
+  studio   Studio @relation(fields: [studioId], references: [id], onDelete: Cascade)
 
   instructorId String?
   instructor   Instructor? @relation(fields: [instructorId], references: [id], onDelete: SetNull)
 
-  classTypeId  String
-  classType    ClassType @relation(fields: [classTypeId], references: [id], onDelete: Restrict)
+  classTypeId String
+  classType   ClassType @relation(fields: [classTypeId], references: [id], onDelete: Restrict)
 
-  bookings     Booking[]
+  bookings Booking[]
 
-  createdAt    DateTime @default(now())
-  updatedAt    DateTime @updatedAt
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
+  // prevents duplicates (same studio, same start time, same class type)
+  @@unique([studioId, startsAt, classTypeId])
   @@index([startsAt])
   @@index([studioId])
   @@index([instructorId])
   @@index([classTypeId])
+}
 
-  // prevents duplicates (same studio, same start time, same class type)
-  @@unique([studioId, startsAt, classTypeId])
+model CreditsLedger {
+  id     String @id @default(cuid())
+  userId String
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  delta     Int // +3, -1, +1, etc.
+  reason    String // "WELCOME_3", "BOOKING", "CANCEL_REFUND", "ADMIN_ADJUST"
+  bookingId String? // optional link to booking that caused this
+  booking   Booking? @relation(fields: [bookingId], references: [id], onDelete: SetNull)
+
+  createdAt DateTime @default(now())
+
+  @@index([userId])
+  @@index([bookingId])
 }
 
 model Booking {
@@ -103,11 +118,13 @@ model Booking {
   createdAt DateTime      @default(now())
   updatedAt DateTime      @updatedAt
 
-  userId    String
-  user      User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId String
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
 
-  classId   String
-  class     ClassSession  @relation(fields: [classId], references: [id], onDelete: Cascade)
+  classId String
+  class   ClassSession @relation(fields: [classId], references: [id], onDelete: Cascade)
+
+  credits CreditsLedger[]
 
   @@unique([userId, classId])
   @@index([userId])
@@ -122,4 +139,3 @@ enum BookingStatus {
 enum ClassModality {
   CYCLE
 }
-
