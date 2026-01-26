@@ -70,13 +70,21 @@ export default function Header() {
                         </SignedOut>
 
                         <SignedIn>
-                            <UserButton
-                                appearance={{
-                                    elements: {
-                                        userButtonAvatarBox: "h-8 w-8",
-                                    },
-                                }}
-                            />
+                            <div className="flex items-center gap-4">
+                                <UserButton
+                                    appearance={{
+                                        elements: {
+                                            userButtonAvatarBox: "h-8 w-8",
+                                        },
+                                    }}
+                                />
+                                <a
+                                    href="/dashboard"
+                                    className={`${proximaNovaRegular.className} whitespace-nowrap uppercase text-sm tracking-widest text-[#DFFF00] border-b border-transparent hover:border-[#DFFF00] pb-1 transition-colors`}
+                                >
+                                    My Profile
+                                </a>
+                            </div>
                         </SignedIn>
                     </div>
                 </motion.div>
@@ -92,21 +100,21 @@ export default function Header() {
                         </motion.a>
                     </SignedOut>
                     <SignedIn>
-                        <UserButton
-                            appearance={{
-                                elements: {
-                                    userButtonAvatarBox: "h-8 w-8",
-                                },
-                            }}
-                        >
-                            <UserButton.MenuItems>
-                                <UserButton.Link
-                                    label="Dashboard"
-                                    href="/dashboard"
-                                    labelIcon={<Squares2X2Icon className="h-4 w-4" />}
-                                />
-                            </UserButton.MenuItems>
-                        </UserButton>
+                        <div className="flex items-center gap-3">
+                            <UserButton
+                                appearance={{
+                                    elements: {
+                                        userButtonAvatarBox: "h-8 w-8",
+                                    },
+                                }}
+                            />
+                            <a
+                                href="/dashboard"
+                                className={`${proximaNovaRegular.className} whitespace-nowrap uppercase text-xs tracking-widest text-[#DFFF00] border-b border-transparent hover:border-[#DFFF00] pb-1 transition-colors`}
+                            >
+                                My Profile
+                            </a>
+                        </div>
                     </SignedIn>
 
                     <button
@@ -169,7 +177,7 @@ export default function Header() {
                         </SignedOut>
 
                         <SignedIn>
-                            <div className="mt-4 flex w-full items-center justify-between gap-4">
+                            <div className="mt-4 flex w-full items-center gap-4">
                                 <UserButton
                                     appearance={{
                                         elements: {

@@ -1,4 +1,5 @@
 import { auth, currentUser } from "@clerk/nextjs/server";
+import prisma from "@/lib/prisma";
 import Link from "next/link";
 import { proximaNovaMedium, proximaNovaRegular, proximaNovaSemibold, proximaNovaLight } from "@/app/fonts";
 
@@ -19,25 +20,36 @@ export default async function DashboardPage() {
     clerkUser.emailAddresses[0]?.emailAddress ??
     "";
 
-  // 2) Pull dashboard data
-  // const [creditEntries, upcomingBookings] = await Promise.all([
-  //   prisma.creditsLedger.findMany({
-  //     where: { userId: user.id },
-  //     select: { delta: true },
-  //   }),
-  //   prisma.booking.findMany({
-  //     where: { userId: user.id },
-  //     orderBy: { startsAt: "asc" },
-  //     take: 5,
-  //     include: {
-  //       classSession: {
-  //         include: { studio: true, instructor: true, classType: true },
-  //       },
-  //     },
-  //   }),
-  // ]);
+  // Pull upcoming reservations
+  const user =
+    (await prisma.user.findUnique({ where: { clerkId: userId } })) ??
+    (await prisma.user.create({
+      data: {
+        clerkId: userId,
+        email: primaryEmail || null,
+        firstName: clerkUser.firstName ?? null,
+        lastName: clerkUser.lastName ?? null,
+      },
+    }));
 
-  // const credits = sumCredits(creditEntries);
+  const upcomingBookings = await prisma.booking.findMany({
+    where: {
+      userId: user.id,
+      status: "BOOKED",
+      class: {
+        startsAt: { gte: new Date() },
+      },
+    },
+    orderBy: { class: { startsAt: "asc" } },
+    take: 5,
+    include: {
+      class: {
+        include: { studio: true, instructor: true, classType: true },
+      },
+    },
+  });
+
+  const hasUpcomingReservations = upcomingBookings.length > 0;
 
   return (
     <div className="min-h-screen bg-zinc-50 p-6 sm:p-10">
@@ -153,72 +165,64 @@ export default async function DashboardPage() {
         <div id="reservations" className="scroll-mt-28 rounded-2xl bg-white p-5 shadow-sm ring-1 ring-zinc-200">
           <div className="flex items-center justify-between">
             <h2 className={`${proximaNovaMedium.className} uppercase text-lg`}>Upcoming reservations</h2>
-            <Link href="/my-classes" className={`${proximaNovaRegular.className} tracking-wide uppercase text-sm underline`}>
-              View all
-            </Link>
+            {hasUpcomingReservations ? (
+              <Link href="/my-classes" className={`${proximaNovaRegular.className} tracking-wide uppercase text-sm underline`}>
+                View all
+              </Link>
+            ) : (
+              <Link href="/select-studio" className={`${proximaNovaRegular.className} tracking-wide uppercase text-sm underline`}>
+                
+              </Link>
+            )}
           </div>
 
-          {/* {upcomingBookings.length === 0 ? (
-            <div className="mt-4 rounded-xl border border-dashed border-zinc-200 p-6 text-sm text-zinc-600">
+          {!hasUpcomingReservations ? (
+            <div className={`${proximaNovaLight.className} mt-4 rounded-xl border border-dashed border-zinc-200 p-6 text-sm text-zinc-600`}>
               You don’t have any upcoming reservations yet.
               <div className="mt-3">
                 <Link
-                  href="/schedule"
-                  className="inline-flex rounded-xl bg-black px-4 py-2 text-sm font-medium text-white hover:opacity-90"
+                  href="/select-studio"
+                  className={`${proximaNovaRegular.className} inline-flex bg-black px-4 py-2 text-sm uppercase tracking-wide text-white hover:bg-[#B0DB00] hover:text-black`}
                 >
-                  Book your first class
+                  Reserve now
                 </Link>
               </div>
             </div>
           ) : (
             <ul className="mt-4 divide-y divide-zinc-100">
-              <div>No upcoming bookings</div>
               {upcomingBookings.map((b) => {
-                const s = b.classSession;
+                const s = b.class;
                 return (
                   <li key={b.id} className="py-4">
                     <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
                       <div>
-                        <p className="font-medium">
+                        <p className={`${proximaNovaMedium.className} text-sm text-zinc-900`}>
                           {s.classType.name} · {s.studio.name}
                         </p>
-                        <p className="text-sm text-zinc-500">
-                          Instructor: {s.instructor.name}
-                        </p>
+                        {s.instructor?.name ? (
+                          <p className={`${proximaNovaLight.className} text-sm text-zinc-500`}>
+                            Instructor: {s.instructor.name}
+                          </p>
+                        ) : null}
                       </div>
 
-                      <div className="text-sm text-zinc-600">
+                      <div className={`${proximaNovaRegular.className} text-sm text-zinc-600`}>
                         {new Date(s.startsAt).toLocaleString()}
                       </div>
-                    </div>
-
-                    <div className="mt-3 flex gap-2">
-                      <Link
-                        href={`/reservations/${b.id}`}
-                        className="rounded-xl border border-zinc-200 bg-white px-3 py-1.5 text-sm font-medium hover:bg-zinc-100"
-                      >
-                        Details
-                      </Link>
-                      <Link
-                        href={`/reservations/${b.id}/cancel`}
-                        className="rounded-xl border border-zinc-200 bg-white px-3 py-1.5 text-sm font-medium hover:bg-zinc-100"
-                      >
-                        Cancel
-                      </Link>
                     </div>
                   </li>
                 );
               })}
             </ul>
-          )} */}
+          )}
         </div>
 
         {/* Purchases */}
         <div id="purchases" className="scroll-mt-28 rounded-2xl bg-white p-5 shadow-sm ring-1 ring-zinc-200">
           <div className="flex items-center justify-between">
             <h2 className={`${proximaNovaMedium.className} uppercase text-lg`}>Purchases</h2>
-            <Link href="/packages" className={`${proximaNovaRegular.className} tracking-wide uppercase text-sm underline`}>
-              Buy credits
+            <Link href="/buy-now" className={`${proximaNovaRegular.className} tracking-wide uppercase text-sm underline`}>
+              Buy credits / memberships
             </Link>
           </div>
           <div className={`${proximaNovaLight.className} mt-4 rounded-xl border border-dashed border-zinc-200 p-6 text-sm text-zinc-600`}>
