@@ -17,9 +17,11 @@ type Session = {
 export default function BookingClient({
   studioId,
   sessions,
+  bookedSessionIds = [],
 }: {
   studioId: string;
   sessions: Session[];
+  bookedSessionIds?: string[];
 }) {
   const [isPending, startTransition] = useTransition();
   const [loadingId, setLoadingId] = useState<string | null>(null);
@@ -42,5 +44,13 @@ export default function BookingClient({
     });
   };
 
-  return <BookingCalendar  sessions={sessions} onBook={handleBook} />;
+  return (
+    <BookingCalendar
+      sessions={sessions}
+      onBook={handleBook}
+      isPending={isPending}
+      loadingId={loadingId}
+      bookedSessionIds={bookedSessionIds}
+    />
+  );
 }

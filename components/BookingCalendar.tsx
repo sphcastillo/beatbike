@@ -104,13 +104,21 @@ function cx(...classes: Array<string | false | undefined | null>) {
 export default function BookingCalendar({
   sessions,
   onBook,
+  isPending = false,
+  loadingId = null,
+  bookedSessionIds = [],
 }: {
   sessions: Session[];
   onBook: (sessionId: string) => void;
+  isPending?: boolean;
+  loadingId?: string | null;
+  bookedSessionIds?: string[];
 }) {
   const today = useMemo(() => new Date(), []);
   const [viewDate, setViewDate] = useState(() => startOfMonth(today));
   const [selectedDate, setSelectedDate] = useState(() => toISODate(today));
+
+  const bookedSet = useMemo(() => new Set(bookedSessionIds), [bookedSessionIds]);
 
   const days = useMemo(() => buildMonthGrid(viewDate, selectedDate), [viewDate, selectedDate]);
 
@@ -183,13 +191,17 @@ export default function BookingCalendar({
           const now = new Date();
           const starts = new Date(s.startsAt);
           const hasStarted = starts.getTime() <= now.getTime();
+          const isBookingThis = Boolean(loadingId && loadingId === s.id);
+          const isBooked = bookedSet.has(s.id);
+          const disableBooking = hasStarted || isPending || isBooked;
 
           return (
             <li
               key={s.id}
               className={cx(
                 "rounded-xl border px-4 py-3 my-2 flex items-center justify-between gap-4",
-                hasStarted && "opacity-60"
+                hasStarted && "opacity-60",
+                isBooked && "border-[#DFFF00] bg-[#DFFF00]/10"
               )}
             >
               <div className="flex items-center gap-4 min-w-0">
@@ -218,6 +230,15 @@ export default function BookingCalendar({
                     Instructor: {s.instructor?.name ?? "TBD"}
                   </div>
 
+                  {isBooked && !hasStarted && (
+                    <div className={`${proximaNovaMedium.className} mt-2 inline-flex items-center gap-2 text-xs uppercase tracking-wide text-gray-900`}>
+                      <span className="inline-flex size-5 items-center justify-center rounded-full bg-black text-white">
+                        ✓
+                      </span>
+                      Booked
+                    </div>
+                  )}
+
                   {hasStarted && (
                     <div className="mt-1 text-xs text-gray-500 uppercase tracking-wide">
                       Class already started
@@ -228,20 +249,34 @@ export default function BookingCalendar({
 
               <button
                 type="button"
-                disabled={hasStarted}
+                disabled={disableBooking}
                 className={cx(
                   proximaNovaMedium.className,
                   "uppercase tracking-wider rounded-lg px-4 py-2 text-sm",
-                  hasStarted
+                  disableBooking
                     ? "bg-gray-200 text-gray-500 cursor-not-allowed"
                     : "bg-black text-white hover:bg-[#B0DB00] hover:text-gray-700"
                 )}
                 onClick={() => {
-                  if (hasStarted) return;
+                  if (disableBooking) return;
                   onBook(s.id);
                 }}
               >
-                {hasStarted ? "Closed" : "Book"}
+                {hasStarted ? (
+                  "Closed"
+                ) : isBooked ? (
+                  "Booked"
+                ) : isBookingThis ? (
+                  <span className="inline-flex items-center gap-2">
+                    <span
+                      aria-label="Booking"
+                      className="size-4 rounded-full border-2 border-white/40 border-t-white animate-spin"
+                    />
+                    Booking...
+                  </span>
+                ) : (
+                  "Book"
+                )}
               </button>
             </li>
           );

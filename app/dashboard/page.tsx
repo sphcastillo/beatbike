@@ -53,35 +53,7 @@ export default async function DashboardPage({
   return (
     <div className="min-h-screen bg-zinc-50 p-6 sm:p-10">
       <div className="mx-auto max-w-5xl space-y-8">
-        {cancelStatus === "tooLate" ? (
-          <div className="mt-3 rounded-2xl border border-amber-200 bg-amber-50 p-4 text-amber-900">
-            <p className={`${proximaNovaMedium.className} text-sm`}>
-              Cancellation couldn’t be completed.
-            </p>
-            <p className={`${proximaNovaLight.className} mt-1 text-sm`}>
-              Cancellations are only allowed up to <span className={`${proximaNovaMedium.className}`}>12 hours</span> before class start time.
-            </p>
-            <div className="mt-2">
-              <Link href="/dashboard" className={`${proximaNovaRegular.className} text-xs uppercase tracking-wide underline`}>
-                Dismiss
-              </Link>
-            </div>
-          </div>
-        ) : null}
-
-        {cancelStatus === "success" ? (
-          <div className="rounded-2xl border border-emerald-200 bg-emerald-50 p-4 text-emerald-900">
-            <p className={`${proximaNovaMedium.className} text-sm`}>Reservation canceled.</p>
-            <div className="mt-2">
-              <Link href="/dashboard" className={`${proximaNovaRegular.className} text-xs uppercase tracking-wide underline`}>
-                Dismiss
-              </Link>
-            </div>
-          </div>
-        ) : null}
-
-        {/* Header */}
-        <div className=" mt-5 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+        <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <h1 className={`${proximaNovaSemibold.className} text-3xl tracking-tight`}>Welcome back, {firstName}</h1>
           </div>
@@ -101,43 +73,6 @@ export default async function DashboardPage({
             </Link>
           </div>
         </div>
-
-        {/* <nav aria-label="Dashboard sections" className="">
-          <ul className="grid grid-cols-2 gap-2 sm:grid-cols-4">
-            <li>
-              <Link
-                href="#reservations"
-                className={`${proximaNovaRegular.className} block rounded-xl px-3 py-2 text-sm uppercase tracking-wide hover:bg-zinc-100`}
-              >
-                Reservations
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="#memberships-credits"
-                className={`${proximaNovaRegular.className} block rounded-xl px-3 py-2 text-sm uppercase tracking-wide hover:bg-zinc-100`}
-              >
-                Memberships &amp; Credits
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="#purchases"
-                className={`${proximaNovaRegular.className} block rounded-xl px-3 py-2 text-sm uppercase tracking-wide hover:bg-zinc-100`}
-              >
-                Purchases
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="#personal-info"
-                className={`${proximaNovaRegular.className} block rounded-xl px-3 py-2 text-sm uppercase tracking-wide hover:bg-zinc-100`}
-              >
-                Personal Information
-              </Link>
-            </li>
-          </ul>
-        </nav> */}
 
         <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
           <div className="rounded-2xl bg-white p-5 shadow-sm ring-1 ring-zinc-200">
@@ -171,12 +106,39 @@ export default async function DashboardPage({
           </div>
         </div>
 
+        {cancelStatus === "tooLate" ? (
+          <div className="mt-3 rounded-2xl border border-amber-200 bg-amber-50 p-4 text-amber-900">
+            <p className={`${proximaNovaMedium.className} text-sm`}>
+              Cancellation couldn’t be completed.
+            </p>
+            <p className={`${proximaNovaLight.className} mt-1 text-sm`}>
+              Cancellations are only allowed up to <span className={`${proximaNovaMedium.className}`}>12 hours</span> before class start time.
+            </p>
+            <div className="mt-2">
+              <Link href="/dashboard" className={`${proximaNovaRegular.className} text-xs uppercase tracking-wide underline`}>
+                Dismiss
+              </Link>
+            </div>
+          </div>
+        ) : null}
+
+        {cancelStatus === "success" ? (
+          <div className="rounded-2xl border border-emerald-200 bg-emerald-50 p-4 text-emerald-900">
+            <p className={`${proximaNovaMedium.className} text-sm`}>Reservation canceled.</p>
+            <div className="mt-2">
+              <Link href="/dashboard" className={`${proximaNovaRegular.className} text-xs uppercase tracking-wide underline`}>
+                Dismiss
+              </Link>
+            </div>
+          </div>
+        ) : null}
+
         {/* Upcoming */}
-        <div id="reservations" className="scroll-mt-28 rounded-2xl bg-white p-5 shadow-sm ring-1 ring-zinc-200">
+        <div id="reservations" className="scroll-mt-28 rounded-2xl bg-white p-3 xs:p-5 shadow-sm ring-1 ring-zinc-200">
           <div className="flex items-center justify-between">
             <h2 className={`${proximaNovaMedium.className} uppercase text-lg`}>Upcoming reservations</h2>
             {hasUpcomingReservations ? (
-              <Link href="/my-classes" className={`${proximaNovaRegular.className} tracking-wide uppercase text-sm underline`}>
+              <Link href="/my-classes" className={`${proximaNovaRegular.className} tracking-wide uppercase text-sm underline whitespace-nowrap`}>
                 View all
               </Link>
             ) : (
@@ -203,13 +165,33 @@ export default async function DashboardPage({
               {upcomingBookings.map((b) => {
                 const s = b.class;
                 const startsAt = new Date(s.startsAt);
-                const weekday = startsAt.toLocaleDateString(undefined, { weekday: "long" });
+                const weekdayShort = ((): string => {
+                  // JS: 0=Sun ... 6=Sat
+                  switch (startsAt.getDay()) {
+                    case 0:
+                      return "Sun";
+                    case 1:
+                      return "Mon";
+                    case 2:
+                      return "Tues";
+                    case 3:
+                      return "Wed";
+                    case 4:
+                      return "Thurs";
+                    case 5:
+                      return "Fri";
+                    case 6:
+                      return "Sat";
+                    default:
+                      return "";
+                  }
+                })();
                 const date = startsAt.toLocaleDateString(undefined, { month: "short", day: "numeric" });
                 const time = startsAt.toLocaleTimeString(undefined, { hour: "numeric", minute: "2-digit" });
                 return (
                   <li key={b.id} className="py-4">
-                    <div className="flex items-center justify-between gap-4">
-                      <div className="flex min-w-0 items-center gap-4">
+                    <div className="flex items-start justify-between gap-4">
+                      <div className="flex min-w-0 flex-1 items-center gap-4">
                         <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-full bg-zinc-100 ring-1 ring-zinc-200">
                           {s.instructor?.imageUrl ? (
                             <Image
@@ -223,19 +205,35 @@ export default async function DashboardPage({
                         </div>
 
                         <div className="min-w-0">
-                          <p className={`${proximaNovaMedium.className} truncate text-sm text-zinc-900`}>
-                            {s.classType.name} · {s.studio.name}
-                          </p>
-                          <p className={`${proximaNovaLight.className} truncate text-sm text-zinc-500`}>
-                            {s.instructor?.name ? s.instructor.name : "Instructor TBA"}
-                          </p>
+                          {/* Mobile: each field on its own row */}
+                          <div className="sm:hidden">
+                            <p className={`${proximaNovaMedium.className} truncate text-sm text-zinc-900`}>
+                              {s.classType.name}
+                            </p>
+                            <p className={`${proximaNovaLight.className} mt-0.5 truncate text-sm text-zinc-500`}>
+                              {s.instructor?.name ? s.instructor.name : "Instructor TBA"}
+                            </p>
+                            <p className={`${proximaNovaRegular.className} mt-0.5 whitespace-nowrap text-sm text-zinc-700`}>
+                              {s.studio.name}
+                            </p>
+                          </div>
+
+                          {/* Desktop: compact */}
+                          <div className="hidden sm:block">
+                            <p className={`${proximaNovaMedium.className} truncate text-sm text-zinc-900`}>
+                              {s.classType.name} · {s.studio.name}
+                            </p>
+                            <p className={`${proximaNovaLight.className} truncate text-sm text-zinc-500`}>
+                              {s.instructor?.name ? s.instructor.name : "Instructor TBA"}
+                            </p>
+                          </div>
                         </div>
                       </div>
 
-                      <div className="flex items-center gap-4">
+                      <div className="flex shrink-0 items-center gap-4">
                         <div className="text-right">
                           <div className={`${proximaNovaRegular.className} text-sm text-zinc-700`}>
-                            {weekday}, {date}
+                            {weekdayShort}, {date}
                           </div>
                           <div className={`${proximaNovaLight.className} text-sm text-zinc-600`}>
                             {time}

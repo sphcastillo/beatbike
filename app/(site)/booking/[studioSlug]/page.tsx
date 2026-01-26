@@ -2,7 +2,7 @@ import prisma from "@/lib/prisma";
 import LocationSwitcher from "@/components/LocationSwitcher";
 import BookingClient from "@/components/BookingClient";
 import { proximaNovaMedium, comfortaa } from "@/app/fonts";
-import Image from "next/image";
+import { ensureUser } from "@/lib/ensureUser";
 
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
@@ -13,6 +13,8 @@ export default async function BookingPage({
 }: {
   params: { studioSlug: string };
 }) {
+  const { user } = await ensureUser();
+
   const studio = await prisma.studio.findUnique({
     where: { slug: params.studioSlug },
     select: { id: true, name: true, slug: true },
@@ -49,12 +51,15 @@ export default async function BookingPage({
     classType: { name: s.classType.name, durationMin: s.classType.durationMin },
   }));
 
-  console.log("BOOKING PAGE SESSIONS", {
-    studio: studio.slug,
-    count: sessionsForClient.length,
-    first: sessionsForClient[0]?.startsAt,
-    last: sessionsForClient.at(-1)?.startsAt,
+  const booked = await prisma.booking.findMany({
+    where: {
+      userId: user.id,
+      status: "BOOKED",
+      classId: { in: sessions.map((s) => s.id) },
+    },
+    select: { classId: true },
   });
+  const bookedSessionIds = booked.map((b) => b.classId);
 
   return (
     <div className="p-8">
@@ -67,7 +72,7 @@ export default async function BookingPage({
       </div>
 
       <div className="mt-8">
-        <BookingClient studioId={studio.id} sessions={sessionsForClient} />
+        <BookingClient studioId={studio.id} sessions={sessionsForClient} bookedSessionIds={bookedSessionIds} />
       </div>
     </div>
   );
