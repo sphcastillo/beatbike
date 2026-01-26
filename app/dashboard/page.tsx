@@ -128,18 +128,17 @@ export default async function DashboardPage({
           </ul>
         </nav> */}
 
-        {/* Beatbike Logo and How Many Classes You've Taken So Far - taken 5 classes so far */}
         <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
           <div className="rounded-2xl bg-white p-5 shadow-sm ring-1 ring-zinc-200">
             <p className={`${proximaNovaSemibold.className} text-4xl`}>
-              5
+              0
             </p>
             <p className={`${proximaNovaRegular.className} tracking-wide mt-1 text-sm text-zinc-500`}>Classes Completed</p>
           </div>
 
           <div className="rounded-2xl bg-white p-5 shadow-sm ring-1 ring-zinc-200">
             <p className={`${proximaNovaSemibold.className} text-4xl`}>
-              0
+              {upcomingBookings.length}
             </p>
             <p className={`${proximaNovaRegular.className} tracking-wide mt-1 text-sm text-zinc-500`}>Upcoming Classes</p>
           </div>
@@ -229,7 +228,7 @@ export default async function DashboardPage({
 
                         <div className="min-w-0">
                           <p className={`${proximaNovaMedium.className} truncate text-sm text-zinc-900`}>
-                            {s.classType.name}
+                            {s.classType.name} · {s.studio.name}
                           </p>
                           <p className={`${proximaNovaLight.className} truncate text-sm text-zinc-500`}>
                             {s.instructor?.name ? s.instructor.name : "Instructor TBA"}
