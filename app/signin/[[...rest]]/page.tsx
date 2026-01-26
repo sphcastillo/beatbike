@@ -8,7 +8,7 @@ export default function SignInPage() {
   return (
     <div className="bg-white min-h-screen">
       <div className="flex min-h-screen w-full">
-        <div className="flex w-full lg:w-[60%] flex-1 flex-col justify-start sm:justify-center p-6 sm:p-12 lg:p-[60px] lg:flex-none">
+        <div className="flex w-full lg:w-[60%] flex-1 flex-col justify-start sm:justify-center p-6  lg:flex-none">
           <div className="mx-auto w-full max-w-sm lg:w-96">
             <div className="flex justify-center">
               <Image

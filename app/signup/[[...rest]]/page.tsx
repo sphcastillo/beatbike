@@ -31,7 +31,7 @@ export default function SignUpPage() {
                 </div>
 
 
-                <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-sm">
+                <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-sm mx-auto">
                     <SignUp
                         routing="path"
                         path="/signup"

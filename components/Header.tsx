@@ -1,8 +1,7 @@
 'use client';
-
 import { useState } from 'react';
 import { Dialog } from '@headlessui/react';
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
+import { Bars3Icon, XMarkIcon, Squares2X2Icon } from '@heroicons/react/24/outline';
 import { motion } from 'framer-motion';
 import {
     SignedIn,
@@ -29,7 +28,6 @@ export default function Header() {
         <header className="sticky top-0 z-50 bg-black">
             <nav className="flex items-center p-6 lg:px-8">
 
-                {/* LOGO */}
                 <motion.div
                     className="flex flex-1"
                     initial={{ x: 500, opacity: 0, scale: 0.5 }}
@@ -44,7 +42,6 @@ export default function Header() {
                     </a>
                 </motion.div>
 
-                {/* DESKTOP NAV */}
                 <motion.div
                     initial={{ x: -500, opacity: 0, scale: 0.5 }}
                     animate={{ x: 0, opacity: 1, scale: 1 }}
@@ -61,7 +58,6 @@ export default function Header() {
                         </a>
                     ))}
 
-                    {/* AUTH – DESKTOP */}
                     <div className="ml-6 flex items-center">
                         <SignedOut>
                             <motion.a
@@ -85,7 +81,6 @@ export default function Header() {
                     </div>
                 </motion.div>
 
-                {/* MOBILE TOP BAR */}
                 <div className="flex md:hidden items-center gap-4">
                     <SignedOut>
                         <motion.a
@@ -96,7 +91,6 @@ export default function Header() {
                             Log in
                         </motion.a>
                     </SignedOut>
-
                     <SignedIn>
                         <UserButton
                             appearance={{
@@ -104,7 +98,15 @@ export default function Header() {
                                     userButtonAvatarBox: "h-8 w-8",
                                 },
                             }}
-                        />
+                        >
+                            <UserButton.MenuItems>
+                                <UserButton.Link
+                                    label="Dashboard"
+                                    href="/dashboard"
+                                    labelIcon={<Squares2X2Icon className="h-4 w-4" />}
+                                />
+                            </UserButton.MenuItems>
+                        </UserButton>
                     </SignedIn>
 
                     <button
@@ -118,10 +120,10 @@ export default function Header() {
                 </div>
             </nav>
 
-            {/* MOBILE MENU */}
+
             <Dialog as="div" className="lg:hidden" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
                 <div className="fixed inset-0 z-50" />
-                <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full bg-black px-6 py-6 sm:max-w-sm">
+                <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-black px-6 py-6 sm:max-w-sm">
 
                     <div className="flex items-center justify-between">
                         <h2 className={`${comfortaa.className} text-white text-2xl`}>
@@ -144,10 +146,10 @@ export default function Header() {
                             >
                                 <span
                                     className={`${proximaNovaRegular.className}
-        inline-block uppercase text-xl tracking-widest text-white
-        border-b border-transparent
-        hover:border-[#DFFF00]
-        pb-1 transition-colors`}
+                                    inline-block uppercase text-xl tracking-widest text-white
+                                    border-b border-transparent
+                                    hover:border-[#DFFF00]
+                                    pb-1 transition-colors`}
                                 >
                                     {item.name}
                                 </span>
@@ -156,8 +158,7 @@ export default function Header() {
 
                     </div>
 
-                    {/* AUTH – MOBILE MENU */}
-                    <div className="mt-10">
+                    <div className="mt-12">
                         <SignedOut>
                             <a
                                 href="/signin"
@@ -168,8 +169,21 @@ export default function Header() {
                         </SignedOut>
 
                         <SignedIn>
-                            <div className="mt-4">
-                                <UserButton />
+                            <div className="mt-4 flex w-full items-center justify-between gap-4">
+                                <UserButton
+                                    appearance={{
+                                        elements: {
+                                            userButtonAvatarBox: "h-9 w-9",
+                                        },
+                                    }}
+                                />
+                                <a
+                                    href="/dashboard"
+                                    onClick={() => setMobileMenuOpen(false)}
+                                    className={`${proximaNovaRegular.className} whitespace-nowrap uppercase text-sm tracking-widest text-[#DFFF00] border-b border-transparent hover:border-[#DFFF00] pb-1 transition-colors`}
+                                >
+                                    View my account
+                                </a>
                             </div>
                         </SignedIn>
                     </div>

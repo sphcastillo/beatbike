@@ -52,7 +52,7 @@ export default function LocationSelection() {
             value={location}
             disabled={isPending}
             onClick={() => handleSelect(location)}
-            className="group relative flex cursor-pointer rounded-lg bg-white/5 py-4 px-5 text-black border-gray-900/30 border-[1px] shadow-lg transition focus:outline-none data-[focus]:outline-1 data-[focus]:outline-black data-[checked]:bg-black/10 data-[disabled]:cursor-not-allowed data-[disabled]:opacity-60"
+            className="group relative flex cursor-pointer rounded-lg bg-white/5 py-4 px-5 text-black border-gray-900/30 border-[1px] shadow-lg transition focus:outline-none data-[focus]:outline-1 data-[focus]:outline-black data-[checked]:bg-black/10 data-[disabled]:cursor-not-allowed data-[disabled]:opacity-60 data-[checked]:border-[#DFFF00] data-[focus]:border-[#DFFF00] active:border-[#DFFF00]"
           >
             <div className="flex w-full items-center justify-between">
               <h5 className={`${proximaNovaRegular.className} uppercase text-sm text-gray-900`}>

@@ -1,5 +1,4 @@
 'use client'
-import ContactUsGalleryBanner from "@/components/ContactUsGalleryBanner";
 import {
   BuildingOffice2Icon,
   EnvelopeIcon,
@@ -47,7 +46,6 @@ export default function ContactUs() {
   return (
     <div className="relative isolate bg-white">
       <div className="py-6 sm:py-8 px-2 md:px-6">
-        {/* <ContactUsGalleryBanner /> */}
       </div>
       <div className="mx-auto grid max-w-7xl grid-cols-1 lg:grid-cols-2">
         <div className="relative px-6 pb-20 pt-10 sm:pt-24 lg:static lg:px-8 lg:py-32">
@@ -70,15 +68,6 @@ export default function ContactUs() {
                   </pattern>
                 </defs>
                 <rect width="100%" height="100%" strokeWidth={0} fill="white" />
-                {/* <svg x="100%" y={-1} className="overflow-visible fill-gray-50">
-                  <path d="M-470.5 0h201v201h-201Z" strokeWidth={0} />
-                </svg> */}
-                {/* <rect
-                  width="100%"
-                  height="100%"
-                  strokeWidth={0}
-                  fill="url(#83fd4e5a-9d52-42fc-97b6-718e5d7ee527)"
-                /> */}
               </svg>
             </div>
             <h2 className={`${proximaNovaMedium.className} uppercase text-[#DFFF00] text-xl pb-3`}>Got questions?</h2>
@@ -140,7 +129,7 @@ export default function ContactUs() {
           </div>
         </div>
         <form
-          className="px-6 pb-24 pt-20 sm:pb-32 lg:px-8 lg:pt-16 lg:pb-36"
+          className="px-6 pb-24 sm:pb-32 lg:px-8 lg:pt-16 lg:pb-36"
           onSubmit={handleSubmit}
         >
           <div className="mx-auto max-w-xl lg:mr-0 lg:max-w-lg">
