@@ -137,7 +137,7 @@ export default async function DashboardPage({
         <div id="reservations" className="scroll-mt-28 rounded-2xl bg-white p-3 xs:p-5 shadow-sm ring-1 ring-zinc-200">
           <div className="flex items-center justify-between">
             <h2 className={`${proximaNovaMedium.className} uppercase text-lg`}>Upcoming reservations</h2>
-            {hasUpcomingReservations ? (
+            {/* {hasUpcomingReservations ? (
               <Link href="/my-classes" className={`${proximaNovaRegular.className} tracking-wide uppercase text-sm underline whitespace-nowrap`}>
                 View all
               </Link>
@@ -145,7 +145,7 @@ export default async function DashboardPage({
               <Link href="/select-studio" className={`${proximaNovaRegular.className} tracking-wide uppercase text-sm underline`}>
                 
               </Link>
-            )}
+            )} */}
           </div>
 
           {!hasUpcomingReservations ? (
