@@ -35,6 +35,17 @@ export default async function DashboardPage({
     },
   });
 
+  const classesCompleted = await prisma.booking.count({
+    where: {
+      userId: user.id,
+      status: "BOOKED",
+      class: {
+        endsAt: { lt: new Date() }, 
+      },
+    },
+  });
+  
+
   const hasUpcomingReservations = upcomingBookings.length > 0;
   const cancelStatusRaw = searchParams?.cancel;
   const cancelStatus = Array.isArray(cancelStatusRaw) ? cancelStatusRaw[0] : cancelStatusRaw;
@@ -131,7 +142,7 @@ export default async function DashboardPage({
         <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
           <div className="rounded-2xl bg-white p-5 shadow-sm ring-1 ring-zinc-200">
             <p className={`${proximaNovaSemibold.className} text-4xl`}>
-              0
+              {classesCompleted}
             </p>
             <p className={`${proximaNovaRegular.className} tracking-wide mt-1 text-sm text-zinc-500`}>Classes Completed</p>
           </div>
@@ -157,21 +168,6 @@ export default async function DashboardPage({
                 <p className={`${proximaNovaMedium.className} mt-2 text-lg tracking-tight`}>No Active</p>
               </div>
             </div>
-
-            {/* <div className="mt-4 flex flex-wrap gap-2">
-              <Link
-                href="/packages"
-                className={`${proximaNovaRegular.className} uppercase rounded-xl bg-zinc-900 px-4 py-2 text-sm text-white hover:opacity-90`}
-              >
-                View packages
-              </Link>
-              <Link
-                href="/my-classes"
-                className={`${proximaNovaRegular.className} uppercase rounded-xl border border-zinc-200 bg-white px-4 py-2 text-sm hover:bg-zinc-100`}
-              >
-                My classes
-              </Link>
-            </div> */}
           </div>
         </div>
 
