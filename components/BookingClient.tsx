@@ -1,6 +1,9 @@
 "use client";
-
+import { useState, useTransition } from "react";
 import BookingCalendar from "@/components/BookingCalendar";
+import { bookClass } from "@/actions/bookClass";
+import { useRouter } from "next/navigation";
+
 
 type Session = {
   id: string;
@@ -18,11 +21,25 @@ export default function BookingClient({
   studioId: string;
   sessions: Session[];
 }) {
+  const [isPending, startTransition] = useTransition();
+  const [loadingId, setLoadingId] = useState<string | null>(null);
+  const router = useRouter();
+  
   const handleBook = (sessionId: string) => {
-    // placeholder for now
-    console.log("book", { sessionId, studioId });
+    setLoadingId(sessionId);
 
-    // later: call an API route or server action here
+    startTransition(async () => {
+      const res = await bookClass(sessionId);
+
+      setLoadingId(null);
+
+      if (!res.ok) {
+        alert(res.error);
+        return;
+      }
+
+      router.push("/dashboard");
+    });
   };
 
   return <BookingCalendar  sessions={sessions} onBook={handleBook} />;

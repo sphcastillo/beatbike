@@ -2,7 +2,7 @@
 import { useState, useTransition } from "react";
 import { Radio, RadioGroup } from "@headlessui/react";
 import { CheckCircleIcon } from "@heroicons/react/20/solid";
-import { proximaNovaMedium, proximaNovaRegular, proximaNovaLight } from "@/app/fonts";
+import { proximaNovaMedium, proximaNovaRegular } from "@/app/fonts";
 import { useRouter } from "next/navigation";
 
 const locations = [
