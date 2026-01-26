@@ -50,6 +50,7 @@ export default async function DashboardPage() {
   });
 
   const hasUpcomingReservations = upcomingBookings.length > 0;
+  
 
   return (
     <div className="min-h-screen bg-zinc-50 p-6 sm:p-10">
@@ -221,13 +222,22 @@ export default async function DashboardPage() {
         <div id="purchases" className="scroll-mt-28 rounded-2xl bg-white p-5 shadow-sm ring-1 ring-zinc-200">
           <div className="flex items-center justify-between">
             <h2 className={`${proximaNovaMedium.className} uppercase text-lg`}>Purchases</h2>
-            <Link href="/buy-now" className={`${proximaNovaRegular.className} tracking-wide uppercase text-sm underline`}>
-              Buy credits / memberships
+            <Link href="/my-purchases" className={`hidden ${proximaNovaRegular.className} tracking-wide uppercase text-sm underline`}>
+              View all
             </Link>
           </div>
           <div className={`${proximaNovaLight.className} mt-4 rounded-xl border border-dashed border-zinc-200 p-6 text-sm text-zinc-600`}>
             You don’t have any purchases yet.
+            <div className="mt-3">
+                <Link
+                  href="/buy-now"
+                  className={`${proximaNovaRegular.className} inline-flex bg-black px-4 py-2 text-sm uppercase tracking-wide text-white hover:bg-[#B0DB00] hover:text-black`}
+                >
+                  Buy now
+                </Link>
+              </div>
           </div>
+          
         </div>
 
         {/* Personal Information */}
