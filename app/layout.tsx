@@ -16,11 +16,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ClerkProvider 
-      afterSignInUrl="/dashboard"
-    afterSignUpUrl="/dashboard"
-    signInUrl="/signin"
-    signUpUrl="/signup">
+    <ClerkProvider>
       <html lang="en">
         <head>
           <meta name="viewport" content="width=device-width, initial-scale=1.0" />
