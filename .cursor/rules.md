@@ -10,7 +10,6 @@
 - Heroicons / lucide-react / react-icons for icons
 - Clerk for authentication (@clerk/nextjs)
 - Embla Carousel (embla-carousel-react + autoplay)
-- Mongoose is installed; do not add DB features unless explicitly requested
 
 ## General Behavior
 - Prefer minimal diffs.

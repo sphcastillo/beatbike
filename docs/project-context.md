@@ -19,7 +19,7 @@
 - Headless UI
 - Icons: Heroicons, lucide-react, react-icons
 - Embla carousel
-- Mongoose present but DB features are not currently required
+
 
 ## Project structure expectations
 - `/app`: routes, layouts, metadata
