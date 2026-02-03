@@ -3,6 +3,7 @@ import LocationSwitcher from "@/components/LocationSwitcher";
 import BookingClient from "@/components/BookingClient";
 import { proximaNovaMedium, comfortaa } from "@/app/fonts";
 import { ensureUser } from "@/lib/ensureUser";
+import { redirect } from "next/navigation";
 
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
@@ -13,7 +14,14 @@ export default async function BookingPage({
 }: {
   params: { studioSlug: string };
 }) {
-  const { user } = await ensureUser();
+  const user = await (async () => {
+    try {
+      const result = await ensureUser();
+      return result.user;
+    } catch {
+      redirect("/signin");
+    }
+  })();
 
   const studio = await prisma.studio.findUnique({
     where: { slug: params.studioSlug },
