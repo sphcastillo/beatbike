@@ -1,11 +1,12 @@
 'use client';
 import { useState } from 'react';
 import { Dialog } from '@headlessui/react';
-import { Bars3Icon, XMarkIcon, Squares2X2Icon } from '@heroicons/react/24/outline';
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import { motion } from 'framer-motion';
 import {
     SignedIn,
     SignedOut,
+    SignOutButton,
     UserButton,
 } from '@clerk/nextjs';
 
@@ -184,13 +185,25 @@ export default function Header() {
                                         },
                                     }}
                                 />
-                                <a
-                                    href="/dashboard"
-                                    onClick={() => setMobileMenuOpen(false)}
-                                    className={`${proximaNovaRegular.className} whitespace-nowrap uppercase text-sm tracking-widest text-[#DFFF00] border-b border-transparent hover:border-[#DFFF00] pb-1 transition-colors`}
-                                >
-                                    View my account
-                                </a>
+                                <div className="flex flex-col items-start gap-2">
+                                    <a
+                                        href="/dashboard"
+                                        onClick={() => setMobileMenuOpen(false)}
+                                        className={`${proximaNovaRegular.className} whitespace-nowrap uppercase text-sm tracking-widest text-[#DFFF00] border-b border-transparent hover:border-[#DFFF00] pb-1 transition-colors`}
+                                    >
+                                        View my account
+                                    </a>
+
+                                    <SignOutButton redirectUrl="/">
+                                        <button
+                                            type="button"
+                                            onClick={() => setMobileMenuOpen(false)}
+                                            className={`${proximaNovaRegular.className} whitespace-nowrap uppercase text-xs tracking-widest text-white/80 hover:text-[#DFFF00] transition-colors`}
+                                        >
+                                            Log out
+                                        </button>
+                                    </SignOutButton>
+                                </div>
                             </div>
                         </SignedIn>
                     </div>
