@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://beatbikecycling.com
+
+# Sitemaps
+Sitemap: https://beatbikecycling.com/sitemap.xml
